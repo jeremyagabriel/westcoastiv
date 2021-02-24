@@ -47,5 +47,7 @@ module.exports = {
         accessToken: accessToken,
       },
     },
+    `gatsby-plugin-smoothscroll`,
+    `gatsby-plugin-react-helmet`
   ],
 }
