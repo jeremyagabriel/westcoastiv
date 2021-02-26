@@ -1,11 +1,25 @@
 export default {
   colors: {
-    text: '#747474',
+    text: '#0A2A42',
     background: '#FFFFFF',
     white: '#FFFFFF',
     black: '#000000',
-    primary: '#00AEEF',
-    secondary: '#005796',
+    dark: '#0A2A42',
+    primary: {
+      blue: '#175E95',
+      mint: '#10EEBD',
+      lightblue: '#10b0ee',
+      royalblue: '#171F95'
+    },
+    secondary: {
+      green: '#17958D',
+      lightgray: '#ECF0F3',
+      cloudblue: '#C5D8E8',
+      skyblue: '#73A9D4',
+      darkblue: '#003057',
+      blueblack: '#0A2A42',
+      canvas: '#EEEBE3',
+    }
   },
   breakpoints: [
     "480px",
@@ -17,13 +31,14 @@ export default {
   ],
   fonts: {
     body: 'Roboto, sans-serif',
-    heading: 'Roboto, sans-serif',
+    heading: 'Barlow Condensed, sans-serif',
   },
   fontWeights: {
     "thin": 100,
     "light": 300,
     "regular": 400,
     "semi": 500,
+    "medium": 600,
     "bold": 700,
     "black": 900
   },
@@ -40,7 +55,7 @@ export default {
       lineHeight: 'body',
       fontWeight: 'regular',
       fontSize: 2,
-      color: 'black',
+      color: 'dark',
     },
     h1: {
       fontFamily: 'heading',
@@ -48,7 +63,7 @@ export default {
       fontWeight: 'bold',
       textTransform: 'uppercase',
       fontSize: 5,
-      color: 'black',
+      color: 'secondary.darkblue',
     },
     h2: {
       fontFamily: 'heading',
@@ -56,7 +71,7 @@ export default {
       fontWeight: 'bold',
       textTransform: 'uppercase',
       fontSize: 4,
-      color: 'black',
+      color: 'secondary.darkblue',
     },
     h3: {
       fontFamily: 'heading',
@@ -64,7 +79,7 @@ export default {
       fontWeight: 'bold',
       textTransform: 'uppercase',
       fontSize: 3,
-      color: 'black',
+      color: 'secondary.darkblue',
     },
     h4: {
       fontFamily: 'heading',
@@ -72,7 +87,7 @@ export default {
       fontWeight: 'bold',
       textTransform: 'uppercase',
       fontSize: 2,
-      color: 'black',
+      color: 'secondary.darkblue',
     },
     h5: {
       fontFamily: 'heading',
@@ -80,7 +95,7 @@ export default {
       fontWeight: 'bold',
       textTransform: 'uppercase',
       fontSize: 1,
-      color: 'black',
+      color: 'secondary.darkblue',
     },
     h6: {
       fontFamily: 'heading',
@@ -88,14 +103,14 @@ export default {
       fontWeight: 'bold',
       textTransform: 'uppercase',
       fontSize: 0,
-      color: 'black',
+      color: 'secondary.darkblue',
     },
   },
   buttons: {
     primary: {
       bg: 'transparent',
       border: '2px solid',
-      borderColor: 'primary',
+      borderColor: 'primary.blue',
       p: 1,
       color: 'black',
       display: 'flex',
@@ -119,14 +134,15 @@ export default {
     },
     navbar: {
       fontFamily: 'heading',
-      color: 'black',
+      color: 'dark',
       p: 1,
       fontSize: 2,
       fontWeight: 'bold',
       textTransform: 'uppercase',
+      cursor: 'pointer',
       transition: '0.2s',
       '&:hover': {
-        color: 'secondary',
+        color: 'black',
         transition: '0.2s',
       }
     }

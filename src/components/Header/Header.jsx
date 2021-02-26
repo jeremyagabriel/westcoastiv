@@ -1,6 +1,27 @@
 /** @jsx jsx */
 import { jsx, Text, Box, Flex, NavLink } from 'theme-ui';
 import React from 'react';
+import scrollTo from 'gatsby-plugin-smoothscroll';
+
+const navbarLinks = [
+  {
+    label: 'Home',
+    to: '#'
+  },
+  {
+    label: 'Services',
+    to: '#'
+  },
+  {
+    label: 'About',
+    to: '#'
+  },
+  {
+    label: 'Contact',
+    to: '#'
+  },
+];
+
 
 export const Header = ({ ...props }) => {
   return (
@@ -14,26 +35,28 @@ export const Header = ({ ...props }) => {
       }}
       {...props}
     >
-      <Text variant='text.h1' fontWeight='light'>
+      <Text
+        variant='text.h1'
+        sx={{
+          color: 'white'
+        }}
+      >
         West Coast IV
       </Text>
 
       <Flex>
-        <NavLink as='a' variant='buttons.navbar' href='/'>
-          Home
-        </NavLink>
-        <NavLink as='a' variant='buttons.navbar' href='/iv-therapy'>
-          Services
-        </NavLink>
-        <NavLink as='a' variant='buttons.navbar' href='/'>
-          Location
-        </NavLink>
-        <NavLink as='a' variant='buttons.navbar' href='/'>
-          Consent Form
-        </NavLink>
-        <NavLink as='a' variant='buttons.navbar' href='/about'>
-          Contact Us
-        </NavLink>
+        { navbarLinks.map((link, index) => (
+            <Text
+              key={index}
+              variant='buttons.navbar'
+              onClick={() => scrollTo('#')}
+              sx={{
+                color: 'white',
+              }}
+            >
+              {link.label}
+            </Text>
+        ))}
       </Flex>
     </Box>
   )
@@ -43,7 +66,7 @@ const headerSx = {
   display: 'flex',
   flexDirection: ['column', null, null, null, 'row'],
   p: 1,
-  bg: 'primary',
+  bg: 'primary.royalblue',
   color: 'white',
   justifyContent: 'space-between',
 };

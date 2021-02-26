@@ -12,13 +12,13 @@ export const Main = ({ children }) => {
       flexDirection='column'
       height='100vh'
     >
-      <Header />
+      {/* <Header /> */}
 
       <Box flex={1}>
         { children }
       </Box>
 
-      <Footer />
+      {/* <Footer /> */}
     </Box>
   )
 }

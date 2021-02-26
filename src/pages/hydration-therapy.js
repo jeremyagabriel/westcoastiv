@@ -3,13 +3,13 @@ import { jsx, Text, Button } from 'theme-ui';
 import React from 'react';
 import ServiceTemplate from '../templates/service';
 
-const IVTherapy = () => {
+const HydrationTherapyPage = () => {
   return (
     <ServiceTemplate>
-      <Text>IV Therapy</Text>
+      <Text>Hydration Therapy</Text>
       <Button>Book Now</Button>
     </ServiceTemplate>
   )
 }
 
-export default IVTherapy;
+export default HydrationTherapyPage;
