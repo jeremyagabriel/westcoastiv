@@ -2,6 +2,7 @@
 import { jsx, Text, Box, Image } from 'theme-ui';
 import React from 'react';
 import scrollTo from 'gatsby-plugin-smoothscroll';
+import { VscMenu } from 'react-icons/vsc';
 
 import { Flex, FlexCol } from '../Components';
 
@@ -49,59 +50,75 @@ export const Navbar = ({ ...props }) => {
 
       <Box
         sx={{
-          bg: 'white',
-          height: '1px',
+          bg: 'S3',
+          height: '0.5px',
           flex: 1,
           mx: 4
         }}
       />
 
-      <Flex>
-        { navbarLinks.map((link, index) => (
-          <>
-            <Text
-              key={index}
-              variant='buttons.navbar'
-              onClick={() => scrollTo(link.to)}
-              sx={{
-                color: 'white',
-                mr: index !== navbarLinks.length - 1
-                  ? '10px'
-                  : null,
-                ml: index !== 0
-                  ? '10px'
-                  : null
-              }}
-            >
-              {link.label}
-            </Text>
-            { index !== navbarLinks.length - 1 &&
-                <Text
-                  variant='buttons.navbar'
-                  sx={{
-                    color: 'white',
-                  }}
-                >
-                  &middot;
-                </Text>
-            }
-          </>
-        ))}
-      </Flex>
-      <Text
-        variant='buttons.primary'
+      <Flex
         sx={{
-          ml: 4
+          display: ['none', null, null, 'flex'],
+          alignItems: 'center'
         }}
       >
-        Book Now
-      </Text>
+        <Flex>
+          { navbarLinks.map((link, index) => (
+            <>
+              <Text
+                key={index}
+                variant='buttons.navbar'
+                onClick={() => scrollTo(link.to)}
+                sx={{
+                  color: 'white',
+                  mr: index !== navbarLinks.length - 1
+                    ? '10px'
+                    : null,
+                  ml: index !== 0
+                    ? '10px'
+                    : null
+                }}
+              >
+                {link.label}
+              </Text>
+              { index !== navbarLinks.length - 1 &&
+                  <Text
+                    variant='buttons.navbar'
+                    sx={{
+                      color: 'white',
+                    }}
+                  >
+                    &middot;
+                  </Text>
+              }
+            </>
+          ))}
+        </Flex>
+        <Text
+          variant='buttons.primary'
+          sx={{
+            ml: 4
+          }}
+        >
+          Book Now
+        </Text>
+      </Flex>
+
+      <VscMenu
+        sx={{
+          display: ['block', null, null, 'none'],
+          fontSize: '32px',
+          color: 'white',
+          cursor: 'pointer',
+        }}
+      />
     </Flex>
   )
 }
 
 const navbarSx = {
-  flexDirection: ['column', null, null, null, 'row'],
+  flexDirection: ['row'],
   px: 4,
   py: 2,
   color: 'white',

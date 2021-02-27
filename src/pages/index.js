@@ -5,6 +5,7 @@ import { graphql } from 'gatsby';
 import { Main } from '../layouts';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
+import { Benefits } from '../components/Benefits';
 
 
 const Home = ({ data }) => {
@@ -17,13 +18,7 @@ const Home = ({ data }) => {
     height='100vh'
     >
       <Header />
-      {/* <Image
-        src={hero?.backgroundImage?.image?.file?.url}
-        sx={{
-          width: '100vw',
-          objectFit: 'contain',
-        }}
-      /> */}
+      <Benefits />
       {/* <Footer /> */}
     </Box>
   )
