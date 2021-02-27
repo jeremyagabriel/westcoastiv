@@ -1,74 +1,94 @@
 /** @jsx jsx */
-import { jsx, Text, Box, Flex, NavLink } from 'theme-ui';
-import React from 'react';
-import scrollTo from 'gatsby-plugin-smoothscroll';
-
-const navbarLinks = [
-  {
-    label: 'Home',
-    to: '#'
-  },
-  {
-    label: 'Services',
-    to: '#'
-  },
-  {
-    label: 'About',
-    to: '#'
-  },
-  {
-    label: 'Contact',
-    to: '#'
-  },
-];
+import { jsx, Text, Box, Flex, NavLink, Image } from 'theme-ui';
+import React, { useMemo } from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
+import { Navbar } from './Navbar';
+import HeroImage from '../../assets/westcoastiv-hero.jpg';
+import Curve from '../../assets/curve.svg';
 
 
-export const Header = ({ ...props }) => {
+export const Header = () => {
+  const { hero } = useStaticQuery(query);
+
+  console.log('hero', hero);
+
+  const data = useMemo(() => ({
+    src: hero?.backgroundImage?.image?.file?.url
+  }), []);
+
   return (
     <Box
       data-comp={Header.displayName}
-      sx={{
-        ...headerSx,
-        a: {
-          color: 'white'
-        }
-      }}
-      {...props}
+      sx={heroSx(HeroImage)}
     >
-      <Text
-        variant='text.h1'
+      <Text></Text>
+      <Navbar />
+      <Image
+        src={Curve}
         sx={{
-          color: 'white'
+          position: 'absolute',
+          bottom: '-5px',
+          left: 0,
+          right: 0,
+          width: '100%',
+          userSelect: 'none',
         }}
-      >
-        West Coast IV
-      </Text>
-
-      <Flex>
-        { navbarLinks.map((link, index) => (
-            <Text
-              key={index}
-              variant='buttons.navbar'
-              onClick={() => scrollTo('#')}
-              sx={{
-                color: 'white',
-              }}
-            >
-              {link.label}
-            </Text>
-        ))}
-      </Flex>
+      />
     </Box>
   )
 }
 
-const headerSx = {
-  display: 'flex',
-  flexDirection: ['column', null, null, null, 'row'],
-  p: 1,
-  bg: 'primary.royalblue',
-  color: 'white',
-  justifyContent: 'space-between',
-};
+const heroSx = (src) => ({
+  position: 'relative',
+  backgroundColor: 'primary.royalblue',
+  backgroundRepeat: 'no-repeat',
+  backgroundPosition: 'center center',
+  backgroundImage: src ? `url(${src})` : null,
+  backgroundSize: 'cover',
+  width: '100vw',
+  height: '80vw',
+  minHeight: '400px',
+  maxHeight: '700px',
+});
 
 Header.displayName = 'Header';
+
+export const query = graphql`
+  query HeaderQuery {
+    hero: contentfulHero(metaHandle: {eq: "home-page-hero"}) {
+      metaTitle
+      metaHandle
+      metaTags
+      backgroundImage {
+        image {
+          file {
+            url
+          }
+        }
+        altText
+      }
+      overlayImage {
+        image {
+          file {
+            url
+          }
+        }
+        altText
+      }
+      backgroundColor
+      headingContent {
+        heading
+        subheading
+      }
+      textContent {
+        text {
+          text
+        }
+      }
+      buttonContent {
+        title
+        url
+      }
+    }
+  }
+`;

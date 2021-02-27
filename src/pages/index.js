@@ -3,32 +3,29 @@ import { jsx, Text, Box, Image } from 'theme-ui';
 import React from 'react';
 import { graphql } from 'gatsby';
 import { Main } from '../layouts';
+import { Footer } from '../components/Footer';
+import { Header } from '../components/Header';
 
 
 const Home = ({ data }) => {
 
-  const { hero } = data;
-
-  console.log('hero', hero)
-
   return (
-    <Main>
-      <Box
-        data-comp={Home.displayName}
-        display='flex'
-        flexDirection='column'
-        alignItems='flex-start'
-      >
-      <Image
+    <Box
+    data-comp={Main.displayName}
+    display='flex'
+    flexDirection='column'
+    height='100vh'
+    >
+      <Header />
+      {/* <Image
         src={hero?.backgroundImage?.image?.file?.url}
         sx={{
           width: '100vw',
           objectFit: 'contain',
         }}
-      />
-
-      </Box>
-    </Main>
+      /> */}
+      {/* <Footer /> */}
+    </Box>
   )
 }
 
@@ -37,41 +34,6 @@ export default Home;
 
 export const query = graphql`
   query HomePageQuery {
-    hero: contentfulHero(metaHandle: {eq: "home-page-hero"}) {
-      metaTitle
-      metaHandle
-      metaTags
-      backgroundImage {
-        image {
-          file {
-            url
-          }
-        }
-        altText
-      }
-      overlayImage {
-        image {
-          file {
-            url
-          }
-        }
-        altText
-      }
-      backgroundColor
-      headingContent {
-        heading
-        subheading
-      }
-      textContent {
-        text {
-          text
-        }
-      }
-      buttonContent {
-        title
-        url
-      }
-    }
     homePage: contentfulPageContainer(metaHandle: {eq: "home-page"}) {
       sections {
         metaTitle
