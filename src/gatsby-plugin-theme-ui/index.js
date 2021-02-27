@@ -4,22 +4,17 @@ export default {
     background: '#FFFFFF',
     white: '#FFFFFF',
     black: '#000000',
-    dark: '#0A2A42',
-    primary: {
-      blue: '#175E95',
-      mint: '#10EEBD',
-      lightblue: '#10b0ee',
-      royalblue: '#171F95'
-    },
-    secondary: {
-      green: '#17958D',
-      lightgray: '#ECF0F3',
-      cloudblue: '#C5D8E8',
-      skyblue: '#73A9D4',
-      darkblue: '#003057',
-      blueblack: '#0A2A42',
-      canvas: '#EEEBE3',
-    }
+    P1: '#175E95', //blue
+    P2: '#10EEBD', //min
+    P3: '#10b0ee', //lightblue
+    P4: '#171F95', //royalblue
+    S1: '#17958D', //green
+    S2: '#ECF0F3', //lightgray
+    S3: '#C5D8E8', //cloudblue
+    S4: '#73A9D4', //skyblue
+    B1: '#003057', //darkblue
+    B2: '#0A2A42', //blueblack
+    BR1: '#EEEBE3', //canvas
   },
   breakpoints: [
     "480px",
@@ -31,135 +26,174 @@ export default {
   ],
   fonts: {
     body: 'Roboto, sans-serif',
-    heading: 'Barlow Condensed, sans-serif',
+    heading: 'Tungsten Narrow, Times New Roman',
   },
   fontWeights: {
     "thin": 100,
     "light": 300,
     "regular": 400,
-    "semi": 500,
-    "medium": 600,
+    "medium": 500,
+    "semi": 600,
     "bold": 700,
     "black": 900
   },
   lineHeights: {
     body: 1.5,
-    heading: 1.125,
+    heading: 1,
+  },
+  letterSpacings: {
+    body: '0.05em',
+    heading: '0em',
   },
   fontSizes: [
-    12, 14, 16, 20, 24, 32, 48, 64,
+    12, //0
+    14,
+    16,
+    20,
+    24,
+    32, //5
+    48,
+    64,
+    72,
+    84,
+    96 //10
   ],
   text: {
     default: {
       fontFamily: 'body',
       lineHeight: 'body',
-      fontWeight: 'regular',
+      fontWeight: 'light',
       fontSize: 2,
-      color: 'dark',
+      color: 'text',
     },
     h1: {
       fontFamily: 'heading',
       lineHeight: 'heading',
-      fontWeight: 'bold',
+      fontWeight: 'semi',
+      lineHeight: 'heading',
+      letterSpacing: 'heading',
       textTransform: 'uppercase',
-      fontSize: 5,
-      color: 'secondary.darkblue',
+      fontSize: 10,
+      color: 'B1',
     },
     h2: {
       fontFamily: 'heading',
       lineHeight: 'heading',
-      fontWeight: 'bold',
+      fontWeight: 'semi',
+      lineHeight: 'heading',
+      letterSpacing: 'heading',
       textTransform: 'uppercase',
-      fontSize: 4,
-      color: 'secondary.darkblue',
+      fontSize: 9,
+      color: 'B1',
     },
     h3: {
       fontFamily: 'heading',
       lineHeight: 'heading',
-      fontWeight: 'bold',
+      fontWeight: 'semi',
+      lineHeight: 'heading',
+      letterSpacing: 'heading',
       textTransform: 'uppercase',
-      fontSize: 3,
-      color: 'secondary.darkblue',
+      fontSize: 8,
+      color: 'B1',
     },
     h4: {
       fontFamily: 'heading',
       lineHeight: 'heading',
-      fontWeight: 'bold',
+      fontWeight: 'semi',
+      lineHeight: 'heading',
+      letterSpacing: 'heading',
       textTransform: 'uppercase',
-      fontSize: 2,
-      color: 'secondary.darkblue',
+      fontSize: 7,
+      color: 'B1',
     },
     h5: {
       fontFamily: 'heading',
       lineHeight: 'heading',
-      fontWeight: 'bold',
+      fontWeight: 'semi',
+      lineHeight: 'heading',
+      letterSpacing: 'heading',
       textTransform: 'uppercase',
-      fontSize: 1,
-      color: 'secondary.darkblue',
+      fontSize: 6,
+      color: 'B1',
+    },
+    h5Italic: {
+      fontFamily: 'heading',
+      lineHeight: 'heading',
+      fontWeight: 'semi',
+      lineHeight: 'heading',
+      letterSpacing: 'heading',
+      textTransform: 'uppercase',
+      fontSize: 6,
+      color: 'B1',
+      transform: 'skew(-7deg, -7deg) rotate(7deg)'
     },
     h6: {
       fontFamily: 'heading',
       lineHeight: 'heading',
-      fontWeight: 'bold',
+      fontWeight: 'semi',
+      lineHeight: 'heading',
+      letterSpacing: 'heading',
       textTransform: 'uppercase',
-      fontSize: 0,
-      color: 'secondary.darkblue',
+      fontSize: 5,
+      color: 'B1',
     },
   },
   buttons: {
     primary: {
-      bg: 'transparent',
-      border: '2px solid',
-      borderColor: 'primary.blue',
-      p: 1,
-      color: 'black',
+      bg: 'P3',
+      border: '1px solid',
+      borderColor: 'P3',
+      fontFamily: 'heading',
+      pt: '11px',
+      pb: '8px',
+      px: '30px',
+      color: 'white',
       display: 'flex',
       cursor: 'pointer',
-      justifyContent: 'center',
-      alignItems: 'center',
+      borderRadius: '5px',
       textTransform: 'uppercase',
-      fontFamily: 'body',
-      fontWeight: 'bold',
-      fontSize: 1,
-      letterSpacing: '.5px',
+      fontWeight: 'semi',
+      lineHeight: 'heading',
+      fontSize: 4,
+      letterSpacing: '0.1em',
       outline: 'none',
       transition: 'all .15s ease-in',
       textDecoration: 'none',
       whiteSpace: 'nowrap',
       position: 'relative',
+      boxShadow: '0px 4px 17px rgba(23, 94, 149, 0.39)',
     },
     secondary: {
       color: 'text',
-      // bg: 'secondary',
     },
     navbar: {
       fontFamily: 'heading',
-      color: 'dark',
-      p: 1,
-      fontSize: 2,
-      fontWeight: 'bold',
-      textTransform: 'uppercase',
+      color: 'B2',
+      fontSize: 4,
+      letterSpacing: 'body',
+      fontWeight: 'semi',
       cursor: 'pointer',
-      transition: '0.2s',
-      '&:hover': {
-        color: 'black',
-        transition: '0.2s',
-      }
+      // fontStyle: 'italic'
+      // transition: '0.2s',
+      // '&:hover': {
+      //   color: 'black',
+      //   transition: '0.2s',
+      // }
     }
   },
   space: [
-    0,
+    0, //0
     8,
-    16,
+    16, //2
     24,
-    32,
+    32, //4
     40,
-    48,
+    48, //6
     56,
-    64,
+    64, //8
     72,
-    80,
+    80, //10
     88,
-    96,
+    96, //12
   ],
 }

@@ -45,6 +45,15 @@ module.exports = {
         accessToken: accessToken,
       },
     },
+    {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        custom: {
+          families: ['Tungsten Narrow'],
+          urls: ['/fonts/fonts.css'],
+        },
+      },
+    },
     `gatsby-plugin-smoothscroll`,
     `gatsby-plugin-react-helmet`
   ],

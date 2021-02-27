@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "Tungsten Narrow";
+  src: url('TungstenNarrow-Medium.ttf');
+  font-weight: 400 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Tungsten Narrow";
+  src: url('TungstenNarrow-SemiBold.ttf');
+  font-weight: 600 900;
+  font-style: normal;
+}
