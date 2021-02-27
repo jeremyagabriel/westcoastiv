@@ -41,7 +41,7 @@ export const Header = () => {
       <Box
         sx={{
           position: 'absolute',
-          left: 10,
+          left: [4, 7, 10],
           marginTop: -6
         }}
       >
@@ -49,6 +49,7 @@ export const Header = () => {
           variant='text.h1'
           sx={{
             color: 'P2',
+            fontSize: [8, 10]
           }}
         >
           {hero.heading}
@@ -57,6 +58,7 @@ export const Header = () => {
           variant='text.h1'
           sx={{
             color: 'white',
+            fontSize: [8, 10],
             mt: -1,
             mb: 2,
           }}
@@ -90,7 +92,7 @@ export const Header = () => {
         target='_blank'
         sx={{
           position: 'absolute',
-          left: 10,
+          left: [4, 7, 10],
           bottom: '20%',
         }}
       >
