@@ -134,9 +134,75 @@ export const Footer = () => {
             fontSize: '12px',
             textTransform: 'uppercase',
             letterSpacing: '0.2em',
+            mb: 12
           }}
         >
           Contact Us
+        </Text>
+        <Text
+          sx={{
+            color: 'B2',
+            fontFamily: 'Tungsten, sans-serif',
+            fontWeight: 600,
+            letterSpacing: '0.01em',
+            pb: '5px',
+            boxShadow: '0 0.5px 0 #0A2A42',
+            mb: '60px'
+          }}
+        >
+          First name
+        </Text>
+        <Text
+          sx={{
+            color: 'B2',
+            fontFamily: 'Tungsten, sans-serif',
+            fontWeight: 600,
+            letterSpacing: '0.01em',
+            pb: '5px',
+            boxShadow: '0 0.5px 0 #0A2A42',
+            mb: '60px'
+          }}
+        >
+          Last name
+        </Text>
+        <Text
+          sx={{
+            color: 'B2',
+            fontFamily: 'Tungsten, sans-serif',
+            fontWeight: 600,
+            letterSpacing: '0.01em',
+            pb: '5px',
+            boxShadow: '0 0.5px 0 #0A2A42',
+            mb: '60px'
+          }}
+        >
+          Email
+        </Text>
+        <Text
+          sx={{
+            color: 'B2',
+            fontFamily: 'Tungsten, sans-serif',
+            fontWeight: 600,
+            letterSpacing: '0.01em',
+            pb: '5px',
+            boxShadow: '0 0.5px 0 #0A2A42',
+            mb: '60px'
+          }}
+        >
+          Message
+        </Text>
+        <Text
+          variant='buttons.primary'
+          sx={{
+            position: 'absolute',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            bottom: 3,
+            fontSize: '16px',
+            py: '10px'
+          }}
+        >
+          Send Message
         </Text>
       </FlexCol>
     </Box>
