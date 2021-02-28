@@ -33,7 +33,8 @@ export const ServicesRow = ({ content }) => {
       sx={{
         width: '100%',
         justifyContent: 'center',
-        mb: 6
+        mb: 6,
+        zIndex: 3,
       }}
     >
       { content?.map((item, index) => {

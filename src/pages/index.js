@@ -7,6 +7,7 @@ import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
 import { Benefits } from '../components/Benefits';
 import { Services } from '../components/Services';
+import { About } from '../components/About';
 
 
 const Home = ({ data }) => {
@@ -24,6 +25,7 @@ const Home = ({ data }) => {
       <Header />
       <Benefits />
       <Services />
+      <About />
       {/* <Footer /> */}
     </Container>
   )
