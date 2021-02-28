@@ -29,7 +29,7 @@ export const About = () => {
     filterImages(data);
     return {
       heading: data?.content?.[0]?.heading,
-      text: data?.content?.[1]?.text?.text?.split('<br>'),
+      text: data?.content?.[1]?.text?.text,
       bgImage,
       portraitImage: portraitImage?.image?.file?.url,
       portraitImageAlt: portraitImage?.altText,
@@ -75,18 +75,11 @@ export const About = () => {
               maxWidth: '330px'
             }}
           >
-            { section.text?.map((p, index) => (
-              <Text
-                key={index}
-                sx={{
-                  mb: index !== section.text.length - 1
-                    ? 1
-                    : 0
-                }}
-              >
-                {p.trim()}
-              </Text>
-            ))}
+            <Text
+              dangerouslySetInnerHTML={{
+                __html: section.text
+              }}
+            />
           </Box>
         </Box>
 

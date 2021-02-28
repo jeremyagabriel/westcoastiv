@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Tungsten Narrow";
-  src: url('TungstenNarrow-Medium.ttf');
+  src: url('TungstenNarrow-Medium.woff2');
   font-weight: 400 500;
   font-style: normal;
   font-display: auto;
@@ -8,8 +8,24 @@
 
 @font-face {
   font-family: "Tungsten Narrow";
-  src: url('TungstenNarrow-SemiBold.ttf');
+  src: url('TungstenNarrow-SemiBold.woff2');
   font-weight: 600 900;
+  font-style: normal;
+  font-display: auto;
+}
+
+@font-face {
+  font-family: "Tungsten";
+  src: url('Tungsten-Book.woff2');
+  font-weight: 100 300;
+  font-style: normal;
+  font-display: auto;
+}
+
+@font-face {
+  font-family: "Tungsten";
+  src: url('Tungsten-SemiBold.woff2');
+  font-weight: 600;
   font-style: normal;
   font-display: auto;
 }

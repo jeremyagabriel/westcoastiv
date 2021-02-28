@@ -75,13 +75,24 @@ export const Quote = () => {
             alignItems: 'center',
           }}
         >
-          <BiPlusMedical
+          <Flex
             sx={{
-              fontSize: '24px',
-              color: '#D1FAF2',
-              opacity: 0.8
+              justifyContent: 'center',
+              alignItems: 'center',
+              width: '24px',
+              height: '24px',
+              minWidth: '24px',
+              minHeight: '24px',
             }}
-          />
+          >
+            <BiPlusMedical
+              sx={{
+                fontSize: '24px',
+                color: '#D1FAF2',
+                opacity: 0.8
+              }}
+            />
+          </Flex>
           <FlexCol
             sx={{
               maxWidth: '440px',
@@ -112,13 +123,24 @@ export const Quote = () => {
               {hero.subheading}
             </Text>
           </FlexCol>
-          <BiPlusMedical
+          <Flex
             sx={{
-              fontSize: '24px',
-              color: '#D1FAF2',
-              opacity: 0.8
+              justifyContent: 'center',
+              alignItems: 'center',
+              width: '24px',
+              height: '24px',
+              minWidth: '24px',
+              minHeight: '24px',
             }}
-          />
+          >
+            <BiPlusMedical
+              sx={{
+                fontSize: ['24px'],
+                color: '#D1FAF2',
+                opacity: 0.8
+              }}
+            />
+          </Flex>
         </Flex>
         <Box
           sx={{
