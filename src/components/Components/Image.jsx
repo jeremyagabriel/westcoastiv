@@ -14,7 +14,7 @@ export const Image = memo(({
 
   const [ isVisible, setIsVisible ] = useState(lazy ? false : true);
   const { ref, inView } = useInView({
-    threshold: 0.1,
+    threshold: 0,
     triggerOnce: true,
   });
 

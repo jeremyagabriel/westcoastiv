@@ -36,7 +36,7 @@ export const Header = () => {
           width: '100%',
           height: '100%',
           background: 'rgb(0,48,87)',
-          background: 'linear-gradient(82deg, rgba(0,48,87,1) 0%, rgba(0,48,87,0) 56%)'
+          background: 'linear-gradient(76.5deg, #003057 3.34%, rgba(23, 31, 149, 0) 57.82%)'
         }}
       />
       <Box
@@ -109,8 +109,8 @@ const heroSx = (src) => ({
   backgroundImage: src ? `url(${src})` : null,
   backgroundSize: 'cover',
   width: '100vw',
-  height: '100vw',
-  minHeight: '600px',
+  height: '100%',
+  minHeight: '100vh',
   maxHeight: '800px',
 });
 

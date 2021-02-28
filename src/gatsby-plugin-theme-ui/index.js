@@ -51,7 +51,7 @@ export default {
     16,
     20,
     24,
-    32, //5
+    36, //5
     48,
     64,
     72,
@@ -134,7 +134,7 @@ export default {
       lineHeight: 'heading',
       fontWeight: 'semi',
       lineHeight: 'heading',
-      letterSpacing: 'heading',
+      letterSpacing: '0.01em',
       textTransform: 'uppercase',
       fontSize: 5,
       color: 'B1',

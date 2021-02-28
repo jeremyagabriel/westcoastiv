@@ -6,15 +6,12 @@ import { Flex, FlexCol } from '../Components';
 
 export const BenefitsRow = ({ content }) => {
 
-  const rowItem = useCallback(index => {
-    console.log('usecallback')
-    return {
+  const rowItem = useCallback(index => ({
     src: content?.[index]?.image?.image?.file?.url,
     alt: content?.[index]?.image?.altText,
     heading: content?.[index]?.headingContent?.heading,
     text: content?.[index]?.textContent?.[0]?.text?.text
-    }
-  });
+  }));
 
   return (
     <Flex
@@ -29,6 +26,7 @@ export const BenefitsRow = ({ content }) => {
         item = rowItem(index);
         return (
           <FlexCol
+            key={index}
             sx={{
               alignItems: 'center',
               px: 1,
