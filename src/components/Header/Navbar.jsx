@@ -16,11 +16,11 @@ const navbarLinks = [
   },
   {
     label: 'Services',
-    to: '#header'
+    to: '#services'
   },
   {
     label: 'About',
-    to: '#header'
+    to: '#about'
   },
   {
     label: 'Contact',
@@ -51,10 +51,12 @@ export const Navbar = ({ ...props }) => {
 
       <Box
         sx={{
-          bg: 'S3',
-          height: '0.5px',
+          bg: 'transparent',
+          height: '1px',
           flex: 1,
-          mx: 4
+          mx: 4,
+          boxShadow: '0 0.5px 0 white',
+          transform: 'translateY(-0.5px)'
         }}
       />
 

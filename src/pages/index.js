@@ -8,9 +8,10 @@ import { Header } from '../components/Header';
 import { Benefits } from '../components/Benefits';
 import { Services } from '../components/Services';
 import { About } from '../components/About';
+import { Quote } from '../components/Quote';
 
 
-const Home = ({ data }) => {
+const Home = () => {
 
   return (
     <Container
@@ -26,6 +27,7 @@ const Home = ({ data }) => {
       <Benefits />
       <Services />
       <About />
+      <Quote />
       {/* <Footer /> */}
     </Container>
   )

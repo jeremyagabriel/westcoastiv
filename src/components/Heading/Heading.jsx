@@ -1,9 +1,8 @@
 /** @jsx jsx */
 import { jsx, Text, Box, Image } from 'theme-ui';
-
+import { BiPlusMedical } from 'react-icons/bi';
 import { Flex } from '../Components';
 
-import Plus from '../../assets/Plus.svg';
 
 export const Heading = ({ text, style }) => {
 
@@ -17,16 +16,20 @@ export const Heading = ({ text, style }) => {
         ...style
       }}
     >
-      <Image
-        src={Plus}
-        sx={{ width: '20px' }}
+      <BiPlusMedical
+        sx={{
+          color: '#D1FAF2',
+          fontSize: '20px',
+        }}
       />
       <Box
         sx={{
           flex: 1,
-          height: '0.5px',
-          bg: 'S3',
+          height: '1px',
+          bg: 'transparent',
           mx: 4,
+          boxShadow: '0 0.5px 0 rgba(23, 94, 149, 0.5)',
+          transform: 'translateY(-0.5px)'
         }}
       />
       <Text variant='text.h5Italic'>
@@ -36,13 +39,17 @@ export const Heading = ({ text, style }) => {
         sx={{
           flex: 1,
           height: '1px',
-          bg: 'S3',
+          bg: 'transparent',
           mx: 4,
+          boxShadow: '0 0.5px 0 rgba(23, 94, 149, 0.5)',
+          transform: 'translateY(-0.5px)'
         }}
       />
-      <Image
-        src={Plus}
-        sx={{ width: '20px' }}
+      <BiPlusMedical
+        sx={{
+          color: '#D1FAF2',
+          fontSize: '20px',
+        }}
       />
     </Flex>
   )

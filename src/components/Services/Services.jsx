@@ -21,6 +21,7 @@ export const Services = () => {
   return (
     <FlexCol
       data-comp={Services.displayName}
+      id='services'
       sx={{
         alignItems: 'center',
         width: '100vw',

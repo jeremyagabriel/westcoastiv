@@ -21,6 +21,7 @@ export const Benefits = () => {
   return (
     <FlexCol
       data-comp={Benefits.displayName}
+      id='benefits'
       sx={{
         alignItems: 'center',
         width: '100vw',

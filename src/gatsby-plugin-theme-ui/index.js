@@ -26,7 +26,7 @@ export default {
   ],
   fonts: {
     body: 'Roboto, sans-serif',
-    heading: 'Tungsten Narrow, Times New Roman',
+    heading: 'Tungsten Narrow, sans-serif',
   },
   fontWeights: {
     "thin": 100,

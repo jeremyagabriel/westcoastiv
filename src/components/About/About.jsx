@@ -48,10 +48,15 @@ export const About = () => {
         minHeight: '1100px',
         position: 'relative',
         mt: '-480px',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'left bottom',
+        backgroundImage: section.bgImage ? `url(${section.bgImage})` : null,
+        backgroundSize: '36%',
       }}
     >
       <Flex
         data-comp={About.displayName}
+        id='about'
         sx={{
           justifyContent: 'center',
           maxWidth: '760px',
@@ -129,11 +134,12 @@ export const About = () => {
             >
               <Box
                 sx={{
-                  height: '0.5px',
+                  height: '1px',
                   width: '168px',
-                  bg: '#D6FAF3',
+                  bg: 'transparent',
                   mr: '10px',
-                  opacity: 0.5
+                  boxShadow: '0 0.5px 0 #D6FAF3',
+                  transform: 'translateY(-0.5px)'
                 }}
               />
               <BiPlusMedical
@@ -144,6 +150,7 @@ export const About = () => {
               />
             </Flex>
           </Box>
+
           <Box
             sx={{
               width: '300px',
@@ -194,11 +201,12 @@ export const About = () => {
               />
               <Box
                 sx={{
-                  height: '0.5px',
+                  height: '1px',
                   width: '168px',
-                  bg: '#D6FAF3',
+                  bg: 'transparent',
                   ml: '10px',
-                  opacity: 0.5
+                  boxShadow: '0 0.5px 0 #D6FAF3',
+                  transform: 'translateY(-0.5px)'
                 }}
               />
             </Flex>

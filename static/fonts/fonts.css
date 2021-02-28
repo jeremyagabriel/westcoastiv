@@ -3,6 +3,7 @@
   src: url('TungstenNarrow-Medium.ttf');
   font-weight: 400 500;
   font-style: normal;
+  font-display: auto;
 }
 
 @font-face {
@@ -10,4 +11,5 @@
   src: url('TungstenNarrow-SemiBold.ttf');
   font-weight: 600 900;
   font-style: normal;
+  font-display: auto;
 }
