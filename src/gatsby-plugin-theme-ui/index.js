@@ -38,7 +38,7 @@ export default {
     "black": 900
   },
   lineHeights: {
-    body: 1.5,
+    body: 1.25,
     heading: 1,
   },
   letterSpacings: {
@@ -63,8 +63,9 @@ export default {
       fontFamily: 'body',
       lineHeight: 'body',
       fontWeight: 'light',
-      fontSize: 2,
+      fontSize: 1,
       color: 'text',
+      lineHeight: 'body',
     },
     h1: {
       fontFamily: 'heading',
@@ -121,11 +122,12 @@ export default {
       lineHeight: 'heading',
       fontWeight: 'semi',
       lineHeight: 'heading',
-      letterSpacing: 'heading',
+      letterSpacing: '0.01em',
       textTransform: 'uppercase',
       fontSize: 6,
       color: 'B1',
-      transform: 'skew(-7deg, -7deg) rotate(7deg)'
+      transform: 'skew(-4deg, -4deg) rotate(4deg)',
+      textAlign: 'center',
     },
     h6: {
       fontFamily: 'heading',
@@ -137,6 +139,16 @@ export default {
       fontSize: 5,
       color: 'B1',
     },
+    h7: {
+      fontFamily: 'heading',
+      lineHeight: 'heading',
+      fontWeight: 'semi',
+      lineHeight: 'heading',
+      letterSpacing: '0.03em',
+      fontSize: 4,
+      color: 'P1',
+    },
+
   },
   buttons: {
     primary: {
@@ -195,5 +207,9 @@ export default {
     80, //10
     88,
     96, //12
+    104,
+    112, //14
+    120,
+    128, //16
   ],
 }

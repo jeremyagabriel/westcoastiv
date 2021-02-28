@@ -3,6 +3,7 @@ import { jsx, Text, Box, Flex, NavLink, Image } from 'theme-ui';
 import React, { useMemo } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { Navbar } from './Navbar';
+import { BookNowButton } from '../BookNowButton';
 import HeroImage from '../../assets/westcoastiv-hero.jpg';
 import Curve from '../../assets/curve.svg';
 
@@ -10,7 +11,7 @@ import Curve from '../../assets/curve.svg';
 export const Header = () => {
   const { data } = useStaticQuery(query);
 
-  console.log('data', data);
+  console.log('header data', data);
 
   const hero = useMemo(() => ({
     src: data?.backgroundImage?.image?.file?.url,
@@ -69,6 +70,7 @@ export const Header = () => {
           sx={{
             color: 'white',
             maxWidth: '360px',
+            fontSize: 2,
           }}
         >
           {hero.text}
@@ -86,18 +88,13 @@ export const Header = () => {
           userSelect: 'none',
         }}
       />
-      <NavLink
-        variant='buttons.primary'
-        href='https://westcoastiv.netlify.com'
-        target='_blank'
-        sx={{
+      <BookNowButton
+        style={{
           position: 'absolute',
-          left: [4, 7, 10],
           bottom: '20%',
+          left: [4, 7, 10]
         }}
-      >
-        Book Now
-      </NavLink>
+      />
     </Box>
   )
 }

@@ -1,10 +1,11 @@
 /** @jsx jsx */
 import { jsx, Text, Box, Image } from 'theme-ui';
-import React from 'react';
+import React, { Fragment } from 'react';
 import scrollTo from 'gatsby-plugin-smoothscroll';
 import { VscMenu } from 'react-icons/vsc';
 
 import { Flex, FlexCol } from '../Components';
+import { BookNowButton } from '../BookNowButton';
 
 import Logo from '../../assets/westcoastiv_logo_light.png';
 
@@ -65,9 +66,8 @@ export const Navbar = ({ ...props }) => {
       >
         <Flex>
           { navbarLinks.map((link, index) => (
-            <>
+            <Fragment key={index}>
               <Text
-                key={index}
                 variant='buttons.navbar'
                 onClick={() => scrollTo(link.to)}
                 sx={{
@@ -92,17 +92,12 @@ export const Navbar = ({ ...props }) => {
                     &middot;
                   </Text>
               }
-            </>
+            </Fragment>
           ))}
         </Flex>
-        <Text
-          variant='buttons.primary'
-          sx={{
-            ml: 4
-          }}
-        >
-          Book Now
-        </Text>
+        <BookNowButton
+          style={{ ml: 4 }}
+        />
       </Flex>
 
       <VscMenu

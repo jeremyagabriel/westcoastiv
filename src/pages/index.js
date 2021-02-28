@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Text, Box, Image } from 'theme-ui';
+import { jsx, Text, Box, Image, Container } from 'theme-ui';
 import React from 'react';
 import { graphql } from 'gatsby';
 import { Main } from '../layouts';
@@ -11,16 +11,19 @@ import { Benefits } from '../components/Benefits';
 const Home = ({ data }) => {
 
   return (
-    <Box
-    data-comp={Main.displayName}
-    display='flex'
-    flexDirection='column'
-    height='100vh'
+    <Container
+      data-comp={Main.displayName}
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        height: '100vh'
+      }}
     >
       <Header />
       <Benefits />
       {/* <Footer /> */}
-    </Box>
+    </Container>
   )
 }
 
