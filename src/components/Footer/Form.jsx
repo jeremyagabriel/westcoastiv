@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { useState } from 'react';
-import { jsx, Text, Box, Input } from 'theme-ui';
-import { Flex, FlexCol, Image } from '../Components';
+import { jsx, Text, Input } from 'theme-ui';
+import { FlexCol } from '../Components';
 
 const formFields = [
   {
@@ -78,7 +78,6 @@ export const Form = () => {
           })}
           type={field.type}
           placeholder={field.label}
-          required={true}
         />
       ))}
 
@@ -114,6 +113,7 @@ const inputSx = {
   outline: 0,
   height: 'auto',
   px: 0,
+  'webkitTextFillColor': 'white !important',
   '&::placeholder': {
     color: 'B2'
   }
