@@ -7,6 +7,7 @@ export const BookNowButton = ({
   url,
   style
 }) => {
+
   return (
     <NavLink
       variant='buttons.primary'

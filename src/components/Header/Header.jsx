@@ -1,8 +1,10 @@
 /** @jsx jsx */
-import { jsx, Text, Box, Flex, NavLink, Image } from 'theme-ui';
-import React, { useMemo } from 'react';
+import { jsx, Text, Box, Image } from 'theme-ui';
+import { useMemo } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
+import { IoChevronDownSharp } from 'react-icons/io5';
 import { Navbar } from './Navbar';
+import { FlexCol} from '../Components';
 import { BookNowButton } from '../BookNowButton';
 import HeroImage from '../../assets/westcoastiv-hero.jpg';
 import Curve from '../../assets/curve.svg';
@@ -17,7 +19,8 @@ export const Header = () => {
     src: data?.backgroundImage?.image?.file?.url,
     heading: data?.headingContent?.heading,
     subheading: data?.headingContent?.subheading,
-    text: data?.textContent?.[0]?.text?.text
+    text: data?.textContent?.[0]?.text?.text,
+    button: data?.buttonContent
   }), []);
 
   return (
@@ -76,7 +79,9 @@ export const Header = () => {
           {hero.text}
         </Text>
       </Box>
-      <Navbar />
+      <Navbar
+        button={hero.button}
+      />
       <Image
         src={Curve}
         sx={{
@@ -94,7 +99,29 @@ export const Header = () => {
           bottom: '20%',
           left: [4, 7, 10]
         }}
+        title={hero.button?.title}
+        url={hero.button?.url}
       />
+      <FlexCol
+        sx={{
+          alignItems: 'center',
+          position: 'absolute',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          bottom: 2,
+        }}
+      >
+        <IoChevronDownSharp
+          sx={{
+            fontSize: '27px',
+            color: 'B2',
+            mb: '-5px'
+          }}
+        />
+        <Text sx={{ fontSize: '10px' }}>
+          Scroll
+        </Text>
+      </FlexCol>
     </Box>
   )
 }

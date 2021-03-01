@@ -60,7 +60,8 @@ export const About = () => {
         sx={{
           justifyContent: 'center',
           maxWidth: '760px',
-          mb: 16
+          mb: 16,
+          pt: 6,
         }}
       >
         <Box sx={{ mr: '100px' }}>

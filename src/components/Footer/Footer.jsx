@@ -2,7 +2,9 @@
 import { jsx, Text, Box } from 'theme-ui';
 import React, { useMemo } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { Flex, FlexCol, Image } from '../Components';
+import { Flex } from '../Components';
+import { Map } from './Map';
+import { Form } from './Form';
 
 
 export const Footer = () => {
@@ -31,43 +33,7 @@ export const Footer = () => {
         position: 'relative'
       }}
     >
-      <Box
-        sx={{
-          bg: 'white',
-          width: '100%',
-          height: '400px',
-          overflow: 'hidden',
-          position: 'relative',
-        }}
-      >
-        <Image
-          src={section.image}
-          alt={section.imageAlt}
-          sx={{
-            height: '400px',
-            objectFit: 'cover'
-          }}
-        />
-        <Text
-          sx={{
-            fontFamily: 'Tungsten, sans-serif',
-            letterSpacing: '0.05em',
-            fontWeight: 300,
-            color: 'white',
-            bg: 'B2',
-            pt: '11px',
-            pb: '8px',
-            px: '30px',
-            borderRadius: '5px',
-            position: 'absolute',
-            top: '70px',
-            left: '50px',
-            cursor: 'pointer'
-          }}
-        >
-          {'\> '}Go to Google Maps
-        </Text>
-      </Box>
+      <Map />
       <Flex
         sx={{
           width: '100%',
@@ -113,104 +79,9 @@ export const Footer = () => {
           ))}
         </Flex>
       </Flex>
-      <FlexCol
-       sx={{
-         position: 'absolute',
-         width: '400px',
-         height: '650px',
-         bottom: 12,
-         right: 10,
-         bg: 'white',
-         borderRadius: '6px',
-         boxShadow: '0px -3px 17px rgba(0, 0, 0, 0.08)',
-         p: 4
-       }}
-      >
-        <Text
-          sx={{
-            fontFamily: 'Tungsten, sans-serif',
-            fontWeight: 600,
-            color: 'B2',
-            fontSize: '12px',
-            textTransform: 'uppercase',
-            letterSpacing: '0.2em',
-            mb: 12
-          }}
-        >
-          Contact Us
-        </Text>
-        <Text
-          sx={{
-            color: 'B2',
-            fontFamily: 'Tungsten, sans-serif',
-            fontWeight: 600,
-            letterSpacing: '0.01em',
-            pb: '5px',
-            boxShadow: '0 0.5px 0 #0A2A42',
-            mb: '60px'
-          }}
-        >
-          First name
-        </Text>
-        <Text
-          sx={{
-            color: 'B2',
-            fontFamily: 'Tungsten, sans-serif',
-            fontWeight: 600,
-            letterSpacing: '0.01em',
-            pb: '5px',
-            boxShadow: '0 0.5px 0 #0A2A42',
-            mb: '60px'
-          }}
-        >
-          Last name
-        </Text>
-        <Text
-          sx={{
-            color: 'B2',
-            fontFamily: 'Tungsten, sans-serif',
-            fontWeight: 600,
-            letterSpacing: '0.01em',
-            pb: '5px',
-            boxShadow: '0 0.5px 0 #0A2A42',
-            mb: '60px'
-          }}
-        >
-          Email
-        </Text>
-        <Text
-          sx={{
-            color: 'B2',
-            fontFamily: 'Tungsten, sans-serif',
-            fontWeight: 600,
-            letterSpacing: '0.01em',
-            pb: '5px',
-            boxShadow: '0 0.5px 0 #0A2A42',
-            mb: '60px'
-          }}
-        >
-          Message
-        </Text>
-        <Text
-          variant='buttons.primary'
-          sx={{
-            position: 'absolute',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            bottom: 3,
-            fontSize: '16px',
-            py: '10px'
-          }}
-        >
-          Send Message
-        </Text>
-      </FlexCol>
+      <Form />
     </Box>
   );
-};
-
-const labelSx = {
-
 };
 
 Footer.displayName = 'Footer';

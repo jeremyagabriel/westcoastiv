@@ -15,7 +15,8 @@ export const Benefits = () => {
 
   const section = useMemo(() => ({
     heading: data?.content?.[0]?.heading,
-    row: data?.content?.[1]?.content
+    row: data?.content?.[1]?.content,
+    button: data?.content?.[2]
   }), []);
 
   return (
@@ -37,7 +38,10 @@ export const Benefits = () => {
       <BenefitsRow
         content={section.row}
       />
-      <BookNowButton />
+      <BookNowButton
+        title={section.button?.title}
+        url={section.button?.url}
+      />
     </FlexCol>
   )
 }

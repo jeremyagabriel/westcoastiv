@@ -24,12 +24,12 @@ const navbarLinks = [
   },
   {
     label: 'Contact',
-    to: '#header'
+    to: '#contact'
   },
 ];
 
 
-export const Navbar = ({ ...props }) => {
+export const Navbar = ({ button, ...props }) => {
   return (
     <Flex
       data-comp={Navbar.displayName}
@@ -99,6 +99,8 @@ export const Navbar = ({ ...props }) => {
         </Flex>
         <BookNowButton
           style={{ ml: 4 }}
+          title={button?.title}
+          url={button?.url}
         />
       </Flex>
 

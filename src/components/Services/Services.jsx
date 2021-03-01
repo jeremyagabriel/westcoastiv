@@ -26,7 +26,9 @@ export const Services = () => {
         alignItems: 'center',
         width: '100vw',
         maxWidth: '906px',
-        py: 16,
+        mb: 16,
+        mt: 10,
+        pt: 6,
         mx: 4
       }}
     >
