@@ -9,8 +9,6 @@ const googleAPI = process.env.GATSBY_GOOGLE_MAPS_API;
 
 export const Map = () => {
 
-  console.log('googleAPI', googleAPI)
-
   const [ isVisible, setIsVisible ] = useState(false);
   const { ref, inView } = useInView({
     threshold: 0,
