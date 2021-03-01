@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import { useInView } from 'react-intersection-observer';
 import MarkerIcon from '../../assets/marker-small.png';
-const { GOOGLE_MAPS_API } = process.env;
+const { REACT_APP_GOOGLE_MAPS_API } = process.env;
 
 
 export const Map = () => {
@@ -39,7 +39,7 @@ export const Map = () => {
           }}
         >
           <LoadScript
-            googleMapsApiKey={GOOGLE_MAPS_API}
+            googleMapsApiKey={REACT_APP_GOOGLE_MAPS_API}
           >
             <GoogleMap
               mapContainerStyle={mapStyle}
