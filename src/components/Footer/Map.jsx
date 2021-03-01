@@ -4,10 +4,12 @@ import { useState, useEffect } from 'react';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import { useInView } from 'react-intersection-observer';
 import MarkerIcon from '../../assets/marker-small.png';
-const { REACT_APP_GOOGLE_MAPS_API } = process.env;
+const googleAPI = process.env.GATSBY_GOOGLE_MAPS_API;
 
 
 export const Map = () => {
+
+  console.log('googleAPI', googleAPI)
 
   const [ isVisible, setIsVisible ] = useState(false);
   const { ref, inView } = useInView({
@@ -39,7 +41,7 @@ export const Map = () => {
           }}
         >
           <LoadScript
-            googleMapsApiKey={REACT_APP_GOOGLE_MAPS_API}
+            googleMapsApiKey={googleAPI}
           >
             <GoogleMap
               mapContainerStyle={mapStyle}
