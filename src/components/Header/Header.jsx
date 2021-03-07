@@ -79,9 +79,7 @@ export const Header = () => {
           {hero.text}
         </Text>
       </Box>
-      <Navbar
-        button={hero.button}
-      />
+      <Navbar />
       <Image
         src={Curve}
         sx={{
@@ -136,8 +134,8 @@ const heroSx = (src) => ({
   backgroundImage: src ? `url(${src})` : null,
   backgroundSize: 'cover',
   width: '100vw',
-  height: '100%',
-  minHeight: '100vh',
+  height: '100vh',
+  minHeight: '600px',
   maxHeight: '800px',
 });
 

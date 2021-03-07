@@ -54,6 +54,13 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: `${__dirname}/src/pages/`,
+      },
+    },
     `gatsby-plugin-smoothscroll`,
     `gatsby-plugin-react-helmet`
   ],

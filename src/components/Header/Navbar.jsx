@@ -1,18 +1,20 @@
 /** @jsx jsx */
 import { jsx, Text, Box, Image } from 'theme-ui';
 import React, { Fragment } from 'react';
+import { graphql, useStaticQuery, navigate } from 'gatsby';
 import scrollTo from 'gatsby-plugin-smoothscroll';
 import { VscMenu } from 'react-icons/vsc';
 
 import { Flex, FlexCol } from '../Components';
 import { BookNowButton } from '../BookNowButton';
 
-import Logo from '../../assets/westcoastiv_logo_light.png';
+import LogoLight from '../../assets/westcoastiv_logo_light.png';
+import LogoDark from '../../assets/westcoastiv_logo_dark.png';
 
 const navbarLinks = [
   {
     label: 'Home',
-    to: '#header'
+    to: '/'
   },
   {
     label: 'Services',
@@ -29,20 +31,25 @@ const navbarLinks = [
 ];
 
 
-export const Navbar = ({ button, ...props }) => {
+export const Navbar = ({
+  dark = false,
+  ...props
+}) => {
+  const { button } = useStaticQuery(query);
+
   return (
     <Flex
       data-comp={Navbar.displayName}
       sx={{
         ...navbarSx,
-        a: {
-          color: 'white'
+        '.navbar-button': {
+          color: dark ? 'B1' : 'white'
         }
       }}
       {...props}
     >
       <Image
-        src={Logo}
+        src={dark ? LogoDark : LogoLight}
         sx={{
           height: '70px',
           objectFit: 'contain'
@@ -55,7 +62,7 @@ export const Navbar = ({ button, ...props }) => {
           height: '1px',
           flex: 1,
           mx: 4,
-          boxShadow: '0 0.5px 0 white',
+          boxShadow: dark ? '0 0.5px 0 #003057' : '0 0.5px 0 white',
           transform: 'translateY(-0.5px)'
         }}
       />
@@ -71,9 +78,14 @@ export const Navbar = ({ button, ...props }) => {
             <Fragment key={index}>
               <Text
                 variant='buttons.navbar'
-                onClick={() => scrollTo(link.to)}
+                className='navbar-button'
+                onClick={() => {
+                  link.to === '/'
+                    ? navigate(link.to)
+                    : scrollTo(link.to);
+                }}
                 sx={{
-                  color: 'white',
+                  color: dark ? 'B1' : 'white',
                   mr: index !== navbarLinks.length - 1
                     ? '10px'
                     : null,
@@ -88,7 +100,7 @@ export const Navbar = ({ button, ...props }) => {
                   <Text
                     variant='buttons.navbar'
                     sx={{
-                      color: 'white',
+                      color: dark ? 'B1' : 'white',
                     }}
                   >
                     &middot;
@@ -127,7 +139,17 @@ const navbarSx = {
   width: '100%',
   top: 0,
   left: 0,
-  right: 0
+  right: 0,
+  zIndex: 2
 };
 
 Navbar.displayName = 'Navbar';
+
+export const query = graphql`
+  query NavbarQuery {
+    button: contentfulButton(metaHandle: {eq: "navbar-book-now-button"}) {
+      title
+      url
+    }
+  }
+`;

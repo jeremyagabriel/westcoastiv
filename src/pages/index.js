@@ -20,7 +20,7 @@ const Home = () => {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        height: '100vh',
+        minHeight: '100vh',
       }}
     >
       <Header />

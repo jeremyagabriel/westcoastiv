@@ -16,6 +16,7 @@ export const FlexCol = forwardRef(({
       sx={{
         display: 'flex',
         flexDirection: 'column',
+        alignItems: 'flex-start',
         position: 'relative',
         ...sx,
       }}
