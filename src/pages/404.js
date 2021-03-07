@@ -4,7 +4,7 @@ import React, { useMemo } from 'react';
 import { Flex, FlexCol, Image } from '../components/Components';
 
 
-export const FourZeroFour = () => {
+const FourZeroFour = () => {
 
   return (
     <Flex
@@ -16,3 +16,5 @@ export const FourZeroFour = () => {
 }
 
 FourZeroFour.displayName = 'FourZeroFour';
+
+export default FourZeroFour;

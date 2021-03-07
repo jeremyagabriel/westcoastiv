@@ -6,9 +6,11 @@ import { ServiceMain } from '../components/Service';
 const ServiceTemplate = ({ data }) => {
 
   return (
-    <ServiceMain
-      data={data}
-    />
+    <>
+      <ServiceMain
+        data={data}
+      />
+    </>
   );
 };
 
