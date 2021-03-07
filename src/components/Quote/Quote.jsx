@@ -52,9 +52,10 @@ export const Quote = () => {
           justifyContent: 'space-between',
           alignItems: 'center',
           width: '100%',
-          height: '100%',
+          minHeight: '495px',
           maxWidth: '876px',
           maxHeight: '334px',
+          py: '80px',
           // borderTop: '0.5px solid',
           // borderBottom: '0.5px solid',
           // borderColor: 'white',
@@ -66,7 +67,7 @@ export const Quote = () => {
             width: '100%',
             height: '1px',
             bg: 'transparent',
-            boxShadow: '0 -.5px 0 rgba(255,255,255,0.25)'
+            boxShadow: '0 -.5px 0 rgba(255,255,255,0.25)',
           }}
         />
         <Flex
