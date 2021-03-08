@@ -14,22 +14,24 @@ import { Quote } from '../components/Quote';
 const Home = () => {
 
   return (
-    <Container
-      data-comp={Main.displayName}
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        minHeight: '100vh',
-      }}
-    >
-      <Header />
-      <Benefits />
-      <Services />
-      <About />
-      <Quote />
-      <Footer />
-    </Container>
+    <Main>
+      <Container
+        data-comp={Main.displayName}
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          minHeight: '100vh',
+        }}
+      >
+        <Header />
+        <Benefits />
+        <Services />
+        <About />
+        <Quote />
+        <Footer />
+      </Container>
+    </Main>
   )
 }
 

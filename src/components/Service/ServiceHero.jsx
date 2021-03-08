@@ -1,12 +1,23 @@
 /** @jsx jsx */
 import { jsx, Text, Box, Image as ImageUI } from 'theme-ui';
-import React, { useMemo } from 'react';
+import React, { useMemo, useEffect } from 'react';
+import { motion, useViewportScroll, useTransform } from 'framer-motion';
 import { IoChevronDownSharp } from 'react-icons/io5';
 import { Flex, FlexCol, Image } from '../Components';
 import { BookNowButton } from '../BookNowButton';
 
+const MotionBox = motion.custom(Box);
+
 
 export const ServiceHero = ({ content }) => {
+  const { scrollY, scrollYProgress } = useViewportScroll();
+  const size = useTransform(scrollYProgress, value => {
+    return (1.5 - value) < 1.2 ? 1.2 : 1.5 - value;
+  });
+  const yPos = useTransform(scrollY, value => {
+    return value > 640 ? 640 : value
+  });
+
 
   const hero = useMemo(() => ({
     bgImage: content?.backgroundImage?.image?.file?.url,
@@ -18,13 +29,12 @@ export const ServiceHero = ({ content }) => {
     button: content?.buttonContent
   }), []);
 
-  console.log('hero', hero);
-
   return (
     <FlexCol
       data-comp={ServiceHero.displayName}
       sx={{
         position: 'relative',
+        alignItems: 'center',
         width: '100vw',
         height: '100vh',
         minHeight: '600px',
@@ -108,18 +118,25 @@ export const ServiceHero = ({ content }) => {
         </Text>
       </FlexCol>
 
-      <Image
-        src={hero.image}
-        alt={hero.imageAlt}
-        sx={{
+      <MotionBox
+        style={{
           position: 'absolute',
-          top: '150px',
-          left: '50%',
-          transform: 'translateX(-50%)',
+          y: yPos,
+          top: '250px',
           height: '470px',
-          objectFit: 'contain',
+          width: '200px',
+          zIndex: 2,
+          scale: size,
         }}
-      />
+      >
+        <Image
+          src={hero.image}
+          alt={hero.imageAlt}
+          sx={{
+            objectFit: 'contain',
+          }}
+        />
+      </MotionBox>
     </FlexCol>
   )
 }

@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, Text, Box, Container } from 'theme-ui';
-import React, { useMemo } from 'react';
+import React, { useMemo, useEffect } from 'react';
 import { Flex, FlexCol, Image } from '../Components';
 import { ServiceHero } from './ServiceHero';
 import { ServiceBenefits } from './ServiceBenefits';

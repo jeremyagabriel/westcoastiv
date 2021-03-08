@@ -1,12 +1,11 @@
 /** @jsx jsx */
 import { jsx, Text, Box, Image as ImageUI } from 'theme-ui';
-import React, { useMemo } from 'react';
+import React, { useMemo, useEffect } from 'react';
 import { Flex, FlexCol, Image } from '../Components';
 import { ServiceBenefitsItem } from './ServiceBenefitsItem';
 
 
 export const ServiceBenefits = ({ content }) => {
-  console.log('service benefits', content);
 
   return (
     <Flex
@@ -25,6 +24,7 @@ export const ServiceBenefits = ({ content }) => {
             <ServiceBenefitsItem
               content={item}
               index={index}
+              position='left'
               key={index}
               sx={{
                 mr: '390px'
@@ -37,6 +37,7 @@ export const ServiceBenefits = ({ content }) => {
             <ServiceBenefitsItem
               content={item}
               index={index}
+              position='right'
               key={index}
             />
         ))}

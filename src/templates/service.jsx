@@ -1,16 +1,17 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { ServiceMain } from '../components/Service';
+import { Main } from '../layouts';
 
 
 const ServiceTemplate = ({ data }) => {
 
   return (
-    <>
+    <Main>
       <ServiceMain
         data={data}
       />
-    </>
+    </Main>
   );
 };
 

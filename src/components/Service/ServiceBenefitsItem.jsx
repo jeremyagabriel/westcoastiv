@@ -1,10 +1,30 @@
 /** @jsx jsx */
 import { jsx, Text, Box, Image as ImageUI } from 'theme-ui';
 import React, { useMemo } from 'react';
+import { motion, useViewportScroll, useTransform } from 'framer-motion';
 import { Flex, FlexCol, Image } from '../Components';
 
+const MotionBox = motion.custom(Box);
 
-export const ServiceBenefitsItem = ({ content, index, ...props }) => {
+
+export const ServiceBenefitsItem = ({
+  content,
+  index,
+  position,
+  ...props
+}) => {
+
+  const offset = 635;
+  const { scrollY } = useViewportScroll();
+  const xLeft = useTransform(scrollY, value => {
+    return (value - offset) > 0 ? 0 : value - offset
+  });
+  const xRight = useTransform(scrollY, value => {
+    return (-value + offset) < 0 ? 0 : -value + offset
+  });
+  const y = useTransform(scrollY, value => {
+    return (value - offset) > 0 ? 0 : value - offset
+  });
 
   const item = useMemo(() => ({
     image: content?.image?.image?.file?.url,
@@ -14,11 +34,17 @@ export const ServiceBenefitsItem = ({ content, index, ...props }) => {
   }), []);
 
   return (
-    <FlexCol
+    <MotionBox
       sx={{
+        display: 'flex',
+        flexDirection: 'column',
         alignItems: 'center',
         maxWidth: '250px',
         mb: index === 0 ? '80px' : 0,
+      }}
+      style={{
+        x: position === 'left' ? xLeft : xRight,
+        y,
       }}
       {...props}
     >
@@ -42,7 +68,7 @@ export const ServiceBenefitsItem = ({ content, index, ...props }) => {
       >
         {item.text}
       </Text>
-    </FlexCol>
+    </MotionBox>
   )
 }
 
