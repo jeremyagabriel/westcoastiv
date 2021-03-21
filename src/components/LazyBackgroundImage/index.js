@@ -1,0 +1,1 @@
+export { LazyBackgroundImage } from './LazyBackgroundImage';

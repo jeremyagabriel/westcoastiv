@@ -3,6 +3,7 @@ import { jsx, Text, Box, Image as ImageUI } from 'theme-ui';
 import React, { useMemo, useCallback } from 'react';
 import { navigate } from 'gatsby';
 import { Flex, FlexCol, Image } from '../Components';
+import { LazyBackgroundImage } from '../LazyBackgroundImage';
 import SnowflakeIcon from '../../assets/icon-snowflake.svg';
 import NeedleIcon from '../../assets/icon-needle.svg';
 import IVIcon from '../../assets/icon-IV.svg';
@@ -31,38 +32,48 @@ export const ServicesRow = ({ content }) => {
     <Flex
       data-comp={ServicesRow.displayName}
       sx={{
+        flexDirection: ['column', null, null, 'row'],
+        justifyContent: ['flex-start', null, null, 'center'],
+        alignItems: ['center', null, null, 'flex-start'],
         width: '100%',
-        justifyContent: 'center',
-        mb: 6,
+        mb: 16,
         zIndex: 3,
+        px: '20px',
       }}
     >
       { content?.map((item, index) => {
         item = rowItem(index);
         return (
-          <Box
+          <LazyBackgroundImage
             key={index}
+            onClick={() => navigate(item.linkUrl)}
+            src={item.src}
             sx={{
-              mr: index !== content.length - 1
+              mr: [0, null, null, index !== content.length - 1
                 ? '50px'
-                : null,
-              width: '280px',
-              height: '350px',
+                : null],
+              width: ['75vw', null, null, '280px'],
+              height: ['140px', '190px', '240px', '350px'],
               borderRadius: '5px',
               overflow: 'hidden',
               position: 'relative',
               bg: 'B1',
-              boxShadow: '1px 5px 15px rgba(0, 0, 0, 0.25)'
+              boxShadow: '1px 5px 15px rgba(0, 0, 0, 0.25)',
+              cursor: 'pointer',
+              mb: [
+                index !== content.length -1 ? '50px' : 0,
+                null, null, 0
+              ]
             }}
           >
-            <Image
+            {/* <Image
               src={item.src}
               alt={item.alt}
               sx={{
                 height: '350px',
                 objectFit: 'cover',
               }}
-            />
+            /> */}
             <Box
               sx={{
                 position: 'absolute',
@@ -73,7 +84,12 @@ export const ServicesRow = ({ content }) => {
                 width: '100%',
                 height: '100%',
                 bg: 'B1',
-                background: 'linear-gradient(180deg, rgba(0, 48, 87, 0.8645) 57.44%, rgba(0, 48, 87, 0) 100%)'
+                background: [
+                  'linear-gradient(180deg, rgba(0, 48, 87, 0.8645) 74.61%, rgba(0, 48, 87, 0.1995) 101.44%)',
+                  null,
+                  null,
+                  'linear-gradient(180deg, rgba(0, 48, 87, 0.8645) 57.44%, rgba(0, 48, 87, 0) 100%)'
+                ]
               }}
             />
             <FlexCol
@@ -95,21 +111,22 @@ export const ServicesRow = ({ content }) => {
                 sx={{
                   height: '26px',
                   objectFit: 'contain',
-                  mb: '14px'
+                  mb: 7,
                 }}
               />
               <Flex
                 sx={{
-                  maxWidth: '160px',
-                  height: '62px',
+                  maxWidth: ['100%', null, null, '160px'],
+                  height: ['auto', null, null, '62px'],
                   justifyContent: 'center',
                   alignItems: 'center',
-                  mb: 2,
+                  mb: [6, null, null, 8],
                 }}
               >
                 <Text
                   variant='text.h6'
                   sx={{
+                    fontSize: [4, null, 5],
                     textAlign: 'center',
                     color: 'white',
                   }}
@@ -118,10 +135,8 @@ export const ServicesRow = ({ content }) => {
                 </Text>
               </Flex>
               <Flex
-                onClick={() => navigate(item.linkUrl)}
                 sx={{
                   alignItems: 'center',
-                  cursor: 'pointer'
                 }}
               >
                 <ImageUI
@@ -129,7 +144,7 @@ export const ServicesRow = ({ content }) => {
                   alt='chevron icon'
                   sx={{
                     height: '10px',
-                    mr: '4px',
+                    mr: 2,
                     fill: 'white !important'
                   }}
                 />
@@ -147,7 +162,7 @@ export const ServicesRow = ({ content }) => {
                 </Text>
               </Flex>
             </FlexCol>
-          </Box>
+          </LazyBackgroundImage>
         );
       })
 

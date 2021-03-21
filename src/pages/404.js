@@ -30,13 +30,13 @@ const FourZeroFour = () => {
       >
         <Text
           variant='text.h5Italic'
-          sx={{ mx: 1, fontSize: 5, color: 'P2', mb: 1 }}
+          sx={{ mx: 4, fontSize: 5, color: 'P2', mb: 4 }}
         >
           404
         </Text>
         <Text
           variant='text.h5Italic'
-          sx={{ mx: 1 }}
+          sx={{ mx: 4 }}
         >
           Oops, there's nothing here.
         </Text>

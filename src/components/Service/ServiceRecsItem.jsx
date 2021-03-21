@@ -21,8 +21,8 @@ export const ServiceRecsItem = ({ content, index, ...props }) => {
       sx={{
         width: '230px',
         // height: '420px',
-        px: '10px',
-        pt: '10px',
+        px: 5,
+        pt: 5,
         pb: '25px',
         background: 'rgba(23, 31, 149, 0.03)',
         borderRadius: '6px',
@@ -37,17 +37,17 @@ export const ServiceRecsItem = ({ content, index, ...props }) => {
         sx={{
           height: '200px',
           objectFit: 'contain',
-          mb: '20px'
+          mb: 10
         }}
       />
       <Text
         variant='text.h7'
-        sx={{ textAlign: 'center', mb: '10px' }}
+        sx={{ textAlign: 'center', mb: 5 }}
       >
         {item.heading}
       </Text>
       <Text
-        sx={{ textAlign: 'center', mb: '30px', height: '50px' }}
+        sx={{ textAlign: 'center', mb: 13, height: '50px' }}
       >
         {item.text}
       </Text>

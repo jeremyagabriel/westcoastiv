@@ -40,8 +40,8 @@ export const Footer = () => {
           height: '300px',
           bg: 'B2',
           alignItems: 'flex-end',
-          pb: 12,
-          px: 4
+          pb: 22,
+          px: 14
         }}
       >
         <Flex>
@@ -50,7 +50,7 @@ export const Footer = () => {
                 key={index}
                 sx={{
                   width: '160px',
-                  mr: 6
+                  mr: 16
                 }}
               >
                 <Text
@@ -61,7 +61,7 @@ export const Footer = () => {
                     fontSize: '12px',
                     textTransform: 'uppercase',
                     letterSpacing: '0.2em',
-                    mb: '20px'
+                    mb: 10
                   }}
                 >
                   {item.headingContent?.heading}

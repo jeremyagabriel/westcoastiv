@@ -45,12 +45,12 @@ export const Form = () => {
         position: 'absolute',
         width: '400px',
         height: '650px',
-        bottom: 12,
-        right: 10,
+        bottom: 22,
+        right: 20,
         bg: 'white',
         borderRadius: '6px',
         boxShadow: '0px -3px 17px rgba(0, 0, 0, 0.08)',
-        p: 4
+        p: 14
       }}
     >
       <Text
@@ -61,7 +61,7 @@ export const Form = () => {
           fontSize: '12px',
           textTransform: 'uppercase',
           letterSpacing: '0.2em',
-          mb: 12
+          mb: 22
         }}
       >
         Contact Us
@@ -87,9 +87,9 @@ export const Form = () => {
           position: 'absolute',
           left: '50%',
           transform: 'translateX(-50%)',
-          bottom: 3,
+          bottom: 12,
           fontSize: '16px',
-          py: '10px',
+          py: 5,
           cursor: 'pointer'
         }}
       >

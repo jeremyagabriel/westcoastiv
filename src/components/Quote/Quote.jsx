@@ -4,6 +4,7 @@ import React, { useMemo } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { BiPlusMedical } from 'react-icons/bi';
 import { Flex, FlexCol, Image } from '../Components';
+import { LazyBackgroundImage } from '../LazyBackgroundImage';
 
 
 export const Quote = () => {
@@ -18,21 +19,19 @@ export const Quote = () => {
   }), []);
 
   return (
-    <Flex
+    <LazyBackgroundImage
       data-comp={Quote.displayName}
+      src={hero.image}
       sx={{
+        display: 'flex',
         width: '100vw',
         bg: 'B1',
         minHeight: '495px',
         position: 'relative',
         justifyContent: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center center',
-        backgroundImage: hero.image ? `url(${hero.image})` : null,
-        backgroundSize: 'cover',
         justifyContent: 'center',
         alignItems: 'center',
-        px: 4
+        px: 14
       }}
     >
       <Box
@@ -55,7 +54,7 @@ export const Quote = () => {
           minHeight: '495px',
           maxWidth: '876px',
           maxHeight: '334px',
-          py: '80px',
+          py: 20,
           // borderTop: '0.5px solid',
           // borderBottom: '0.5px solid',
           // borderColor: 'white',
@@ -66,8 +65,7 @@ export const Quote = () => {
           sx={{
             width: '100%',
             height: '1px',
-            bg: 'transparent',
-            boxShadow: '0 -.5px 0 rgba(255,255,255,0.25)',
+            bg: 'rgba(255,255,255,0.25)',
           }}
         />
         <Flex
@@ -97,7 +95,7 @@ export const Quote = () => {
           <FlexCol
             sx={{
               maxWidth: '440px',
-              mx: 12,
+              mx: 22,
               alignItems: 'center'
             }}
           >
@@ -118,7 +116,7 @@ export const Quote = () => {
                 color: 'white',
                 fontSize: '16px',
                 fontWeight: 'medium',
-                mt: 2
+                mt: 8
               }}
             >
               {hero.subheading}
@@ -147,12 +145,11 @@ export const Quote = () => {
           sx={{
             width: '100%',
             height: '1px',
-            bg: 'transparent',
-            boxShadow: '0 .5px 0 rgba(255,255,255,0.25)'
+            bg: 'rgba(255,255,255,0.25)',
           }}
         />
       </FlexCol>
-    </Flex>
+    </LazyBackgroundImage>
   )
 }
 

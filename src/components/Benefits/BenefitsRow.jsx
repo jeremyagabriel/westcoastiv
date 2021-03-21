@@ -17,9 +17,12 @@ export const BenefitsRow = ({ content }) => {
     <Flex
       data-comp={BenefitsRow.displayName}
       sx={{
+        flexDirection: ['column', null, null, 'row'],
         width: '100%',
-        justifyContent: 'space-between',
-        mb: 6
+        justifyContent: ['flex-start', null, null, 'space-between'],
+        alignItems: ['center', null, null, 'flex-start'],
+        mb: 16,
+        mx: 14
       }}
     >
       { content?.map((item, index) => {
@@ -30,7 +33,9 @@ export const BenefitsRow = ({ content }) => {
             sx={{
               alignItems: 'center',
               px: 1,
-              maxWidth: '225px'
+              maxWidth: '225px',
+              mx: 10,
+              mb: 10
             }}
             >
             <Image
@@ -39,14 +44,14 @@ export const BenefitsRow = ({ content }) => {
               sx={{
                 height: '60px',
                 objectFit: 'contain',
-                mb: '20px'
+                mb: 10
               }}
             />
             <Text
               variant='text.h7'
               sx={{
                 textAlign: 'center',
-                mb: '20px'
+                mb: 10
               }}
             >
               {item.heading}

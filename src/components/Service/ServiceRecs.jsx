@@ -27,7 +27,7 @@ export const ServiceRecs = ({ content }) => {
         sx={{
           minHeight: '600px',
           alignItems: 'center',
-          pb: '80px',
+          pb: 20,
         }}
       >
         <Text

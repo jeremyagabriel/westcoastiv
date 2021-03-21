@@ -54,12 +54,12 @@ export const ServiceBenefitsItem = ({
         sx={{
           height: '24px',
           objectFit: 'contain',
-          mb: '10px'
+          mb: 5
         }}
       />
       <Text
         variant='text.h6'
-        sx={{ mb: '10px' }}
+        sx={{ mb: 5, textTransform: 'none' }}
       >
         {item.heading}
       </Text>

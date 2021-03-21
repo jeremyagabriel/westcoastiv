@@ -2,9 +2,12 @@
 import { jsx, Text, Box, Image as ImageUI } from 'theme-ui';
 import React, { useMemo, useEffect } from 'react';
 import { motion, useViewportScroll, useTransform } from 'framer-motion';
+import { useRecoilValue } from 'recoil';
 import { IoChevronDownSharp } from 'react-icons/io5';
+import { LazyBackgroundImage } from '../LazyBackgroundImage';
 import { Flex, FlexCol, Image } from '../Components';
 import { BookNowButton } from '../BookNowButton';
+import { navbarAtom } from '../../lib/atoms';
 
 const MotionBox = motion.custom(Box);
 
@@ -14,10 +17,11 @@ export const ServiceHero = ({ content }) => {
   const size = useTransform(scrollYProgress, value => {
     return (1.5 - value) < 1.2 ? 1.2 : 1.5 - value;
   });
-  const yPos = useTransform(scrollY, value => {
-    return value > 640 ? 640 : value
-  });
-
+  // const y = useTransform(scrollY, value => {
+  //   return value > 640 ? 640 : value
+  // });
+  const y = useTransform(scrollY, [0, 600], [0, 600]);
+  const navbarPos = useRecoilValue(navbarAtom);
 
   const hero = useMemo(() => ({
     bgImage: content?.backgroundImage?.image?.file?.url,
@@ -41,13 +45,13 @@ export const ServiceHero = ({ content }) => {
         maxHeight: '700px',
       }}
     >
-      <Flex
+      <LazyBackgroundImage
+        src={hero.bgImage}
         sx={{
+          display: 'flex',
           width: '100%',
           height: '500px',
-          backgroundRepeat: 'no-repeat',
           backgroundPosition: 'right bottom',
-          backgroundImage: hero.bgImage ? `url(${hero.bgImage})` : null,
           backgroundSize: '36%',
           alignItems: 'flex-end',
         }}
@@ -55,13 +59,13 @@ export const ServiceHero = ({ content }) => {
         <FlexCol
           sx={{
             maxWidth: '315px',
-            ml: 10
+            ml: 20
           }}
         >
           <Text
             sx={{
-              mb: '10px',
-              ml: '4px',
+              mb: 5,
+              ml: 2,
               fontSize: '11px',
               textTransform: 'uppercase',
               letterSpacing: '0.04em'
@@ -71,7 +75,7 @@ export const ServiceHero = ({ content }) => {
           </Text>
           <Text
             variant='text.h5Italic'
-            sx={{ mb: '20px' }}
+            sx={{ mb: 10 }}
           >
             {hero.heading}
           </Text>
@@ -79,7 +83,7 @@ export const ServiceHero = ({ content }) => {
             dangerouslySetInnerHTML={{
               __html: hero.text
             }}
-            sx={{ mb: '30px', height: '120px' }}
+            sx={{ mb: 13, height: '120px' }}
           />
           <BookNowButton
             title={hero.button?.title}
@@ -89,7 +93,7 @@ export const ServiceHero = ({ content }) => {
             }}
           />
         </FlexCol>
-      </Flex>
+      </LazyBackgroundImage>
       <Box
         sx={{
           bg: 'BR1',
@@ -100,17 +104,20 @@ export const ServiceHero = ({ content }) => {
       <FlexCol
         sx={{
           alignItems: 'center',
-          position: 'absolute',
+          position: 'fixed',
           left: '50%',
           transform: 'translateX(-50%)',
           bottom: 2,
+          transition: '0.3s',
+          zIndex: 1,
+          opacity: !navbarPos ? 1 : 0
         }}
       >
         <IoChevronDownSharp
           sx={{
             fontSize: '27px',
             color: 'B2',
-            mb: '-5px'
+            mb: '-5px',
           }}
         />
         <Text sx={{ fontSize: '10px' }}>
@@ -121,12 +128,12 @@ export const ServiceHero = ({ content }) => {
       <MotionBox
         style={{
           position: 'absolute',
-          y: yPos,
+          y,
+          scale: size,
           top: '250px',
           height: '470px',
           width: '200px',
           zIndex: 2,
-          scale: size,
         }}
       >
         <Image

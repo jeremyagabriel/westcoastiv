@@ -26,15 +26,15 @@ export const Services = () => {
         alignItems: 'center',
         width: '100vw',
         maxWidth: '906px',
-        mb: 16,
-        mt: 10,
-        pt: 6,
-        mx: 4
+        mb: 26,
+        mt: 20,
+        pt: 16,
+        mx: 14
       }}
     >
       <Heading
         text={section.heading}
-        style={{ mb: 10 }}
+        style={{ mb: 20 }}
       />
       <ServicesRow
         content={section.row}

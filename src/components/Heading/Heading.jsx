@@ -13,11 +13,13 @@ export const Heading = ({ text, style }) => {
         justifyContent: 'center',
         alignItems: 'center',
         width: '100%',
+        px: 10,
         ...style
       }}
     >
       <BiPlusMedical
         sx={{
+          display: ['none', null, null, 'block'],
           color: '#D1FAF2',
           fontSize: '20px',
         }}
@@ -26,10 +28,10 @@ export const Heading = ({ text, style }) => {
         sx={{
           flex: 1,
           height: '1px',
-          bg: 'transparent',
-          mx: 4,
-          boxShadow: '0 0.5px 0 rgba(23, 94, 149, 0.5)',
-          transform: 'translateY(-0.5px)'
+          bg: 'rgba(23, 94, 149, 0.5)',
+          mr: [5, null, null, 14],
+          ml: [0, null, null, 14],
+          maxWidth: ['24px', null, '48px', '100%']
         }}
       />
       <Text variant='text.h5Italic'>
@@ -39,14 +41,15 @@ export const Heading = ({ text, style }) => {
         sx={{
           flex: 1,
           height: '1px',
-          bg: 'transparent',
-          mx: 4,
-          boxShadow: '0 0.5px 0 rgba(23, 94, 149, 0.5)',
-          transform: 'translateY(-0.5px)'
+          bg: 'rgba(23, 94, 149, 0.5)',
+          ml: [5, null, null, 14],
+          mr: [0, null, null, 14],
+          maxWidth: ['24px', null, '48px', '100%']
         }}
       />
       <BiPlusMedical
         sx={{
+          display: ['none', null, null, 'block'],
           color: '#D1FAF2',
           fontSize: '20px',
         }}
