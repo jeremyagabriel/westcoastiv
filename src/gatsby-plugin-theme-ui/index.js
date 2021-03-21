@@ -124,7 +124,7 @@ export default {
       lineHeight: 'heading',
       letterSpacing: '0.01em',
       textTransform: 'uppercase',
-      fontSize: 6,
+      fontSize: [5, null, 6],
       color: 'B1',
       transform: 'skew(-4deg, -4deg) rotate(4deg)',
       textAlign: 'center',
@@ -163,11 +163,11 @@ export default {
       display: 'flex',
       cursor: 'pointer',
       borderRadius: '5px',
-      textTransform: 'uppercase',
+      // textTransform: 'uppercase',
       fontWeight: 'semi',
       lineHeight: 'heading',
       fontSize: 4,
-      letterSpacing: '0.1em',
+      letterSpacing: 'body',
       outline: 'none',
       transition: 'all .15s ease-in',
       textDecoration: 'none',
@@ -195,21 +195,35 @@ export default {
   },
   space: [
     0, //0
-    8,
-    16, //2
-    24,
-    32, //4
-    40,
-    48, //6
-    56,
-    64, //8
-    72,
-    80, //10
-    88,
-    96, //12
-    104,
-    112, //14
-    120,
-    128, //16
+    2, //1
+    4, //2
+    6, //3
+    8, //4
+    10, //5
+    12, //6
+    14, //7
+    16, //8
+    18, //9
+    20, //10
+    22, //11
+    24, //12
+    30, //13
+    32, //14 (4)
+    40, //15
+    48, //16
+    56, //17
+    64, //18
+    72, //19
+    80, //20
+    88, //21
+    96, //22
+    104, //23
+    112, //24
+    120, //25
+    128, //26
+    150, //27
+    200, //28
+    250, //29
+    300, //30
   ],
 }
