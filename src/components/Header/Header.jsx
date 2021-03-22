@@ -3,6 +3,7 @@ import { jsx, Text, Box, Image } from 'theme-ui';
 import { useMemo } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { useRecoilValue } from 'recoil';
+import { isMobile } from 'react-device-detect';
 import { IoChevronDownSharp } from 'react-icons/io5';
 import { Navbar } from './Navbar';
 import { FlexCol, Flex} from '../Components';
@@ -59,7 +60,7 @@ export const Header = () => {
           marginTop: -16,
           maxWidth: '1157px',
           px: 14,
-          mb: 16,
+          mb: [0, null, null, 16],
           alignItems: ['center', null, null, 'flex-start']
         }}
       >
@@ -166,7 +167,7 @@ const heroSx = (src) => ({
   backgroundImage: src ? `url(${src})` : null,
   backgroundSize: 'cover',
   width: '100vw',
-  height: ['90vh', null, null, '100vh'],
+  height: [isMobile ? '80vh' : '90vh', null, null, '100vh'],
   minHeight: '600px',
   maxHeight: '900px',
 });

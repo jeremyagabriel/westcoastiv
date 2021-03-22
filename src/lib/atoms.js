@@ -10,4 +10,9 @@ const isTopAtom = atom({
   default: false
 });
 
-export { navbarAtom, isTopAtom };
+const menuOpenAtom = atom({
+  key: 'menuOpenAtom',
+  default: false
+});
+
+export { navbarAtom, isTopAtom, menuOpenAtom };

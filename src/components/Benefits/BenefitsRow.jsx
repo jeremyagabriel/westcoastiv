@@ -35,7 +35,9 @@ export const BenefitsRow = ({ content }) => {
               px: 1,
               maxWidth: '225px',
               mx: 10,
-              mb: 10
+              mb: index !== content.length - 1
+                ? [10, '50px', null, 0]
+                : 0,
             }}
             >
             <Image

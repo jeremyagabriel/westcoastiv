@@ -97,6 +97,7 @@ export default {
       fontSize: 8,
       color: 'B1',
     },
+    //64px
     h4: {
       fontFamily: 'heading',
       lineHeight: 'heading',
@@ -107,6 +108,7 @@ export default {
       fontSize: 7,
       color: 'B1',
     },
+    //48px
     h5: {
       fontFamily: 'heading',
       lineHeight: 'heading',
@@ -129,6 +131,7 @@ export default {
       transform: 'skew(-4deg, -4deg) rotate(4deg)',
       textAlign: 'center',
     },
+    //36px
     h6: {
       fontFamily: 'heading',
       lineHeight: 'heading',
@@ -139,6 +142,7 @@ export default {
       fontSize: 5,
       color: 'B1',
     },
+    //24px
     h7: {
       fontFamily: 'heading',
       lineHeight: 'heading',
@@ -146,6 +150,15 @@ export default {
       lineHeight: 'heading',
       letterSpacing: '0.03em',
       fontSize: 4,
+      color: 'P1',
+    },
+    '20': {
+      fontFamily: 'heading',
+      lineHeight: 'heading',
+      fontWeight: 'regular',
+      lineHeight: 'heading',
+      letterSpacing: '0.03em',
+      fontSize: 3,
       color: 'P1',
     },
 

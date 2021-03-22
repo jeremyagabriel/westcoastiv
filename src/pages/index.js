@@ -9,6 +9,7 @@ import { Benefits } from '../components/Benefits';
 import { Services } from '../components/Services';
 import { About } from '../components/About';
 import { Quote } from '../components/Quote';
+import { Menu } from '../components/Menu';
 
 
 const Home = () => {
