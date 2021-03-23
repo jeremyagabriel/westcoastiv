@@ -4,7 +4,7 @@ import React, { useMemo } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { Flex } from '../Components';
 import { Map } from './Map';
-import { Form } from './Form';
+import { FormDesktop } from '../Form';
 
 
 export const Footer = () => {
@@ -79,7 +79,11 @@ export const Footer = () => {
           ))}
         </Flex>
       </Flex>
-      <Form />
+      <FormDesktop
+        sx={{
+          display: ['none', null, null, 'flex']
+        }}
+      />
     </Box>
   );
 };

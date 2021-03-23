@@ -15,4 +15,9 @@ const menuOpenAtom = atom({
   default: false
 });
 
-export { navbarAtom, isTopAtom, menuOpenAtom };
+const formOpenAtom = atom({
+  key: 'formOpenAtom',
+  default: false
+});
+
+export { navbarAtom, isTopAtom, menuOpenAtom, formOpenAtom };

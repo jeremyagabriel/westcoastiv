@@ -3,13 +3,12 @@ import { jsx, Text, Box, Image } from 'theme-ui';
 import React, { Fragment, useState, useEffect, useMemo } from 'react';
 import { graphql, useStaticQuery, navigate } from 'gatsby';
 import scrollTo from 'gatsby-plugin-smoothscroll';
-import { VscMenu } from 'react-icons/vsc';
 import { useRecoilState, useSetRecoilState } from 'recoil';
 
 import { Flex, FlexCol } from '../Components';
 import { BookNowButton } from '../BookNowButton';
 import { Menu } from '../Menu';
-import { navbarAtom, isTopAtom, menuOpenAtom } from '../../lib/atoms';
+import { navbarAtom, isTopAtom, menuOpenAtom, formOpenAtom } from '../../lib/atoms';
 
 import LogoLight from '../../assets/westcoastiv_logo_light.png';
 import LogoDark from '../../assets/westcoastiv_logo_dark.png';
@@ -40,6 +39,8 @@ const navbarLinks = [
   },
 ];
 
+console.log('window', window)
+
 
 export const Navbar = ({
   dark = false,
@@ -50,6 +51,7 @@ export const Navbar = ({
   const { button } = useStaticQuery(query);
   const setNavbarPos = useSetRecoilState(navbarAtom);
   const setIsTop = useSetRecoilState(isTopAtom);
+  const [formOpen, setFormOpen] = useRecoilState(formOpenAtom);
   const [menuOpen, setMenuOpen] = useRecoilState(menuOpenAtom);
 
   useEffect (() => {
@@ -102,9 +104,9 @@ export const Navbar = ({
         >
           <Image
             src={
-              menuOpen
+              menuOpen && !formOpen
                 ? LogoLight
-                : dark || isScrolled
+                : dark || isScrolled || formOpen
                   ? LogoDark
                   : LogoLight
             }
@@ -187,13 +189,17 @@ export const Navbar = ({
           >
             { menuOpen
                 ? <Image
-                    src={CloseLight}
+                    src={formOpen ? CloseDark : CloseLight}
                     alt='Close icon'
                     sx={{
                       width: '20px',
                       cursor: 'pointer'
                     }}
-                    onClick={() => setMenuOpen(false)}
+                    onClick={() => {
+                      formOpen
+                        ? setFormOpen(false)
+                        : setMenuOpen(false);
+                    }}
                   />
                 : <>
                     <BookNowButton

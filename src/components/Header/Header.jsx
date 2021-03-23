@@ -19,8 +19,6 @@ export const Header = () => {
   const navbarPos = useRecoilValue(navbarAtom);
   const isTop = useRecoilValue(isTopAtom);
 
-  console.log('header data', data);
-
   const hero = useMemo(() => ({
     src: data?.backgroundImage?.image?.file?.url,
     heading: data?.headingContent?.heading,

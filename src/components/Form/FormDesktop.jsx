@@ -2,44 +2,17 @@
 import { useState } from 'react';
 import { jsx, Text, Input } from 'theme-ui';
 import { FlexCol } from '../Components';
-
-const formFields = [
-  {
-    key: 'first',
-    label: 'First name',
-    type: 'text'
-  },
-  {
-    key: 'last',
-    label: 'Last name',
-    type: 'text'
-  },
-  {
-    key: 'email',
-    label: 'Email',
-    type: 'email'
-  },
-  {
-    key: 'message',
-    label: 'Message',
-    type: 'text'
-  }
-];
-
-const blankForm = {
-  first: '',
-  last: '',
-  email: '',
-  message: ''
-};
+import { formFields, blankForm } from './form';
 
 
-export const Form = () => {
+export const FormDesktop = ({
+  ...props
+}) => {
   const [form, setForm] = useState(blankForm);
 
   return (
     <FlexCol
-      data-comp={Form.displayName}
+      data-comp={FormDesktop.displayName}
       id='contact'
       sx={{
         position: 'absolute',
@@ -52,6 +25,7 @@ export const Form = () => {
         boxShadow: '0px -3px 17px rgba(0, 0, 0, 0.08)',
         p: 14
       }}
+      {...props}
     >
       <Text
         sx={{
@@ -88,7 +62,7 @@ export const Form = () => {
           left: '50%',
           transform: 'translateX(-50%)',
           bottom: 12,
-          fontSize: '16px',
+          fontSize: 2,
           py: 5,
           cursor: 'pointer'
         }}
@@ -103,13 +77,13 @@ const inputSx = {
   color: 'B2',
   fontFamily: 'Tungsten, sans-serif',
   fontWeight: 600,
-  fontSize: '16px',
+  fontSize: 2,
   letterSpacing: '0.03em',
   pb: '5px',
-  boxShadow: '0 0.5px 0 #0A2A42',
+  border: 0,
+  borderBottom: '1px solid #0A2A42',
   mb: '60px',
   borderRadius: 0,
-  border: '0px',
   outline: 0,
   height: 'auto',
   px: 0,
@@ -119,4 +93,4 @@ const inputSx = {
   }
 };
 
-Form.displayName = 'Form';
+FormDesktop.displayName = 'FormDesktop';
