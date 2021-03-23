@@ -39,8 +39,6 @@ const navbarLinks = [
   },
 ];
 
-console.log('window', window)
-
 
 export const Navbar = ({
   dark = false,
@@ -70,10 +68,10 @@ export const Navbar = ({
   }, []);
 
   const isHome = useMemo(() => {
-    const url = window.document.URL;
-    return url.endsWith('8000/') ||
-      url.endsWith('app/') ||
-      url.endsWith('com/');
+    const path = typeof window !== 'undefined'
+      ? window.location.pathname
+      : ''
+    return path === '/' || path === '';
   }, []);
 
   return (
