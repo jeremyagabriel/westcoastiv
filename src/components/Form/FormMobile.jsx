@@ -9,55 +9,40 @@ import { formFields, blankForm } from './form';
 export const FormMobile = ({
   ...props
 }) => {
-  const [form, setForm] = useState(blankForm);
-  // const [serverState, setServerState] = useState({
-  //   submitting: false,
-  //   status: null
-  // });
-  // const handleServerResponse = (ok, msg, form) => {
-  //   setServerState({
-  //     submitting: false,
-  //     status: { ok, msg }
-  //   });
-  //   if (ok) {
-  //     form.reset();
-  //   }
-  // };
-  // const handleOnSubmit = (e) => {
-  //   e.preventDefault();
-  //   const form = e.target;
-  //   console.log('form', form)
-  //   setServerState({ submitting: true });
-  //   axios({
-  //     method: "post",
-  //     url: "https://getform.io/f/ea276300-1bb4-4d31-b06b-1dcc8a506e57",
-  //     data: new FormData(form)
-  //   })
-  //     .then(r => {
-  //       handleServerResponse(true, "Thanks!", form);
-  //       console.log('sent')
-  //       setForm(blankForm);
-  //     })
-  //     .catch(r => {
-  //       handleServerResponse(false, r.response.data.error, form);
-  //     });
-  // };
+  const [loading, setLoading] = useState(false);
+  const [serverState, setServerState] = useState({
+    submitting: false,
+    status: null
+  });
+  const handleServerResponse = (ok, msg, form) => {
+    setServerState({
+      submitting: false,
+      status: { ok, msg }
+    });
+    setLoading(false);
+    if (ok) {
+      form.reset();
+    }
+  };
 
-  useEffect(() => {
-    document.querySelector("form").addEventListener("submit", handleSubmit);
-  }, []);
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    let myForm = document.getElementById('contact-form');
-    let formData = new FormData(myForm)
-    fetch('/', {
-      method: 'POST',
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData).toString()
-    }).then(() => console.log('Form successfully submitted')).catch((error) =>
-      alert(error))
-  }
+  const handleOnSubmit = e => {
+    e.preventDefault();
+    setLoading(true);
+    const form = e.target;
+    setServerState({ submitting: true });
+    axios({
+      method: "post",
+      url: "https://getform.io/f/ea276300-1bb4-4d31-b06b-1dcc8a506e57",
+      data: new FormData(form)
+    })
+      .then(r => {
+        handleServerResponse(true, "Thanks!", form);
+        console.log('sent')
+      })
+      .catch(r => {
+        handleServerResponse(false, r.response.data.error, form);
+      });
+  };
 
   return (
     <FlexCol
@@ -105,18 +90,13 @@ export const FormMobile = ({
 
         <Box
           as='form'
-          id='contact-form'
-          data-netlify='true'
+          onSubmit={handleOnSubmit}
+          sx={{ width: '100%' }}
         >
           { formFields.map((field, index) => (
             <Input
               key={index}
               sx={inputSx}
-              value={form[field.key]}
-              onChange={e => setForm({
-                ...form,
-                [field.key]: e.target.value
-              })}
               type={field.type}
               placeholder={field.label}
               name={field.key}
@@ -125,20 +105,15 @@ export const FormMobile = ({
           <Text
             as='button'
             type='submit'
+            variant='buttons.primary'
+            sx={{
+              mx: 'auto'
+            }}
           >
-            Submit Test
+            Send Message
           </Text>
         </Box>
       </FlexCol>
-
-      <Text
-        variant='buttons.primary'
-        sx={{
-
-        }}
-      >
-        Send Message
-      </Text>
     </FlexCol>
   );
 };

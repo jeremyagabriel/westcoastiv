@@ -63,6 +63,7 @@ export const Menu = ({
         data-comp={Menu.displayName}
         id='menu'
         sx={{
+          display: ['flex', null, null, 'none'],
           position: 'fixed',
           top: 0,
           left: 0,

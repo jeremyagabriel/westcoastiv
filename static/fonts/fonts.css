@@ -3,7 +3,7 @@
   src: url('TungstenNarrow-Medium.woff2');
   font-weight: 400 500;
   font-style: normal;
-  font-display: auto;
+  font-display: block;
 }
 
 @font-face {
@@ -11,7 +11,7 @@
   src: url('TungstenNarrow-SemiBold.woff2');
   font-weight: 600 900;
   font-style: normal;
-  font-display: auto;
+  font-display: block;
 }
 
 @font-face {
@@ -19,7 +19,7 @@
   src: url('Tungsten-Book.woff2');
   font-weight: 100 300;
   font-style: normal;
-  font-display: auto;
+  font-display: block;
 }
 
 @font-face {
@@ -27,5 +27,5 @@
   src: url('Tungsten-SemiBold.woff2');
   font-weight: 600;
   font-style: normal;
-  font-display: auto;
+  font-display: block;
 }
