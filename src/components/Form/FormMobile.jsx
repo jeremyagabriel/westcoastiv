@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { jsx, Text, Input, Box } from 'theme-ui';
 import axios from 'axios';
 import { FlexCol } from '../Components';
@@ -42,6 +42,22 @@ export const FormMobile = ({
   //       handleServerResponse(false, r.response.data.error, form);
   //     });
   // };
+
+  useEffect(() => {
+    document.querySelector("form").addEventListener("submit", handleSubmit);
+  }, []);
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    let myForm = document.getElementById('contact-form');
+    let formData = new FormData(myForm)
+    fetch('/', {
+      method: 'POST',
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString()
+    }).then(() => console.log('Form successfully submitted')).catch((error) =>
+      alert(error))
+  }
 
   return (
     <FlexCol
@@ -89,7 +105,7 @@ export const FormMobile = ({
 
         <Box
           as='form'
-          method='POST'
+          id='contact-form'
           data-netlify='true'
         >
           { formFields.map((field, index) => (
