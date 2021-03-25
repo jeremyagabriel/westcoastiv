@@ -25,17 +25,17 @@ const navbarLinks = [
   },
   {
     label: 'Services',
-    to: '#services',
-    pageTo: '/#services'
+    to: '#services-anchor',
+    pageTo: '/#services-anchor'
   },
   {
     label: 'About',
-    to: '#about',
-    pageTo: '/#about'
+    to: '#about-anchor',
+    pageTo: '/#about-anchor'
   },
   {
     label: 'Contact',
-    to: '#contact',
+    to: '#contact-anchor',
   },
 ];
 

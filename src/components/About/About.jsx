@@ -56,6 +56,17 @@ export const About = () => {
         backgroundSize: '36%',
       }}
     >
+      <Box
+        id='about-anchor'
+        sx={{
+          height: '1px',
+          width: '1px',
+          visibility: 'hidden',
+          position: 'absolute',
+          left: 0,
+          top: ['-84px', '-100px']
+        }}
+      />
       <Flex
         data-comp={About.displayName}
         id='about'

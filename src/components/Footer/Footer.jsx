@@ -4,13 +4,14 @@ import React, { useMemo } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { Flex } from '../Components';
 import { Map } from './Map';
-import { FormDesktop } from '../Form';
+import { FormFooter } from '../Form';
 
 
 export const Footer = () => {
-  const { data } = useStaticQuery(query);
+  const { data, socialLinks } = useStaticQuery(query);
 
   console.log('footer data', data);
+  console.log('social links', socialLinks)
 
   const section = useMemo(() => {
     const dataObj = data?.content?.reduce((obj, item) => {
@@ -79,7 +80,7 @@ export const Footer = () => {
           ))}
         </Flex>
       </Flex>
-      <FormDesktop
+      <FormFooter
         sx={{
           display: ['none', null, null, 'flex']
         }}
@@ -291,6 +292,14 @@ export const query = graphql`
           text {
             text
           }
+        }
+      }
+    }
+    socialLinks: contentfulSection(metaHandle: {eq: "social-links"}) {
+      content {
+        ... on ContentfulButton {
+          metaHandle
+          url
         }
       }
     }

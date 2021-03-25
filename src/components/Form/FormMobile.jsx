@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { useState } from 'react';
-import { jsx, Text, Input } from 'theme-ui';
+import { jsx, Text, Input, Box } from 'theme-ui';
+import axios from 'axios';
 import { FlexCol } from '../Components';
 import { formFields, blankForm } from './form';
 
@@ -9,6 +10,38 @@ export const FormMobile = ({
   ...props
 }) => {
   const [form, setForm] = useState(blankForm);
+  // const [serverState, setServerState] = useState({
+  //   submitting: false,
+  //   status: null
+  // });
+  // const handleServerResponse = (ok, msg, form) => {
+  //   setServerState({
+  //     submitting: false,
+  //     status: { ok, msg }
+  //   });
+  //   if (ok) {
+  //     form.reset();
+  //   }
+  // };
+  // const handleOnSubmit = (e) => {
+  //   e.preventDefault();
+  //   const form = e.target;
+  //   console.log('form', form)
+  //   setServerState({ submitting: true });
+  //   axios({
+  //     method: "post",
+  //     url: "https://getform.io/f/ea276300-1bb4-4d31-b06b-1dcc8a506e57",
+  //     data: new FormData(form)
+  //   })
+  //     .then(r => {
+  //       handleServerResponse(true, "Thanks!", form);
+  //       console.log('sent')
+  //       setForm(blankForm);
+  //     })
+  //     .catch(r => {
+  //       handleServerResponse(false, r.response.data.error, form);
+  //     });
+  // };
 
   return (
     <FlexCol
@@ -54,19 +87,32 @@ export const FormMobile = ({
           Contact Us
         </Text>
 
-        { formFields.map((field, index) => (
-          <Input
-            key={index}
-            sx={inputSx}
-            value={form[field.key]}
-            onChange={e => setForm({
-              ...form,
-              [field.key]: e.target.value
-            })}
-            type={field.type}
-            placeholder={field.label}
-          />
-        ))}
+        <Box
+          as='form'
+          method='POST'
+          data-netlify='true'
+        >
+          { formFields.map((field, index) => (
+            <Input
+              key={index}
+              sx={inputSx}
+              value={form[field.key]}
+              onChange={e => setForm({
+                ...form,
+                [field.key]: e.target.value
+              })}
+              type={field.type}
+              placeholder={field.label}
+              name={field.key}
+            />
+          ))}
+          <Text
+            as='button'
+            type='submit'
+          >
+            Submit Test
+          </Text>
+        </Box>
       </FlexCol>
 
       <Text

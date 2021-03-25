@@ -1,2 +1,2 @@
 export { FormMobile } from './FormMobile';
-export { FormDesktop } from './FormDesktop';
+export { FormFooter } from './FormFooter';

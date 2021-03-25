@@ -1,23 +1,23 @@
 /** @jsx jsx */
 import { useState } from 'react';
-import { jsx, Text, Input } from 'theme-ui';
+import { jsx, Text, Input, Box } from 'theme-ui';
 import { FlexCol } from '../Components';
 import { formFields, blankForm } from './form';
 
 
-export const FormDesktop = ({
+export const FormFooter = ({
   ...props
 }) => {
   const [form, setForm] = useState(blankForm);
 
   return (
     <FlexCol
-      data-comp={FormDesktop.displayName}
+      data-comp={FormFooter.displayName}
       id='contact'
       sx={{
         position: 'absolute',
-        width: '400px',
-        height: '650px',
+        width: '290px',
+        height: '400px',
         bottom: 22,
         right: 20,
         bg: 'white',
@@ -27,6 +27,17 @@ export const FormDesktop = ({
       }}
       {...props}
     >
+      <Box
+        id='contact-anchor'
+        sx={{
+          height: '1px',
+          width: '1px',
+          visibility: 'hidden',
+          position: 'absolute',
+          left: 0,
+          top: ['-84px', '-100px']
+        }}
+      />
       <Text
         sx={{
           fontFamily: 'Tungsten, sans-serif',
@@ -93,4 +104,4 @@ const inputSx = {
   }
 };
 
-FormDesktop.displayName = 'FormDesktop';
+FormFooter.displayName = 'FormFooter';

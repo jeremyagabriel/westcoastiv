@@ -24,6 +24,7 @@ export const Services = () => {
       id='services'
       sx={{
         alignItems: 'center',
+        position: 'relative',
         width: '100vw',
         maxWidth: '906px',
         mb: 26,
@@ -32,6 +33,17 @@ export const Services = () => {
         mx: 14
       }}
     >
+      <Box
+        id='services-anchor'
+        sx={{
+          height: '1px',
+          width: '1px',
+          visibility: 'hidden',
+          position: 'absolute',
+          left: 0,
+          top: ['-84px', '-100px']
+        }}
+      />
       <Heading
         text={section.heading}
         style={{ mb: 20 }}
