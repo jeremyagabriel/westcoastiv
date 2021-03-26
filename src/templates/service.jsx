@@ -2,12 +2,14 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { ServiceMain } from '../components/Service';
 import { Main } from '../layouts';
+import { Seo } from '../components/seo.js';
 
 
 const ServiceTemplate = ({ data }) => {
 
   return (
     <Main>
+      <Seo />
       <ServiceMain
         data={data}
       />

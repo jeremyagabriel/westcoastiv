@@ -10,12 +10,14 @@ import { Services } from '../components/Services';
 import { About } from '../components/About';
 import { Quote } from '../components/Quote';
 import { Menu } from '../components/Menu';
+import { Seo } from '../components/seo.js';
 
 
 const Home = () => {
 
   return (
     <Main>
+      <Seo />
       <Container
         data-comp={Main.displayName}
         sx={{
