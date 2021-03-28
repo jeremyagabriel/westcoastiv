@@ -35,9 +35,10 @@ export const Header = () => {
       sx={{
         ...heroSx(staticHeroImg),
         backgroundImage: isMobile ? null : `url(${staticHeroImg})`,
-        height: [isMobile ? '80vh' : '90vh', null, null, '100vh'],
-        minHeight: [isMobile ? null : '600px'],
-        maxHeight: [isMobile ? '700px' : '900px'],
+        // height: [isMobile ? '80vh' : '90vh', null, null, '100vh'],
+        height: '80vh',
+        // minHeight: [isMobile ? null : '600px'],
+        // maxHeight: [isMobile ? '700px' : '900px'],
       }}
       id='header'
     >
