@@ -1,29 +1,28 @@
 /** @jsx jsx */
-import { useState } from 'react';
+import { Fragment } from 'react';
 import { jsx, Text, Input, Box } from 'theme-ui';
-import { FlexCol } from '../Components';
-import { formFields, blankForm } from './form';
+import { FlexCol, Flex } from '../Components';
+import { formFields } from './form';
 
 
 export const FormFooter = ({
+  handleOnSubmit,
+  loading,
   ...props
 }) => {
-  const [form, setForm] = useState(blankForm);
 
   return (
     <FlexCol
       data-comp={FormFooter.displayName}
       id='contact'
       sx={{
-        position: 'absolute',
         width: '290px',
-        height: '400px',
-        bottom: 22,
-        right: 20,
+        height: 'auto',
+        mt: [0, null, '-150px', '-220px', '-150px'],
         bg: 'white',
         borderRadius: '6px',
         boxShadow: '0px -3px 17px rgba(0, 0, 0, 0.08)',
-        p: 14
+        p: '27px'
       }}
       {...props}
     >
@@ -46,55 +45,95 @@ export const FormFooter = ({
           fontSize: '12px',
           textTransform: 'uppercase',
           letterSpacing: '0.2em',
-          mb: 22
+          mb: 10
         }}
       >
         Contact Us
       </Text>
 
-      { formFields.map((field, index) => (
-        <Input
-          key={index}
-          sx={inputSx}
-          value={form[field.key]}
-          onChange={e => setForm({
-            ...form,
-            [field.key]: e.target.value
-          })}
-          type={field.type}
-          placeholder={field.label}
-        />
-      ))}
-
-      <Text
-        variant='buttons.primary'
-        sx={{
-          position: 'absolute',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          bottom: 12,
-          fontSize: 2,
-          py: 5,
-          cursor: 'pointer'
-        }}
-      >
-        Send Message
-      </Text>
+      <Box
+          as='form'
+          onSubmit={handleOnSubmit}
+          sx={{ width: '100%' }}
+        >
+          <Flex>
+            { formFields.slice(0,2).map((field, index) => (
+                <Input
+                  key={field.key}
+                  sx={{
+                    ...textFieldSx,
+                    flex: 1,
+                    mr: index === 0 ? 6 : 0,
+                  }}
+                  type={field.type}
+                  placeholder={field.label}
+                  name={field.key}
+                  required
+                />
+            ))}
+          </Flex>
+          { formFields.slice(2, formFields.length).map(field => (
+              field.key === 'message'
+                ? <Fragment key={field.key}>
+                    <Text
+                      sx={{
+                        ...fontSx,
+                        pb: '5px',
+                      }}
+                    >
+                      {field.label}
+                    </Text>
+                    <Text
+                      as='textarea'
+                      sx={textAreaSx}
+                      type={field.type}
+                      name={field.key}
+                      required
+                    />
+                  </Fragment>
+                : <Input
+                    key={field.key}
+                    sx={textFieldSx}
+                    type={field.type}
+                    placeholder={field.label}
+                    name={field.key}
+                    required
+                  />
+          ))}
+          <Text
+            as='button'
+            type='submit'
+            variant='buttons.primary'
+            sx={{
+              mx: 'auto',
+              width: '126px',
+              fontSize: 2,
+              py: 5,
+            }}
+          >
+            Send Message
+          </Text>
+        </Box>
     </FlexCol>
   );
 };
 
-const inputSx = {
+const fontSx = {
   color: 'B2',
   fontFamily: 'Tungsten, sans-serif',
   fontWeight: 600,
   fontSize: 2,
   letterSpacing: '0.03em',
+};
+
+const textFieldSx = {
+  ...fontSx,
   pb: '5px',
   border: 0,
   borderBottom: '1px solid #0A2A42',
-  mb: '60px',
+  mb: '26px',
   borderRadius: 0,
+  border: '0px',
   outline: 0,
   height: 'auto',
   px: 0,
@@ -102,6 +141,18 @@ const inputSx = {
   '&::placeholder': {
     color: 'B2'
   }
+};
+
+const textAreaSx = {
+  ...fontSx,
+  width: '100%',
+  height: '120px',
+  resize: 'none',
+  outline: 'none',
+  border: '1px solid #0A2A42',
+  borderRadius: '5px',
+  p: 5,
+  mb: '26px'
 };
 
 FormFooter.displayName = 'FormFooter';

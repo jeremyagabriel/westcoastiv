@@ -1,67 +1,40 @@
 /** @jsx jsx */
-import { useState, useEffect } from 'react';
+import { Fragment, useEffect } from 'react';
 import { jsx, Text, Input, Box } from 'theme-ui';
-import axios from 'axios';
+import { disableBodyScroll } from 'body-scroll-lock';
 import { FlexCol } from '../Components';
-import { formFields, blankForm } from './form';
+import { formFields } from './form';
 
 
 export const FormMobile = ({
+  handleOnSubmit,
+  loading,
   ...props
 }) => {
-  const [loading, setLoading] = useState(false);
-  const [serverState, setServerState] = useState({
-    submitting: false,
-    status: null
-  });
-  const handleServerResponse = (ok, msg, form) => {
-    setServerState({
-      submitting: false,
-      status: { ok, msg }
-    });
-    setLoading(false);
-    if (ok) {
-      form.reset();
-    }
-  };
 
-  const handleOnSubmit = e => {
-    e.preventDefault();
-    setLoading(true);
-    const form = e.target;
-    setServerState({ submitting: true });
-    axios({
-      method: "post",
-      url: "https://getform.io/f/ea276300-1bb4-4d31-b06b-1dcc8a506e57",
-      data: new FormData(form)
-    })
-      .then(r => {
-        handleServerResponse(true, "Thanks!", form);
-        console.log('sent')
-      })
-      .catch(r => {
-        handleServerResponse(false, r.response.data.error, form);
-      });
-  };
+  useEffect(() => {
+    const el = document.querySelector('#form-menu');
+    disableBodyScroll(el);
+  }, []);
 
   return (
     <FlexCol
       data-comp={FormMobile.displayName}
+      id='form-menu'
       sx={{
         position: 'fixed',
         top: 0,
         left: 0,
         bottom: 0,
         right: 0,
-        height: '100vh',
+        height: '100%',
         width: '100vw',
         background: 'white',
         zIndex: 6,
         overflowY: 'scroll',
         justifyContent: 'flex-end',
         alignItems: 'center',
-        pt: '20vh',
-        pb: '160px',
+        py: ['100px', '120px'],
         px: 15
       }}
       {...props}
@@ -93,21 +66,42 @@ export const FormMobile = ({
           onSubmit={handleOnSubmit}
           sx={{ width: '100%' }}
         >
-          { formFields.map((field, index) => (
-            <Input
-              key={index}
-              sx={inputSx}
-              type={field.type}
-              placeholder={field.label}
-              name={field.key}
-            />
+          { formFields.map(field => (
+              field.key === 'message'
+                ? <Fragment key={field.key}>
+                    <Text
+                      sx={{
+                        ...fontSx,
+                        pb: '5px',
+                      }}
+                    >
+                      {field.label}
+                    </Text>
+                    <Text
+                      as='textarea'
+                      sx={textAreaSx}
+                      type={field.type}
+                      name={field.key}
+                      required
+                    />
+                  </Fragment>
+                : <Input
+                    key={field.key}
+                    sx={textFieldSx}
+                    type={field.type}
+                    placeholder={field.label}
+                    name={field.key}
+                    required
+                  />
           ))}
           <Text
             as='button'
             type='submit'
             variant='buttons.primary'
             sx={{
-              mx: 'auto'
+              mx: 'auto',
+              mt: 20,
+              mb: 16
             }}
           >
             Send Message
@@ -118,12 +112,16 @@ export const FormMobile = ({
   );
 };
 
-const inputSx = {
+const fontSx = {
   color: 'B2',
   fontFamily: 'Tungsten, sans-serif',
   fontWeight: 600,
   fontSize: 3,
   letterSpacing: '0.03em',
+};
+
+const textFieldSx = {
+  ...fontSx,
   pb: '5px',
   border: 0,
   borderBottom: '1px solid #0A2A42',
@@ -137,6 +135,17 @@ const inputSx = {
   '&::placeholder': {
     color: 'B2'
   }
+};
+
+const textAreaSx = {
+  ...fontSx,
+  width: '100%',
+  height: '120px',
+  resize: 'none',
+  outline: 'none',
+  border: '1px solid #0A2A42',
+  borderRadius: '5px',
+  p: 5
 };
 
 FormMobile.displayName = 'FormMobile';

@@ -26,7 +26,7 @@ export const Map = () => {
       sx={{
         bg: 'white',
         width: '100%',
-        height: '400px',
+        height: ['400px', '300px', null, '400px'],
         overflow: 'hidden',
         position: 'relative',
       }}
@@ -76,7 +76,7 @@ export const Map = () => {
               px: 13,
               borderRadius: '5px',
               position: 'absolute',
-              top: '70px',
+              top: [14, 14, null, '70px'],
               left: '50px',
               cursor: 'pointer'
             }}

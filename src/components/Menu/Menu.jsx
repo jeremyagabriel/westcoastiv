@@ -7,7 +7,7 @@ import scrollTo from 'gatsby-plugin-smoothscroll';
 import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 import { FlexCol } from '../Components';
 import { BookNowButton } from '../BookNowButton';
-import { FormMobile } from '../Form';
+import { FormMain } from '../Form';
 import { menuOpenAtom, formOpenAtom } from '../../lib/atoms';
 
 const services = [
@@ -149,10 +149,13 @@ export const Menu = ({
             url={button?.url}
           />
         </FlexCol>
+        { formOpen &&
+          <FormMain
+            mobile={true}
+            sx={{ display: ['flex', null, null, 'none'] }}
+          />
+        }
       </FlexCol>
-      { formOpen &&
-        <FormMobile />
-      }
     </>
   )
 }

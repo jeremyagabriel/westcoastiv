@@ -114,6 +114,7 @@ export const Header = () => {
           width: '100%',
           userSelect: 'none',
         }}
+        draggable='false'
       />
       <Image
         src={CurveMobile}
@@ -126,6 +127,7 @@ export const Header = () => {
           width: '100%',
           userSelect: 'none',
         }}
+        draggable='false'
       />
       <FlexCol
         sx={{
@@ -135,8 +137,8 @@ export const Header = () => {
           left: '50%',
           transform: 'translateX(-50%)',
           bottom: 8,
-          transition: '0.3s',
-          opacity: !navbarPos ? 1 : 0
+          transition: '0.2s',
+          userSelect: 'none'
         }}
       >
         <IoChevronDownSharp

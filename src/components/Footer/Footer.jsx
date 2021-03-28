@@ -1,17 +1,24 @@
 /** @jsx jsx */
-import { jsx, Text, Box } from 'theme-ui';
+import { jsx, Text, Box, Image } from 'theme-ui';
 import React, { useMemo } from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
-import { Flex } from '../Components';
+import { graphql, useStaticQuery, Link } from 'gatsby';
+import { Flex, FlexCol } from '../Components';
 import { Map } from './Map';
-import { FormFooter } from '../Form';
+import { FormMain } from '../Form';
+import Facebook from '../../assets/facebook.svg';
+import Instagram from '../../assets/instagram.svg';
+import Twitter from '../../assets/twitter.svg';
+
+const icons = {
+  facebook: Facebook,
+  instagram: Instagram,
+  twitter: Twitter
+};
 
 
 export const Footer = () => {
   const { data, socialLinks } = useStaticQuery(query);
-
-  console.log('footer data', data);
-  console.log('social links', socialLinks)
+  const logoLight = '/images/westcoastiv_logo_light.png';
 
   const section = useMemo(() => {
     const dataObj = data?.content?.reduce((obj, item) => {
@@ -35,56 +42,138 @@ export const Footer = () => {
       }}
     >
       <Map />
-      <Flex
+      <FlexCol
         sx={{
           width: '100%',
-          height: '300px',
           bg: 'B2',
-          alignItems: 'flex-end',
-          pb: 22,
-          px: 14
+          pb: [21, null, 15],
+          px: [14, null, null, null, null, 23],
+          pt: [9, 14, 0]
         }}
       >
-        <Flex>
-          { section.footerList?.map((item, index) => (
-              <Box
-                key={index}
-                sx={{
-                  width: '160px',
-                  mr: 16
-                }}
-              >
-                <Text
+        <Flex
+          sx={{
+            width: '100%',
+            flexDirection: ['column-reverse', null, 'row'],
+            justifyContent: ['flex-start', null, 'space-between'],
+            alignItems: ['center', null, 'flex-start'],
+            mb: [15, null, 16]
+          }}
+        >
+          <Flex
+            sx={{
+              pt: ['50px', null, 18, null, 25],
+              flex: 1,
+              flexWrap: 'wrap',
+              maxWidth: ['320px', null, '100%']
+              // justifyContent: 'space-between'
+            }}
+          >
+            { section.footerList?.map((item, index) => (
+                <Box
+                  key={index}
                   sx={{
-                    fontFamily: 'Tungsten, sans-serif',
-                    fontWeight: 600,
-                    color: 'white',
-                    fontSize: '12px',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.2em',
-                    mb: 10
+                    width: ['auto', null, null, null, '160px'],
+                    mr: index === 1
+                      ? [0, null, 16]
+                      : [15, null, 16],
+                    mb: 16
                   }}
                 >
-                  {item.headingContent?.heading}
-                </Text>
-                <Text
-                  sx={{
-                    color: 'white',
-                    lineHeight: 1.25,
-                  }}
-                  dangerouslySetInnerHTML={{
-                    __html: item.textContent?.[0]?.text?.text
-                  }}
-                />
-              </Box>
-          ))}
+                  <Text
+                    sx={{
+                      fontFamily: 'Tungsten, sans-serif',
+                      fontWeight: 600,
+                      color: 'white',
+                      fontSize: '12px',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.2em',
+                      mb: 10
+                    }}
+                  >
+                    {item.headingContent?.heading}
+                  </Text>
+                  <Text
+                    sx={{
+                      color: 'white',
+                      lineHeight: 1.25,
+                    }}
+                    dangerouslySetInnerHTML={{
+                      __html: item.textContent?.[0]?.text?.text
+                    }}
+                  />
+                </Box>
+            ))}
+          </Flex>
+          <Flex
+            sx={{
+              justifyContent: 'center',
+            }}
+          >
+            <FormMain
+              sx={{
+                // display: ['none', null, null, 'flex']
+              }}
+            />
+          </Flex>
         </Flex>
-      </Flex>
-      <FormFooter
+        <FlexCol
+          sx={{
+            width: '100%',
+            alignItems: 'center',
+            mb: [0, null, 8]
+          }}
+        >
+            <Image
+              src={logoLight}
+              alt='West Coast IV Logo'
+              sx={{
+                width: '47px',
+                mb: 10
+              }}
+            />
+            <Flex
+              sx={{
+                justifyContent: 'center',
+                alignItems: 'center'
+              }}
+            >
+              { socialLinks?.content?.map((link, index) => (
+                  <Link
+                    key={link.metaHandle}
+                    to={link.url}
+                    target='_blank'
+                    sx={{
+                      mr: index !== socialLinks.content.length - 1
+                        ? 10
+                        : 0
+                    }}
+                  >
+                    <Image
+                      src={icons[link.metaHandle]}
+                      sx={{
+                        width: '22px'
+                      }}
+                    />
+                  </Link>
+              ))}
+            </Flex>
+        </FlexCol>
+      </FlexCol>
+      <Text
         sx={{
-          display: ['none', null, null, 'flex']
+          color: 'white',
+          fontSize: '11px',
+          position: 'absolute',
+          bottom: 8,
+          left: '50%',
+          transform: 'translateX(-50%)',
+          width: '100%',
+          textAlign: 'center'
         }}
-      />
+      >
+        © {new Date().getFullYear()} West Coast IV. All Rights Reserved
+      </Text>
     </Box>
   );
 };

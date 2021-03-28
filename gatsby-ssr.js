@@ -38,6 +38,22 @@ exports.onRenderBody = ({
       key="font-tungsten-narrow-semibold"
     />,
     <link
+      rel="preload"
+      href="/images/westcoastiv_logo_dark.png"
+      as="image"
+      type="image/png"
+      crossorigin
+      key="westcoastiv-logo-dark"
+    />,
+    <link
+      rel="preload"
+      href="/images/westcoastiv_logo_light.png"
+      as="image"
+      type="image/png"
+      crossorigin
+      key="westcoastiv-logo-light"
+    />,
+    <link
       id='fonts-link-css'
       type="text/css"
       key='fonts-link-css'

@@ -25,8 +25,10 @@ module.exports = {
     description: `San Diego’s leading replenishment provider in Cryotherapy, IV therapy, and Vitamin Injections.`,
     url: `https://westcoastiv.netlify.app`,
     image: `/images/westcoastiv_og_image.jpg`,
-    author: `West Coast IV`,
-    keywords: `Cryotherapy, Vitamin Injections, Hydration Therapy, San Diego, Muscle Recovery, Fitness`
+    // author: `West Coast IV`,
+    author: `Test`,
+    // keywords: `Cryotherapy, Vitamin Injections, Hydration Therapy, San Diego, Muscle Recovery, Fitness`
+    keywords: `Test`
   },
   plugins: [
     'gatsby-plugin-theme-ui',

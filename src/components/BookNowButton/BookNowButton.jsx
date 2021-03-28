@@ -14,7 +14,8 @@ export const BookNowButton = ({
       href={url || 'https://westcoastiv.netlify.com'}
       target='_blank'
       sx={{
-        ...style
+        ...style,
+        maxWidth: '206px'
       }}
     >
       {title}

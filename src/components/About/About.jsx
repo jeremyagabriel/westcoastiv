@@ -246,6 +246,7 @@ export const About = () => {
           userSelect: 'none',
           transform: 'rotate(180deg)',
         }}
+        draggable='false'
       />
     </LazyBackgroundImage>
   )

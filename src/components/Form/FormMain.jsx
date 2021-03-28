@@ -1,17 +1,17 @@
 /** @jsx jsx */
-import { useState, useEffect } from 'react';
-import { jsx, Text, Input, Box } from 'theme-ui';
+import { useState } from 'react';
+import { jsx } from 'theme-ui';
 import axios from 'axios';
-import { FlexCol } from '../Components';
-import { formFields, blankForm } from './form';
 import { FormFooter } from './FormFooter';
 import { FormMobile } from './FormMobile';
+const getformAPI = process.env.GATSBY_GETFORM_API;
 
 
 export const FormMain = ({
   mobile = false,
   ...props
 }) => {
+
   const [loading, setLoading] = useState(false);
   const [serverState, setServerState] = useState({
     submitting: false,
@@ -35,7 +35,7 @@ export const FormMain = ({
     setServerState({ submitting: true });
     axios({
       method: "post",
-      url: "https://getform.io/f/ea276300-1bb4-4d31-b06b-1dcc8a506e57",
+      url: `https://getform.io/f/${getformAPI}`,
       data: new FormData(form)
     })
       .then(r => {
@@ -52,10 +52,12 @@ export const FormMain = ({
       ? <FormMobile
           handleOnSubmit={handleOnSubmit}
           loading={loading}
+          {...props}
         />
       : <FormFooter
           handleOnSubmit={handleOnSubmit}
           loading={loading}
+          {...props}
         />
   );
 };
