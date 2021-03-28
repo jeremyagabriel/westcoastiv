@@ -44,9 +44,9 @@ export const Menu = ({
   }, [menuOpen]);
 
   const handleClick = (link) => {
-    if (link.to === '#services-anchor') {
+    if (link.to === '#services') {
       setServicesExpanded(!servicesExpanded);
-    } else if (link.to === '#contact-anchor') {
+    } else if (link.to === '#contact') {
       setFormOpen(true);
     } else if (isHome) {
       scrollTo(link.to);
@@ -103,7 +103,7 @@ export const Menu = ({
                   <Text
                     variant='text.h6'
                     sx={{
-                      color: link.to === '#services-anchor' && servicesExpanded
+                      color: link.to === '#services' && servicesExpanded
                         ? 'P2'
                         : 'white',
                       textTransform: 'none',
@@ -115,7 +115,7 @@ export const Menu = ({
                   >
                     {link.label}
                   </Text>
-                  { link.to === '#services-anchor' && servicesExpanded &&
+                  { link.to === '#services' && servicesExpanded &&
                       <FlexCol
                         sx={{
                           mt: 8,
