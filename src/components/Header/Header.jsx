@@ -86,11 +86,6 @@ export const Header = () => {
         >
           {hero.subheading}
         </Text>
-        { isMobile &&
-            <Text>
-              This is a test for mobile
-            </Text>
-        }
         <Text
           sx={{
             color: 'white',
@@ -176,7 +171,7 @@ const heroSx = (src) => ({
   width: '100vw',
   height: [isMobile ? '80vh' : '90vh', null, null, '100vh'],
   minHeight: [isMobile ? null : '600px'],
-  maxHeight: '900px',
+  maxHeight: [isMobile ? '700px' : '900px'],
 });
 
 Header.displayName = 'Header';
