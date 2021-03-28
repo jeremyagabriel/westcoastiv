@@ -26,7 +26,7 @@ export const Services = () => {
         position: 'relative',
         width: '100vw',
         maxWidth: '906px',
-        mb: 26,
+        mb: [23, null, 26, '220px'],
         // mt: 20,
         // pt: 16,
         mx: 14
@@ -45,7 +45,7 @@ export const Services = () => {
       />
       <Heading
         text={section.heading}
-        style={{ mb: 20 }}
+        style={{ mb: [18, null, 23] }}
       />
       <ServicesRow
         content={section.row}

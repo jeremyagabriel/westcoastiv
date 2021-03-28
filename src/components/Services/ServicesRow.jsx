@@ -36,7 +36,6 @@ export const ServicesRow = ({ content }) => {
         justifyContent: ['flex-start', null, null, 'center'],
         alignItems: ['center', null, null, 'flex-start'],
         width: '100%',
-        mb: 16,
         zIndex: 3,
         px: '20px',
       }}

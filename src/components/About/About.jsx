@@ -3,10 +3,13 @@ import { jsx, Text, Box, Image as ImageUI } from 'theme-ui';
 import React, { useMemo } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { BiPlusMedical } from 'react-icons/bi';
+import ReactMarkdown from 'react-markdown';
 import { LazyBackgroundImage } from '../LazyBackgroundImage';
 import { Flex, FlexCol, Image } from '../Components';
 import { Heading } from '../Heading';
 import Curve from '../../assets/curve.svg';
+import CurveMobile from '../../assets/curve-mobile.svg';
+
 
 export const About = () => {
   const { data } = useStaticQuery(query);
@@ -47,54 +50,93 @@ export const About = () => {
         justifyContent: 'center',
         alignItems: 'flex-end',
         width: '100vw',
-        bg: 'BR1',
-        minHeight: '1100px',
         position: 'relative',
-        mt: '-480px',
       }}
     >
       <Box
-        id='about'
         sx={{
-          height: '1px',
-          width: '1px',
-          visibility: 'hidden',
+          width: '100%',
+          bg: 'BR1',
+          height: ['1400px', '1600px', '1600px', '1200px'],
           position: 'absolute',
-          left: 0,
-          top: ['-84px', '-100px']
+          top: ['-410px', '-510px', '-630px', '-520px'],
+          zIndex: -1
         }}
-      />
+      >
+        <ImageUI
+          src={Curve}
+          sx={{
+            display: ['none', null, null, 'block'],
+            position: 'absolute',
+            top: '-5px',
+            left: 0,
+            right: 0,
+            width: '100%',
+            userSelect: 'none',
+            transform: 'rotate(180deg)',
+          }}
+          draggable='false'
+        />
+        <ImageUI
+          src={CurveMobile}
+          sx={{
+            display: ['block', null, null, 'none'],
+            position: 'absolute',
+            top: '-5px',
+            left: 0,
+            right: 0,
+            width: '100%',
+            userSelect: 'none',
+            transform: 'rotate(180deg)',
+          }}
+          draggable='false'
+        />
+      </Box>
+
       <LazyBackgroundImage
         src={section.bgImage}
         sx={{
           display: ['none', null, null, 'block'],
           position: 'absolute',
           width: '100%',
-          height: '100%',
+          height: '110%',
           top: 0,
           bottom: 0,
           left: 0,
           right: 0,
           backgroundPosition: 'left bottom',
-          backgroundSize: '420px',
+          backgroundSize: '440px',
           opacity: 0.7,
         }}
       />
+
       <Flex
         data-comp={About.displayName}
-        id='about'
         sx={{
           flexDirection: ['column', null, null, 'row'],
           justifyContent: ['flex-start', null, null, 'center'],
           alignItems: ['center', null, null, 'flex-start'],
           maxWidth: '760px',
-          mb: 26,
-          pt: 16,
+          mb: [23, null, 26],
+          mx: [10, null, null, '50px', 0],
         }}
       >
         <Box
+          id='about'
           sx={{
-            mr: [0, null, null, '100px']
+            height: '1px',
+            width: '1px',
+            visibility: 'hidden',
+            position: 'absolute',
+            left: 0,
+            top: ['-124px', '-160px']
+          }}
+        />
+        <Box
+          sx={{
+            mr: [17, null, null, '100px'],
+            ml: [17, null, null, 0],
+            mb: [23, null, null, 0],
           }}
         >
           <Text
@@ -116,86 +158,109 @@ export const About = () => {
           />
           <Box
             sx={{
-              maxWidth: '330px'
+              maxWidth: '330px',
+              textAlign: ['center', null, null, 'left'],
+              fontFamily: 'body',
+              fontSize: [0, 1],
+              fontWeight: 300,
+              p: {
+                m: 0,
+                mb: 8
+              }
             }}
           >
-            <Text
-              sx={{
-                textAlign: ['center', null, null, 'left']
-              }}
-              dangerouslySetInnerHTML={{
-                __html: section.text
-              }}
-            />
+            <ReactMarkdown>
+              {section.text}
+            </ReactMarkdown>
           </Box>
         </Box>
 
         <Box
           sx={{
-            mr: [0, null, null, 15]
+            mr: [0, null, null, 15],
+            ml: ['24%', '20%', '40%', 0]
           }}
         >
-          <LazyBackgroundImage
-            src={section.portraitImage}
+          <Box
             sx={{
-              width: '284px',
-              height: '381px',
-              borderRadius: '5px',
-              overflow: 'hidden',
-              position: 'relative',
-              bg: 'white',
+              width: ['210px', null, '284px'],
+              height: ['282px', null, '381px'],
+              position: 'relative'
             }}
           >
-            <Box
+            <LazyBackgroundImage
+              src={section.portraitImage}
               sx={{
-                position: 'absolute',
                 width: '100%',
                 height: '100%',
-                top: 0,
-                left: 0,
-                bottom: 0,
-                right: 0,
-                bg: '#059A7D',
-                opacity: 0.44,
-              }}
-            />
-            <Flex
-              sx={{
-                justifyContent: 'flex-end',
-                alignItems: 'center',
-                position: 'absolute',
-                top: 5,
-                right: 5,
+                borderRadius: '5px',
+                overflow: 'hidden',
+                position: 'relative',
+                bg: 'white',
               }}
             >
               <Box
                 sx={{
-                  height: '1px',
-                  width: '168px',
-                  bg: '#D6FAF3',
-                  mr: 5,
+                  position: 'absolute',
+                  width: '100%',
+                  height: '100%',
+                  top: 0,
+                  left: 0,
+                  bottom: 0,
+                  right: 0,
+                  bg: '#059A7D',
+                  opacity: 0.44,
                 }}
               />
-              <BiPlusMedical
+              <Flex
                 sx={{
-                  color: '#D6FAF3',
-                  fontSize: '14px',
+                  justifyContent: 'flex-end',
+                  alignItems: 'center',
+                  position: 'absolute',
+                  top: 5,
+                  right: 5,
+                }}
+              >
+                <Box
+                  sx={{
+                    height: '1px',
+                    width: ['112px', null, '168px'],
+                    bg: '#D6FAF3',
+                    mr: 5,
+                  }}
+                />
+                <BiPlusMedical
+                  sx={{
+                    color: '#D6FAF3',
+                    fontSize: '14px',
+                  }}
+                />
+              </Flex>
+            </LazyBackgroundImage>
+            <BiPlusMedical
+                sx={{
+                  position: 'absolute',
+                  color: '#10B0EE',
+                  opacity: 0.2,
+                  fontSize: '44px',
+                  bottom: ['60px', null, '-40px'],
+                  left: ['-60px', null, 'auto'],
+                  right: ['auto', null, '-40px']
                 }}
               />
-            </Flex>
-          </LazyBackgroundImage>
+          </Box>
 
           <LazyBackgroundImage
             src={section.landscapeImage}
             sx={{
-              width: '300px',
-              height: '168px',
+              width: ['219px', null, '300px'],
+              height: ['123px', null, '168px'],
               borderRadius: '5px',
               overflow: 'hidden',
               position: 'relative',
               bg: 'white',
-              mt: '-120px',
-              ml: '-190px'
+              mt: ['-50px', null, '-120px'],
+              ml: ['-90px', null, '-190px']
             }}
           >
             <Box
@@ -228,39 +293,15 @@ export const About = () => {
               <Box
                 sx={{
                   height: '1px',
-                  width: '168px',
+                  width: ['124px', null, '168px'],
                   bg: '#D6FAF3',
                   ml: 5,
                 }}
               />
             </Flex>
           </LazyBackgroundImage>
-          <BiPlusMedical
-            sx={{
-              position: 'absolute',
-              color: '#10B0EE',
-              opacity: 0.2,
-              fontSize: '44px',
-              bottom: '12px',
-              right: '3px',
-            }}
-          />
         </Box>
       </Flex>
-
-      <ImageUI
-        src={Curve}
-        sx={{
-          position: 'absolute',
-          top: '-5px',
-          left: 0,
-          right: 0,
-          width: '100%',
-          userSelect: 'none',
-          transform: 'rotate(180deg)',
-        }}
-        draggable='false'
-      />
     </Flex>
   )
 }

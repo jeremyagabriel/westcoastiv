@@ -28,13 +28,13 @@ export const Benefits = () => {
         width: '100vw',
         maxWidth: '906px',
         pt: 26,
-        mb: 27,
+        mb: [20, null, 27],
         mx: 14
       }}
     >
       <Heading
         text={section.heading}
-        style={{ mb: 24 }}
+        style={{ mb: [18, null, 24] }}
       />
       <BenefitsRow
         content={section.row}
