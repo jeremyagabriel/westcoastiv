@@ -41,8 +41,7 @@ export const About = () => {
   }, []);
 
   return (
-    <LazyBackgroundImage
-      src={section.bgImage}
+    <Flex
       sx={{
         display: 'flex',
         justifyContent: 'center',
@@ -52,12 +51,10 @@ export const About = () => {
         minHeight: '1100px',
         position: 'relative',
         mt: '-480px',
-        backgroundPosition: 'left bottom',
-        backgroundSize: '36%',
       }}
     >
       <Box
-        id='about-anchor'
+        id='about'
         sx={{
           height: '1px',
           width: '1px',
@@ -65,6 +62,22 @@ export const About = () => {
           position: 'absolute',
           left: 0,
           top: ['-84px', '-100px']
+        }}
+      />
+      <LazyBackgroundImage
+        src={section.bgImage}
+        sx={{
+          display: ['none', null, null, 'block'],
+          position: 'absolute',
+          width: '100%',
+          height: '100%',
+          top: 0,
+          bottom: 0,
+          left: 0,
+          right: 0,
+          backgroundPosition: 'left bottom',
+          backgroundSize: '420px',
+          opacity: 0.7,
         }}
       />
       <Flex
@@ -248,7 +261,7 @@ export const About = () => {
         }}
         draggable='false'
       />
-    </LazyBackgroundImage>
+    </Flex>
   )
 }
 

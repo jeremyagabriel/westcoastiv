@@ -45,17 +45,29 @@ export const ServiceHero = ({ content }) => {
         maxHeight: '700px',
       }}
     >
-      <LazyBackgroundImage
-        src={hero.bgImage}
+      <Flex
         sx={{
           display: 'flex',
           width: '100%',
           height: '500px',
-          backgroundPosition: 'right bottom',
-          backgroundSize: '36%',
           alignItems: 'flex-end',
         }}
       >
+        <LazyBackgroundImage
+          src={hero.bgImage}
+          sx={{
+            display: ['none', null, null, 'block'],
+            position: 'absolute',
+            width: '100%',
+            height: '100%',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundPosition: 'right bottom',
+            backgroundSize: '346px',
+          }}
+        />
         <FlexCol
           sx={{
             maxWidth: '315px',
@@ -93,7 +105,7 @@ export const ServiceHero = ({ content }) => {
             }}
           />
         </FlexCol>
-      </LazyBackgroundImage>
+      </Flex>
       <Box
         sx={{
           bg: 'BR1',

@@ -27,13 +27,14 @@ export const Benefits = () => {
         alignItems: 'center',
         width: '100vw',
         maxWidth: '906px',
-        py: 26,
+        pt: 26,
+        mb: 27,
         mx: 14
       }}
     >
       <Heading
         text={section.heading}
-        style={{ mb: 20 }}
+        style={{ mb: 24 }}
       />
       <BenefitsRow
         content={section.row}

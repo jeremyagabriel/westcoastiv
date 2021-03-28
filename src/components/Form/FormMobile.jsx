@@ -127,7 +127,6 @@ const textFieldSx = {
   borderBottom: '1px solid #0A2A42',
   mb: '60px',
   borderRadius: 0,
-  border: '0px',
   outline: 0,
   height: 'auto',
   px: 0,

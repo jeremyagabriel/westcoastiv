@@ -23,17 +23,17 @@ const navbarLinks = [
   },
   {
     label: 'Services',
-    to: '#services-anchor',
-    pageTo: '/#services-anchor'
+    to: '#services',
+    pageTo: '/#services'
   },
   {
     label: 'About',
-    to: '#about-anchor',
-    pageTo: '/#about-anchor'
+    to: '#about',
+    pageTo: '/#about'
   },
   {
     label: 'Contact',
-    to: '#contact-anchor',
+    to: '#contact',
   },
 ];
 
@@ -157,7 +157,7 @@ export const Navbar = ({
                         variant='buttons.navbar'
                         className='navbar-button'
                         onClick={() => {
-                          link.to === '#contact-anchor' || isHome
+                          link.to === '#contact' || isHome
                             ? scrollTo(link.to)
                             : navigate(link.pageTo);
                         }}

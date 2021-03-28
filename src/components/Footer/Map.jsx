@@ -26,7 +26,7 @@ export const Map = () => {
       sx={{
         bg: 'white',
         width: '100%',
-        height: ['400px', '300px', null, '400px'],
+        height: ['400px', null, '300px', '400px'],
         overflow: 'hidden',
         position: 'relative',
       }}
@@ -44,7 +44,7 @@ export const Map = () => {
             <GoogleMap
               mapContainerStyle={mapStyle}
               center={offset}
-              zoom={17}
+              zoom={16}
               clickableIcons={false}
               options={{
                 zoomControl: false,
@@ -76,8 +76,10 @@ export const Map = () => {
               px: 13,
               borderRadius: '5px',
               position: 'absolute',
-              top: [14, 14, null, '70px'],
-              left: '50px',
+              top: ['auto', null, 14, '70px'],
+              bottom: ['72px', null, 'auto'],
+              left: ['50%', null, '50px'],
+              transform: ['translateX(-50%)', null, 'none'],
               cursor: 'pointer'
             }}
             href='https://g.page/westcoastiv?share'

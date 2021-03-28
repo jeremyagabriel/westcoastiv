@@ -27,10 +27,12 @@ export const Header = () => {
     button: data?.buttonContent
   }), []);
 
+  const staticHeroImg = '/images/westcoastiv-hero.jpg';
+
   return (
     <Box
       data-comp={Header.displayName}
-      sx={heroSx(HeroImage)}
+      sx={heroSx(staticHeroImg)}
       id='header'
     >
       <Box
@@ -167,7 +169,7 @@ const heroSx = (src) => ({
   backgroundImage: src ? `url(${src})` : null,
   backgroundSize: 'cover',
   width: '100vw',
-  height: [isMobile ? '80vh' : '90vh', null, null, '100vh'],
+  height: [isMobile ? '70vh' : '90vh', null, null, '100vh'],
   minHeight: '600px',
   maxHeight: '900px',
 });

@@ -54,6 +54,14 @@ exports.onRenderBody = ({
       key="westcoastiv-logo-light"
     />,
     <link
+      rel="preload"
+      href="/images/westcoastiv-hero.jpg"
+      as="image"
+      type="image/jpg"
+      crossorigin
+      key="westcoastiv-hero"
+    />,
+    <link
       id='fonts-link-css'
       type="text/css"
       key='fonts-link-css'

@@ -21,27 +21,26 @@ export const Services = () => {
   return (
     <FlexCol
       data-comp={Services.displayName}
-      id='services'
       sx={{
         alignItems: 'center',
         position: 'relative',
         width: '100vw',
         maxWidth: '906px',
         mb: 26,
-        mt: 20,
-        pt: 16,
+        // mt: 20,
+        // pt: 16,
         mx: 14
       }}
     >
       <Box
-        id='services-anchor'
+        id='services'
         sx={{
           height: '1px',
           width: '1px',
           visibility: 'hidden',
           position: 'absolute',
           left: 0,
-          top: ['-84px', '-100px']
+          top: ['-104px', '-150px']
         }}
       />
       <Heading

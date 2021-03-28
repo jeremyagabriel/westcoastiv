@@ -2,6 +2,7 @@
 import { jsx, Text, Box, Image } from 'theme-ui';
 import React, { useMemo } from 'react';
 import { graphql, useStaticQuery, Link } from 'gatsby';
+import ReactMarkdown from 'react-markdown';
 import { Flex, FlexCol } from '../Components';
 import { Map } from './Map';
 import { FormMain } from '../Form';
@@ -93,15 +94,26 @@ export const Footer = () => {
                   >
                     {item.headingContent?.heading}
                   </Text>
-                  <Text
+                  <Box
                     sx={{
+                      fontSize: 0,
                       color: 'white',
                       lineHeight: 1.25,
+                      fontFamily: 'body',
+                      fontWeight: 300,
+                      p: {
+                        m: 0
+                      },
+                      a: {
+                        textDecoration: 'none',
+                        color: 'white'
+                      }
                     }}
-                    dangerouslySetInnerHTML={{
-                      __html: item.textContent?.[0]?.text?.text
-                    }}
-                  />
+                  >
+                    <ReactMarkdown>
+                        {item.textContent?.[0]?.text?.text}
+                    </ReactMarkdown>
+                  </Box>
                 </Box>
             ))}
           </Flex>

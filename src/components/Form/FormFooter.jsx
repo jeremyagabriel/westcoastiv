@@ -14,7 +14,6 @@ export const FormFooter = ({
   return (
     <FlexCol
       data-comp={FormFooter.displayName}
-      id='contact'
       sx={{
         width: '290px',
         height: 'auto',
@@ -27,7 +26,7 @@ export const FormFooter = ({
       {...props}
     >
       <Box
-        id='contact-anchor'
+        id='contact'
         sx={{
           height: '1px',
           width: '1px',
@@ -133,7 +132,6 @@ const textFieldSx = {
   borderBottom: '1px solid #0A2A42',
   mb: '26px',
   borderRadius: 0,
-  border: '0px',
   outline: 0,
   height: 'auto',
   px: 0,
