@@ -166,12 +166,13 @@ const heroSx = (src) => ({
   backgroundColor: 'white',
   backgroundRepeat: 'no-repeat',
   backgroundPosition: ['65% 50%', '75% 50%', '90% 50%', 'center center'],
-  backgroundImage: src ? `url(${src})` : null,
+  // backgroundImage: src ? `url(${src})` : null,
+  backgroundImage: isMobile ? null : `url(${src})`,
   backgroundSize: 'cover',
   width: '100vw',
   height: [isMobile ? '80vh' : '90vh', null, null, '100vh'],
   minHeight: [isMobile ? null : '600px'],
-  maxHeight: [isMobile ? '500px' : '900px'],
+  maxHeight: [isMobile ? '700px' : '900px'],
 });
 
 Header.displayName = 'Header';
