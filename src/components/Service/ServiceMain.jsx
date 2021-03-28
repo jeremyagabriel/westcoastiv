@@ -4,7 +4,7 @@ import React, { useMemo, useEffect } from 'react';
 import { Flex, FlexCol, Image } from '../Components';
 import { ServiceHero } from './ServiceHero';
 import { ServiceBenefits } from './ServiceBenefits';
-import { ServiceRecs } from './ServiceRecs';
+import { Recommendations } from '../Recommendations';
 import { Footer } from '../Footer';
 import { Navbar } from '../Header';
 
@@ -31,7 +31,7 @@ export const ServiceMain = ({ data }) => {
         content={data?.benefits}
       />
 
-      <ServiceRecs
+      <Recommendations
         content={data?.recs}
       />
 

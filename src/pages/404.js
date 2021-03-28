@@ -1,16 +1,17 @@
 /** @jsx jsx */
-import { jsx, Text, Box, Container } from 'theme-ui';
-import React, { useMemo } from 'react';
-import { Flex, FlexCol, Image } from '../components/Components';
+import { jsx, Text, Container } from 'theme-ui';
+import { FlexCol } from '../components/Components';
 import { Main } from '../layouts';
 import { Navbar } from '../components/Header';
 import { Footer } from '../components/Footer';
+import { Seo } from '../components/seo.js';
 
 
 const FourZeroFour = () => {
 
   return (
     <Main>
+      <Seo />
       <Container
         data-comp={FourZeroFour.displayName}
         sx={{

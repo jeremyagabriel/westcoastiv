@@ -1,11 +1,15 @@
 /** @jsx jsx */
-import { jsx, Text, Box, Image as ImageUI } from 'theme-ui';
-import React, { useMemo } from 'react';
-import { Flex, FlexCol, Image } from '../Components';
+import { jsx, Text, Box } from 'theme-ui';
+import { useMemo } from 'react';
+import { FlexCol, Image } from '../Components';
 import { BookNowButton } from '../BookNowButton';
 
 
-export const ServiceRecsItem = ({ content, index, ...props }) => {
+export const RecsItem = ({
+  content,
+  index,
+  ...props
+}) => {
 
   const item = useMemo(() => ({
     image: content?.image?.image?.file?.url,
@@ -17,7 +21,7 @@ export const ServiceRecsItem = ({ content, index, ...props }) => {
 
   return (
     <FlexCol
-      data-comp={ServiceRecsItem.displayName}
+      data-comp={RecsItem.displayName}
       sx={{
         width: '230px',
         // height: '420px',
@@ -27,19 +31,25 @@ export const ServiceRecsItem = ({ content, index, ...props }) => {
         background: 'rgba(23, 31, 149, 0.03)',
         borderRadius: '6px',
         m: '15px',
-        alignItems: 'center'
+        alignItems: 'center',
       }}
       {...props}
     >
-      <Image
-        src={item.image}
-        alt={item.alt}
+      <Box
         sx={{
           height: '200px',
-          objectFit: 'contain',
-          mb: 10
         }}
-      />
+      >
+        <Image
+          src={item.image}
+          alt={item.alt}
+          sx={{
+            height: '200px',
+            objectFit: 'contain',
+            mb: 10
+          }}
+        />
+      </Box>
       <Text
         variant='text.h7'
         sx={{ textAlign: 'center', mb: 5 }}
@@ -47,7 +57,12 @@ export const ServiceRecsItem = ({ content, index, ...props }) => {
         {item.heading}
       </Text>
       <Text
-        sx={{ textAlign: 'center', mb: 13, height: '50px' }}
+        sx={{
+          textAlign: 'center',
+          mb: 13,
+          height: '50px',
+          maxWidth: '210px'
+        }}
       >
         {item.text}
       </Text>
@@ -59,4 +74,4 @@ export const ServiceRecsItem = ({ content, index, ...props }) => {
   )
 }
 
-ServiceRecsItem.displayName = 'ServiceRecsItem';
+RecsItem.displayName = 'RecsItem';

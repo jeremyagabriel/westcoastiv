@@ -1,6 +1,5 @@
 /** @jsx jsx */
-import { jsx, Text, Box, Image, Container } from 'theme-ui';
-import React from 'react';
+import { jsx, Container } from 'theme-ui';
 import { graphql } from 'gatsby';
 import { Main } from '../layouts';
 import { Footer } from '../components/Footer';
@@ -9,7 +8,6 @@ import { Benefits } from '../components/Benefits';
 import { Services } from '../components/Services';
 import { About } from '../components/About';
 import { Quote } from '../components/Quote';
-import { Menu } from '../components/Menu';
 import { Seo } from '../components/seo.js';
 
 

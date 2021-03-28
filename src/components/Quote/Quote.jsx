@@ -5,17 +5,14 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { BiPlusMedical } from 'react-icons/bi';
 import { Flex, FlexCol, Image } from '../Components';
 import { LazyBackgroundImage } from '../LazyBackgroundImage';
+import { QuoteSwiper } from './QuoteSwiper';
 
 
 export const Quote = () => {
   const { data } = useStaticQuery(query);
 
-  console.log('quote data', data);
-
   const hero = useMemo(() => ({
     image: data?.backgroundImage?.image?.file?.url,
-    heading: data?.headingContent?.heading,
-    subheading: data?.headingContent?.subheading
   }), []);
 
   return (
@@ -26,7 +23,7 @@ export const Quote = () => {
         display: 'flex',
         width: '100vw',
         bg: 'B1',
-        minHeight: '495px',
+        minHeight: ['350px', null, '495px'],
         position: 'relative',
         justifyContent: 'center',
         justifyContent: 'center',
@@ -51,27 +48,29 @@ export const Quote = () => {
           justifyContent: 'space-between',
           alignItems: 'center',
           width: '100%',
-          minHeight: '495px',
+          minHeight: ['350px', null, '495px'],
           maxWidth: '876px',
           maxHeight: '334px',
-          py: 20,
+          py: ['50px', null, 20],
           // borderTop: '0.5px solid',
           // borderBottom: '0.5px solid',
           // borderColor: 'white',
-          // boxShadow: '-.5px -.5px 0 rgba(255,255,255,0.25)',
+          // boxShadow: '-.5px -.5px 0 rgba(255,255,255,0.5)',
         }}
       >
         <Box
           sx={{
             width: '100%',
             height: '1px',
-            bg: 'rgba(255,255,255,0.25)',
+            bg: 'rgba(255,255,255,0.5)',
           }}
         />
         <Flex
           sx={{
+            flexDirection: ['column', null, 'row'],
             justifyContent: 'center',
             alignItems: 'center',
+            width: '100%'
           }}
         >
           <Flex
@@ -82,6 +81,7 @@ export const Quote = () => {
               height: '24px',
               minWidth: '24px',
               minHeight: '24px',
+              mb: [12, null, 0]
             }}
           >
             <BiPlusMedical
@@ -92,38 +92,14 @@ export const Quote = () => {
               }}
             />
           </Flex>
-          <FlexCol
-            sx={{
-              maxWidth: '440px',
-              mx: 22,
-              alignItems: 'center'
-            }}
-          >
-            <Text
-              variant='text.h6'
-              sx={{
-                color: 'white',
-                textAlign: 'center',
-                textTransform: 'none',
-                width: '100%',
-              }}
-            >
-              {hero.heading}
-            </Text>
-            <Text
-              variant='text.h7'
-              sx={{
-                color: 'white',
-                fontSize: '16px',
-                fontWeight: 'medium',
-                mt: 8
-              }}
-            >
-              {hero.subheading}
-            </Text>
-          </FlexCol>
+
+          <QuoteSwiper
+            content={data?.textContent}
+          />
+
           <Flex
             sx={{
+              display: ['none', null, 'flex'],
               justifyContent: 'center',
               alignItems: 'center',
               width: '24px',
@@ -145,7 +121,7 @@ export const Quote = () => {
           sx={{
             width: '100%',
             height: '1px',
-            bg: 'rgba(255,255,255,0.25)',
+            bg: 'rgba(255,255,255,0.5)',
           }}
         />
       </FlexCol>

@@ -1,16 +1,15 @@
 /** @jsx jsx */
-import { jsx, Text, Box, Image as ImageUI } from 'theme-ui';
-import React, { useMemo } from 'react';
-import { Flex, FlexCol, Image } from '../Components';
-import { ServiceRecsItem } from './ServiceRecsItem';
+import { jsx, Text, Box } from 'theme-ui';
+import { Flex, FlexCol } from '../Components';
+import { RecsItem } from './RecsItem';
+import { RecsSwiper } from './RecsSwiper';
 
 
-export const ServiceRecs = ({ content }) => {
-  console.log('service recs', content);
+export const Recommendations = ({ content }) => {
 
   return (
     <Box
-      data-comp={ServiceRecs.displayName}
+      data-comp={Recommendations.displayName}
       sx={{
         width: '100%',
       }}
@@ -40,19 +39,26 @@ export const ServiceRecs = ({ content }) => {
           sx={{
             justifyContent: 'center',
             flexWrap: 'wrap',
+            display: ['none', null, 'flex']
           }}
         >
           { content?.content?.map((item, index) => (
-              <ServiceRecsItem
+              <RecsItem
                 content={item}
                 index={index}
                 key={index}
               />
           ))}
         </Flex>
+        <RecsSwiper
+          content={content?.content}
+          sx={{
+            display: ['block', null, 'none']
+          }}
+        />
       </FlexCol>
     </Box>
   )
 }
 
-ServiceRecs.displayName = 'ServiceRecs';
+Recommendations.displayName = 'Recommendations';
