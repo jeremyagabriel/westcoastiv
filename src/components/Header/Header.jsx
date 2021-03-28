@@ -34,7 +34,7 @@ export const Header = () => {
       data-comp={Header.displayName}
       sx={{
         ...heroSx(staticHeroImg),
-        backgroundImage: isMobile ? null : `url(${src})`,
+        backgroundImage: isMobile ? null : `url(${staticHeroImg})`,
         height: [isMobile ? '80vh' : '90vh', null, null, '100vh'],
         minHeight: [isMobile ? null : '600px'],
         maxHeight: [isMobile ? '700px' : '900px'],
