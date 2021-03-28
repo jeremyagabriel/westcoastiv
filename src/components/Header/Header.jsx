@@ -32,7 +32,7 @@ export const Header = () => {
   return (
     <Box
       data-comp={Header.displayName}
-      sx={heroSx(staticHeroImg)}
+      sx={heroSx(staticHeroImg, isMobile)}
       id='header'
     >
       <Box
@@ -158,7 +158,7 @@ export const Header = () => {
   )
 }
 
-const heroSx = (src) => ({
+const heroSx = (src, mobile) => ({
   position: 'relative',
   display: 'flex',
   alignItems: 'center',
@@ -167,12 +167,12 @@ const heroSx = (src) => ({
   backgroundRepeat: 'no-repeat',
   backgroundPosition: ['65% 50%', '75% 50%', '90% 50%', 'center center'],
   // backgroundImage: src ? `url(${src})` : null,
-  backgroundImage: isMobile ? null : `url(${src})`,
+  backgroundImage: mobile ? null : `url(${src})`,
   backgroundSize: 'cover',
   width: '100vw',
-  height: [isMobile ? '80vh' : '90vh', null, null, '100vh'],
-  minHeight: [isMobile ? null : '600px'],
-  maxHeight: [isMobile ? '700px' : '900px'],
+  height: [mobile ? '80vh' : '90vh', null, null, '100vh'],
+  minHeight: [mobile ? null : '600px'],
+  maxHeight: [mobile ? '700px' : '900px'],
 });
 
 Header.displayName = 'Header';
