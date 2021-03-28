@@ -170,7 +170,7 @@ const heroSx = (src) => ({
   backgroundSize: 'cover',
   width: '100vw',
   height: [isMobile ? '70vh' : '90vh', null, null, '100vh'],
-  minHeight: '600px',
+  minHeight: [isMobile ? null : '600px'],
   maxHeight: '900px',
 });
 
