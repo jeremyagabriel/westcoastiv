@@ -171,7 +171,7 @@ const heroSx = (src) => ({
   width: '100vw',
   height: [isMobile ? '80vh' : '90vh', null, null, '100vh'],
   minHeight: [isMobile ? null : '600px'],
-  maxHeight: [isMobile ? '700px' : '900px'],
+  maxHeight: [isMobile ? '500px' : '900px'],
 });
 
 Header.displayName = 'Header';
