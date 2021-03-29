@@ -14,14 +14,6 @@ export const Recommendations = ({ content }) => {
         width: '100%',
       }}
     >
-      <Box
-        sx={{
-          width: '100%',
-          bg: 'BR1',
-          // flex: 1,
-          height: '100px'
-        }}
-      />
       <FlexCol
         sx={{
           minHeight: '600px',

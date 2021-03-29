@@ -32,14 +32,7 @@ export const Header = () => {
   return (
     <Box
       data-comp={Header.displayName}
-      sx={{
-        ...heroSx(staticHeroImg),
-        backgroundImage: isMobile ? null : `url(${staticHeroImg})`,
-        // height: [isMobile ? '80vh' : '90vh', null, null, '100vh'],
-        height: '80vh',
-        // minHeight: [isMobile ? null : '600px'],
-        // maxHeight: [isMobile ? '700px' : '900px'],
-      }}
+      sx={heroSx(staticHeroImg, isMobile)}
       id='header'
     >
       <Box
@@ -53,7 +46,9 @@ export const Header = () => {
           height: '100%',
           background: 'rgb(0,48,87)',
           background: [
-            'linear-gradient(98.66deg, rgba(0, 48, 87, 0.57) 13.42%, rgba(23, 31, 149, 0.5) 123.33%)',
+            `linear-gradient(98.66deg,
+            rgba(0, 48, 87, 0.57) 13.42%,
+            rgba(23, 31, 149, 0.5) 123.33%)`,
             null,
             null,
             'linear-gradient(76.5deg, #003057 3.34%, rgba(23, 31, 149, 0) 57.82%)'
@@ -165,7 +160,7 @@ export const Header = () => {
   )
 }
 
-const heroSx = (src) => ({
+const heroSx = (src, mobile) => ({
   position: 'relative',
   display: 'flex',
   alignItems: 'center',
@@ -173,13 +168,12 @@ const heroSx = (src) => ({
   backgroundColor: 'white',
   backgroundRepeat: 'no-repeat',
   backgroundPosition: ['65% 50%', '75% 50%', '90% 50%', 'center center'],
-  // backgroundImage: src ? `url(${src})` : null,
-  // backgroundImage: mobile ? null : `url(${src})`,
+  backgroundImage: src ? `url(${src})` : null,
   backgroundSize: 'cover',
   width: '100vw',
-  // height: [mobile ? '80vh' : '90vh', null, null, '100vh'],
-  // minHeight: [mobile ? null : '600px'],
-  // maxHeight: [mobile ? '700px' : '900px'],
+  height: [mobile ? '80vh' : '90vh', null, null, '100vh'],
+  minHeight: [mobile ? null : '600px'],
+  maxHeight: [mobile ? '700px' : '900px'],
 });
 
 Header.displayName = 'Header';

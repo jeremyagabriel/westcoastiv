@@ -40,17 +40,19 @@ export const ServiceHero = ({ content }) => {
         position: 'relative',
         alignItems: 'center',
         width: '100vw',
-        height: '100vh',
-        minHeight: '600px',
-        maxHeight: '700px',
+        // height: '100vh',
+        // minHeight: '600px',
+        // maxHeight: '700px',
+        height: ['680px', null, null, '500px']
       }}
     >
       <Flex
         sx={{
           display: 'flex',
           width: '100%',
-          height: '500px',
+          height: '100%',
           alignItems: 'flex-end',
+          justifyContent: ['center', null, null, 'flex-start']
         }}
       >
         <LazyBackgroundImage
@@ -70,24 +72,41 @@ export const ServiceHero = ({ content }) => {
         />
         <FlexCol
           sx={{
+            width: '100%',
             maxWidth: '315px',
-            ml: 20
+            ml: [14, null, null, 20],
+            mr: [14, null, null, 0],
+            alignItems: ['center', null, null, 'flex-start'],
           }}
         >
+          <Image
+            src={hero.image}
+            alt={hero.imageAlt}
+            sx={{
+              display: ['block', null, null, 'none'],
+              height: '220px',
+              objectFit: 'contain',
+              mb: 15
+            }}
+          />
           <Text
             sx={{
               mb: 5,
               ml: 2,
               fontSize: '11px',
               textTransform: 'uppercase',
-              letterSpacing: '0.04em'
+              letterSpacing: '0.04em',
+              textAlign: ['center', null, null, 'left']
             }}
           >
             {hero.superheading}
           </Text>
           <Text
             variant='text.h5Italic'
-            sx={{ mb: 10 }}
+            sx={{
+              mb: 10,
+              textAlign: ['center', null, null, 'left']
+            }}
           >
             {hero.heading}
           </Text>
@@ -95,24 +114,29 @@ export const ServiceHero = ({ content }) => {
             dangerouslySetInnerHTML={{
               __html: hero.text
             }}
-            sx={{ mb: 13, height: '120px' }}
+            sx={{
+              mb: 13,
+              height: '120px',
+              textAlign: ['center', null, null, 'left']
+            }}
           />
           <BookNowButton
             title={hero.button?.title}
             url={hero.button?.url}
             style={{
-              mb: '37px'
+              mb: '37px',
+              mx: ['auto', null, null, 0]
             }}
           />
         </FlexCol>
       </Flex>
-      <Box
+      {/* <Box
         sx={{
           bg: 'BR1',
           width: '100%',
           flex: 1
         }}
-      />
+      /> */}
       <FlexCol
         sx={{
           alignItems: 'center',
@@ -146,6 +170,9 @@ export const ServiceHero = ({ content }) => {
           height: '470px',
           width: '200px',
           zIndex: 2,
+        }}
+        sx={{
+          display: ['none', null, null, 'block']
         }}
       >
         <Image

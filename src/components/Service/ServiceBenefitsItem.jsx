@@ -40,11 +40,11 @@ export const ServiceBenefitsItem = ({
         flexDirection: 'column',
         alignItems: 'center',
         maxWidth: '250px',
-        mb: index === 0 ? '80px' : 0,
+        mb: index === 0 ? ['50px', null, 20] : 0,
       }}
       style={{
-        x: position === 'left' ? xLeft : xRight,
-        y,
+        // x: position === 'left' ? xLeft : xRight,
+        // y,
       }}
       {...props}
     >

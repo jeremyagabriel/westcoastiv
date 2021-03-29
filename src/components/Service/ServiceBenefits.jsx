@@ -13,13 +13,20 @@ export const ServiceBenefits = ({ content }) => {
       sx={{
         position: 'relative',
         width: '100vw',
-        height: '700px',
+        // minHeight: '700px',
+        pt: ['120px', null, null, '400px'],
+        pb: ['120px', null, null, '300px'],
         bg: 'BR1',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        flexDirection: ['column', null, null, 'row']
       }}
     >
-      <FlexCol>
+      <FlexCol
+        sx={{
+          mb: ['50px', null, 20, 0]
+        }}
+      >
         { content?.content?.slice(0,2).map((item, index) => (
             <ServiceBenefitsItem
               content={item}
@@ -27,7 +34,7 @@ export const ServiceBenefits = ({ content }) => {
               position='left'
               key={index}
               sx={{
-                mr: '390px'
+                mr: [0, null, null, '390px']
               }}
             />
         ))}
