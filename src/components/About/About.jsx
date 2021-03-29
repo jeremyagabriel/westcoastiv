@@ -14,8 +14,6 @@ import CurveMobile from '../../assets/curve-mobile.svg';
 export const About = () => {
   const { data } = useStaticQuery(query);
 
-  console.log('about data', data);
-
   const section = useMemo(() => {
     let bgImage;
     let portraitImage;

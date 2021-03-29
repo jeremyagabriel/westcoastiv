@@ -39,11 +39,13 @@ export const Recommendations = ({ content }) => {
                 content={item}
                 index={index}
                 key={index}
+                handle={content?.metaHandle}
               />
           ))}
         </Flex>
         <RecsSwiper
           content={content?.content}
+          handle={content?.metaHandle}
           sx={{
             display: ['block', null, 'none']
           }}

@@ -8,6 +8,7 @@ import { BookNowButton } from '../BookNowButton';
 export const RecsItem = ({
   content,
   index,
+  handle,
   ...props
 }) => {
 
@@ -16,7 +17,8 @@ export const RecsItem = ({
     alt: content?.image?.altText,
     heading: content?.headingContent?.heading,
     text: content?.textContent?.[0]?.text?.text,
-    button: content?.buttonContent
+    button: content?.buttonContent,
+    overflowImg: handle === 'vitamin-injections' || handle === 'cryotherapy'
   }), []);
 
   return (
@@ -38,15 +40,18 @@ export const RecsItem = ({
       <Box
         sx={{
           height: '200px',
+          mb: 10
         }}
       >
         <Image
           src={item.image}
           alt={item.alt}
           sx={{
-            height: '200px',
+            height: item.overflowImg ? '240px' : '200px',
             objectFit: 'contain',
-            mb: 10
+            mt: item.overflowImg
+              ? '-40px'
+              : 0,
           }}
         />
       </Box>

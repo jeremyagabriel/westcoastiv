@@ -49,12 +49,14 @@ export const Footer = () => {
           bg: 'B2',
           pb: [21, null, 15],
           px: [14, null, null, null, null, 23],
-          pt: [9, 14, 0]
+          pt: [9, 14, 0],
+          alignItems: 'center'
         }}
       >
         <Flex
           sx={{
             width: '100%',
+            maxWidth: '947px',
             flexDirection: ['column-reverse', null, 'row'],
             justifyContent: ['flex-start', null, 'space-between'],
             alignItems: ['center', null, 'flex-start'],
@@ -122,11 +124,7 @@ export const Footer = () => {
               justifyContent: 'center',
             }}
           >
-            <FormMain
-              sx={{
-                // display: ['none', null, null, 'flex']
-              }}
-            />
+            <FormMain />
           </Flex>
         </Flex>
         <FlexCol

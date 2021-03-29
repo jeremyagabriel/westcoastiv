@@ -11,6 +11,10 @@ import { Navbar } from '../Header';
 
 export const ServiceMain = ({ data }) => {
 
+  const productImage = useMemo(() => (
+    data?.hero?.overlayImage?.image?.file?.url
+  ), [data]);
+
   return (
     <Container
       data-comp={ServiceMain.displayName}
@@ -25,10 +29,12 @@ export const ServiceMain = ({ data }) => {
 
       <ServiceHero
         content={data?.hero}
+        image={productImage}
       />
 
       <ServiceBenefits
         content={data?.benefits}
+        image={productImage}
       />
 
       <Recommendations

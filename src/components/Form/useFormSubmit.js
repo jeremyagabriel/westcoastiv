@@ -1,7 +1,7 @@
 export const useFormSubmit = (e) => {
   e.preventDefault();
   const form = e.target;
-  console.log('form', form)
+  // console.log('form', form)
   setServerState({ submitting: true });
   axios({
     method: "post",
@@ -10,7 +10,7 @@ export const useFormSubmit = (e) => {
   })
     .then(r => {
       handleServerResponse(true, "Thanks!", form);
-      console.log('sent')
+      // console.log('sent')
     })
     .catch(r => {
       handleServerResponse(false, r.response.data.error, form);

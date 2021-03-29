@@ -11,8 +11,6 @@ import { ServicesRow } from './ServicesRow';
 export const Services = () => {
   const { data } = useStaticQuery(query);
 
-  console.log('services data', data);
-
   const section = useMemo(() => ({
     heading: data?.content?.[0]?.heading,
     row: data?.content?.[1]?.content

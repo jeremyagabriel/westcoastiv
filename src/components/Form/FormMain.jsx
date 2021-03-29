@@ -40,7 +40,7 @@ export const FormMain = ({
     })
       .then(r => {
         handleServerResponse(true, "Thanks!", form);
-        console.log('sent')
+        // console.log('sent')
       })
       .catch(r => {
         handleServerResponse(false, r.response.data.error, form);

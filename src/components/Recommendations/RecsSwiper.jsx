@@ -9,6 +9,7 @@ SwiperCore.use([Navigation, Pagination, Lazy]);
 
 export const RecsSwiper = ({
   content = [],
+  handle,
   ...props
 }) => {
 
@@ -36,6 +37,7 @@ export const RecsSwiper = ({
                 <RecsItem
                   content={item}
                   index={index}
+                  handle={handle}
                   sx={{
                     width: '90%',
                     minWidth: '230px',
