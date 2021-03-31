@@ -89,7 +89,7 @@ export const NavbarServicesHover = ({
               <MotionText
                 variants='default'
                 animateOnLoad={true}
-                initialY={-10}
+                initialY={-5}
                 triggerOnce={false}
                 variant='buttons.navbar'
                 key={service.label}
@@ -97,7 +97,7 @@ export const NavbarServicesHover = ({
                   navigate(service.to)
                 }}
                 sx={{
-                  fontSize: 3,
+                  fontSize: '18px',
                   cursor: 'pointer',
                   color: dark || isScrolled ? 'B1' : 'white',
                   mb: index !== services.length - 1 ? 2 : 0,
