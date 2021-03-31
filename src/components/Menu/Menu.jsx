@@ -5,7 +5,7 @@ import { useRecoilState } from 'recoil';
 import { navigate } from 'gatsby';
 import scrollTo from 'gatsby-plugin-smoothscroll';
 import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
-import { FlexCol } from '../Components';
+import { FlexCol, MotionBox, MotionText } from '../Components';
 import { BookNowButton } from '../BookNowButton';
 import { FormMain } from '../Form';
 import { menuOpenAtom, formOpenAtom } from '../../lib/atoms';
@@ -58,105 +58,112 @@ export const Menu = ({
   };
 
   return (
-    <>
+    <MotionBox
+      data-comp={Menu.displayName}
+      id='menu'
+      sx={{
+        display: ['flex', null, null, 'none'],
+        flexDirection: 'column',
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        bottom: 0,
+        right: 0,
+        height: '100vh',
+        width: '100vw',
+        background: 'B1',
+        background: 'linear-gradient(12.65deg, #175E95 0.5%, #003057 98.23%)',
+        zIndex: 5,
+        overflowY: 'scroll',
+        justifyContent: 'flex-end',
+        alignItems: 'center',
+      }}
+    >
       <FlexCol
-        data-comp={Menu.displayName}
-        id='menu'
         sx={{
-          display: ['flex', null, null, 'none'],
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          bottom: 0,
-          right: 0,
-          height: '100vh',
-          width: '100vw',
-          background: 'B1',
-          background: 'linear-gradient(12.65deg, #175E95 0.5%, #003057 98.23%)',
-          zIndex: 5,
-          overflowY: 'scroll',
-          justifyContent: 'flex-end',
-          alignItems: 'center'
+          alignItems: 'center',
+          // justifyContent: 'space-between',
+          height: '100%',
+          width: '100%',
+          mt: '100px',
         }}
       >
         <FlexCol
           sx={{
             alignItems: 'center',
-            justifyContent: 'space-between',
-            height: '100%',
-            width: '100%',
-            mt: '20vh',
-            pb: '160px'
+            minHeight: '420px'
           }}
         >
-          <FlexCol
-            sx={{
-              alignItems: 'center',
-              minHeight: '420px'
-            }}
-          >
-            { navbarLinks.map((link, index) => (
-                <Box
-                  key={index}
-                  sx={{ mb: 15 }}
+          { navbarLinks.map((link, index) => (
+              <Box
+                key={index}
+                sx={{ mb: 15 }}
+              >
+                <MotionText
+                  variant='text.h6'
+                  variants='default'
+                  animateOnLoad={true}
+                  sx={{
+                    color: link.to === '#services' && servicesExpanded
+                      ? 'P2'
+                      : 'white',
+                    textTransform: 'none',
+                    textAlign: 'center',
+                    cursor: 'pointer',
+                    userSelect: 'none'
+                  }}
+                  onClick={() => handleClick(link)}
                 >
-                  <Text
-                    variant='text.h6'
-                    sx={{
-                      color: link.to === '#services' && servicesExpanded
-                        ? 'P2'
-                        : 'white',
-                      textTransform: 'none',
-                      textAlign: 'center',
-                      cursor: 'pointer',
-                      userSelect: 'none'
-                    }}
-                    onClick={() => handleClick(link)}
-                  >
-                    {link.label}
-                  </Text>
-                  { link.to === '#services' && servicesExpanded &&
-                      <FlexCol
-                        sx={{
-                          mt: 8,
-                          alignItems: 'center'
-                        }}
-                      >
-                        { services.map((service, index) => (
-                            <Text
-                              key={index}
-                              variant='text.20'
-                              sx={{
-                                cursor: 'pointer',
-                                color: 'white',
-                                mb: index !== services.length - 1 ? 10 : 0
-                              }}
-                              onClick={() => navigate(service.to)}
-                            >
-                              {service.label}
-                            </Text>
-                        ))}
-                      </FlexCol>
-                  }
-                </Box>
-            ))}
-          </FlexCol>
-          <BookNowButton
-            style={{
-
-            }}
-            title={button?.title}
-            url={button?.url}
-          />
+                  {link.label}
+                </MotionText>
+                { link.to === '#services' && servicesExpanded &&
+                    <FlexCol
+                      sx={{
+                        mt: 8,
+                        alignItems: 'center'
+                      }}
+                    >
+                      { services.map((service, index) => (
+                          <MotionText
+                            variants='default'
+                            animateOnLoad={true}
+                            initialY={-50}
+                            key={index}
+                            variant='text.20'
+                            sx={{
+                              cursor: 'pointer',
+                              color: 'white',
+                              mb: index !== services.length - 1 ? 10 : 0
+                            }}
+                            onClick={() => {
+                              navigate(service.to);
+                              setMenuOpen(false);
+                            }}
+                          >
+                            {service.label}
+                          </MotionText>
+                      ))}
+                    </FlexCol>
+                }
+              </Box>
+          ))}
         </FlexCol>
-        { formOpen &&
-          <FormMain
-            mobile={true}
-            sx={{ display: ['flex', null, null, 'none'] }}
-          />
-        }
+        <BookNowButton
+          style={{
+            mt: 10,
+            mb: 16
+          }}
+          title={button?.title}
+          url={button?.url}
+        />
       </FlexCol>
-    </>
+      { formOpen &&
+        <FormMain
+          mobile={true}
+          sx={{ display: ['flex', null, null, 'none'] }}
+        />
+      }
+    </MotionBox>
   )
 }
 

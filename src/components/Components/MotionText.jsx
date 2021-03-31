@@ -13,14 +13,16 @@ export const MotionText = memo(({
   animate,
   variants = {},
   animateOnLoad = false,
+  triggerOnce = true,
   threshold = 1,
   delay,
+  initialY = 50,
   ...props
 }) => {
 
   const { ref, inView } = useInView({
     threshold,
-    triggerOnce: true,
+    triggerOnce,
   });
 
   return (
@@ -35,7 +37,7 @@ export const MotionText = memo(({
         : animate
       }
       variants={ variants === 'default'
-        ? defaultVariant(delay)
+        ? defaultVariant(delay, initialY)
         : variants
       }
       {...props}
@@ -45,8 +47,8 @@ export const MotionText = memo(({
   );
 })
 
-const defaultVariant = delay => ({
-  hidden: { opacity: 0, y: 50 },
+const defaultVariant = (delay, y) => ({
+  hidden: { opacity: 0, y },
   visible: {
     opacity: 1,
     y: 0,

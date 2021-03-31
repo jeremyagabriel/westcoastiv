@@ -13,10 +13,12 @@ export const FormMain = ({
 }) => {
 
   const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
   const [serverState, setServerState] = useState({
     submitting: false,
     status: null
   });
+
   const handleServerResponse = (ok, msg, form) => {
     setServerState({
       submitting: false,
@@ -25,11 +27,14 @@ export const FormMain = ({
     setLoading(false);
     if (ok) {
       form.reset();
+      setSubmitted(true);
+      setTimeout(() => setSubmitted(false), 2000);
     }
   };
 
   const handleOnSubmit = e => {
     e.preventDefault();
+    if (loading || submitted) return;
     setLoading(true);
     const form = e.target;
     setServerState({ submitting: true });
@@ -40,7 +45,6 @@ export const FormMain = ({
     })
       .then(r => {
         handleServerResponse(true, "Thanks!", form);
-        // console.log('sent')
       })
       .catch(r => {
         handleServerResponse(false, r.response.data.error, form);
@@ -52,11 +56,13 @@ export const FormMain = ({
       ? <FormMobile
           handleOnSubmit={handleOnSubmit}
           loading={loading}
+          submitted={submitted}
           {...props}
         />
       : <FormFooter
           handleOnSubmit={handleOnSubmit}
           loading={loading}
+          submitted={submitted}
           {...props}
         />
   );

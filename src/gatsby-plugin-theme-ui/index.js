@@ -5,7 +5,7 @@ export default {
     white: '#FFFFFF',
     black: '#000000',
     P1: '#175E95', //blue
-    P2: '#10EEBD', //min
+    P2: '#10EEBD', //mint
     P3: '#10b0ee', //lightblue
     P4: '#171F95', //royalblue
     S1: '#17958D', //green
@@ -182,11 +182,15 @@ export default {
       fontSize: 4,
       letterSpacing: 'body',
       outline: 'none',
-      transition: 'all .15s ease-in',
+      transition: 'all .1s ease-in',
       textDecoration: 'none',
       whiteSpace: 'nowrap',
       position: 'relative',
       boxShadow: '0px 4px 17px rgba(23, 94, 149, 0.39)',
+      '&:hover': {
+        bg: '#0da6e1',
+        borderColor: '#0da6e1'
+      }
     },
     secondary: {
       color: 'text',

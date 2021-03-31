@@ -1,13 +1,16 @@
 /** @jsx jsx */
 import { Fragment } from 'react';
-import { jsx, Text, Input, Box } from 'theme-ui';
+import { jsx, Text, Input, Box, Spinner } from 'theme-ui';
+import { ImCheckmark } from 'react-icons/im';
 import { FlexCol, Flex } from '../Components';
 import { formFields } from './form';
+import { FormSubmit } from './FormSubmit';
 
 
 export const FormFooter = ({
   handleOnSubmit,
   loading,
+  submitted,
   ...props
 }) => {
 
@@ -99,19 +102,10 @@ export const FormFooter = ({
                     required
                   />
           ))}
-          <Text
-            as='button'
-            type='submit'
-            variant='buttons.primary'
-            sx={{
-              mx: 'auto',
-              width: '126px',
-              fontSize: 2,
-              py: 5,
-            }}
-          >
-            Send Message
-          </Text>
+          <FormSubmit
+            loading={loading}
+            submitted={submitted}
+          />
         </Box>
     </FlexCol>
   );

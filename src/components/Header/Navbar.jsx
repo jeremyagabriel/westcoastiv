@@ -5,7 +5,8 @@ import { graphql, useStaticQuery, navigate } from 'gatsby';
 import scrollTo from 'gatsby-plugin-smoothscroll';
 import { useRecoilState, useSetRecoilState } from 'recoil';
 
-import { Flex, FlexCol } from '../Components';
+import { NavbarServicesHover } from './NavbarServicesHover';
+import { Flex } from '../Components';
 import { BookNowButton } from '../BookNowButton';
 import { Menu } from '../Menu';
 import { navbarAtom, isTopAtom, menuOpenAtom, formOpenAtom } from '../../lib/atoms';
@@ -153,26 +154,36 @@ export const Navbar = ({
                 <Flex>
                   { navbarLinks.map((link, index) => (
                     <Fragment key={index}>
-                      <Text
-                        variant='buttons.navbar'
-                        className='navbar-button'
-                        onClick={() => {
-                          link.to === '#contact' || isHome
-                            ? scrollTo(link.to)
-                            : navigate(link.pageTo);
-                        }}
-                        sx={{
-                          color: dark ? 'B1' : 'white',
-                          mr: index !== navbarLinks.length - 1
-                            ? 5
-                            : null,
-                          ml: index !== 0
-                            ? 5
-                            : null
-                        }}
-                      >
-                        {link.label}
-                      </Text>
+                      { link.to === '#services'
+                          ? <NavbarServicesHover
+                              link={link}
+                              isHome={isHome}
+                              length={navbarLinks.length}
+                              dark={dark}
+                              index={index}
+                              isScrolled={isScrolled}
+                            />
+                          : <Text
+                              variant='buttons.navbar'
+                              className='navbar-button'
+                              onClick={() => {
+                                link.to === '#contact' || isHome
+                                  ? scrollTo(link.to)
+                                  : navigate(link.pageTo);
+                              }}
+                              sx={{
+                                color: dark ? 'B1' : 'white',
+                                mr: index !== navbarLinks.length - 1
+                                  ? 5
+                                  : null,
+                                ml: index !== 0
+                                  ? 5
+                                  : null
+                              }}
+                            >
+                              {link.label}
+                            </Text>
+                      }
                       { index !== navbarLinks.length - 1 &&
                           <Text
                             variant='buttons.navbar'

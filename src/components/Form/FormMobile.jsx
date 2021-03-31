@@ -4,11 +4,13 @@ import { jsx, Text, Input, Box } from 'theme-ui';
 import { disableBodyScroll } from 'body-scroll-lock';
 import { FlexCol } from '../Components';
 import { formFields } from './form';
+import { FormSubmit } from './FormSubmit';
 
 
 export const FormMobile = ({
   handleOnSubmit,
   loading,
+  submitted,
   ...props
 }) => {
 
@@ -94,18 +96,20 @@ export const FormMobile = ({
                     required
                   />
           ))}
-          <Text
-            as='button'
-            type='submit'
-            variant='buttons.primary'
+          <FormSubmit
+            loading={loading}
+            submitted={submitted}
+            spinnerWidth='24px'
+            checkSize='20px'
             sx={{
-              mx: 'auto',
+              width: '160px',
+              height: '45px',
+              fontSize: 4,
+              lineHeight: '45px',
               mt: 20,
               mb: 16
             }}
-          >
-            Send Message
-          </Text>
+          />
         </Box>
       </FlexCol>
     </FlexCol>
