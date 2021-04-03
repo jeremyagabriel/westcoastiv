@@ -34,14 +34,18 @@ export const ServiceHero = ({ content, image }) => {
 
   useEffect(() => {
     const y = window.scrollY;
-    if (y < 50) {
+    if (y > 718) {
+      setImageTop('860px');
+      setImagePosition('absolute');
     } else {
+      setImageTop('140px');
+      setImagePosition('fixed');
     }
 
     document.addEventListener('scroll', e => {
       const scrolled = document.scrollingElement.scrollTop;
-      if (scrolled > 680){
-        setImageTop('830px');
+      if (scrolled > 718){
+        setImageTop('860px');
         setImagePosition('absolute');
       } else {
         setImageTop('140px');
