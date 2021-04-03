@@ -34,8 +34,8 @@ export const ServiceHero = ({ content, image }) => {
 
   useEffect(() => {
     const y = window.scrollY;
-    if (y > 718) {
-      setImageTop('860px');
+    if (y > 690) {
+      setImageTop('830px');
       setImagePosition('absolute');
     } else {
       setImageTop('140px');
@@ -44,8 +44,8 @@ export const ServiceHero = ({ content, image }) => {
 
     document.addEventListener('scroll', e => {
       const scrolled = document.scrollingElement.scrollTop;
-      if (scrolled > 718){
-        setImageTop('860px');
+      if (scrolled > 690){
+        setImageTop('830px');
         setImagePosition('absolute');
       } else {
         setImageTop('140px');
@@ -192,7 +192,7 @@ export const ServiceHero = ({ content, image }) => {
 
       <MotionBox
         sx={{
-          display: ['none', null, null, 'block'],
+          display: ['none', null, null, null, 'block'],
           // position: 'absolute',
           // top: [null, null, null, '140px', null, null, '120px'],
           position: imagePosition,
@@ -220,6 +220,27 @@ export const ServiceHero = ({ content, image }) => {
           }}
         />
       </MotionBox>
+      <Box
+        sx={{
+          display: ['none', null, null, 'block', 'none'],
+          position: 'absolute',
+          top: '140px',
+          left: '45%',
+          height: '500px',
+          width: '300px',
+          zIndex: 2,
+        }}
+      >
+        <Image
+          src={hero.image}
+          alt={hero.imageAlt}
+          sx={{
+            height: '100%',
+            width: '100%',
+            objectFit: 'contain',
+          }}
+        />
+      </Box>
 
       {/* <MotionBox
         style={{
