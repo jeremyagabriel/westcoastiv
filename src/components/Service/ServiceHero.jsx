@@ -13,14 +13,13 @@ const MotionBox = motion.custom(Box);
 
 
 export const ServiceHero = ({ content, image }) => {
-  // const { scrollY, scrollYProgress } = useViewportScroll();
-  // const size = useTransform(scrollYProgress, value => {
-  //   return (1.5 - value) < 1.2 ? 1.2 : 1.5 - value;
-  // });
-  // const y = useTransform(scrollY, value => {
-  //   return value > 640 ? 640 : value
-  // });
-  // const y = useTransform(scrollY, [0, 600], [0, 600]);
+  const [imageTop, setImageTop] = useState('140px');
+  const [imagePosition, setImagePosition] = useState('fixed');
+
+  const { scrollYProgress } = useViewportScroll();
+  const size = useTransform(scrollYProgress, value => {
+    return (1 - value) < 0.7 ? 0.7 : 1 - value;
+  });
   const navbarPos = useRecoilValue(navbarAtom);
 
   const hero = useMemo(() => ({
@@ -32,6 +31,24 @@ export const ServiceHero = ({ content, image }) => {
     text: content?.textContent?.[0]?.text?.text,
     button: content?.buttonContent
   }), []);
+
+  useEffect(() => {
+    const y = window.scrollY;
+    if (y < 50) {
+    } else {
+    }
+
+    document.addEventListener('scroll', e => {
+      const scrolled = document.scrollingElement.scrollTop;
+      if (scrolled > 680){
+        setImageTop('830px');
+        setImagePosition('absolute');
+      } else {
+        setImageTop('140px');
+        setImagePosition('fixed');
+      }
+    });
+  }, []);
 
   return (
     <FlexCol
@@ -169,16 +186,24 @@ export const ServiceHero = ({ content, image }) => {
         </Text>
       </FlexCol>
 
-      <Box
+      <MotionBox
         sx={{
           display: ['none', null, null, 'block'],
-          position: 'absolute',
-          top: [null, null, null, '140px', null, null, '120px'],
-          left: [null, null, null, '45%', '50%'],
-          transform: ['none', null, null, 'none', 'translateX(-50%)'],
+          // position: 'absolute',
+          // top: [null, null, null, '140px', null, null, '120px'],
+          position: imagePosition,
+          top: imageTop,
+          left: '50%',
+          transform: 'translateX(-50%)',
+          // left: [null, null, null, '45%', '50%'],
+          // transform: ['none', null, null, 'none', 'translateX(-50%)'],
           height: ['500px', null, null, null, null, null, '600px'],
           width: ['300px', null, null, null, null, null, '350px'],
           zIndex: 2,
+        }}
+        style={{
+          scale: size,
+          x: '-50%'
         }}
       >
         <Image
@@ -190,7 +215,7 @@ export const ServiceHero = ({ content, image }) => {
             objectFit: 'contain',
           }}
         />
-      </Box>
+      </MotionBox>
 
       {/* <MotionBox
         style={{

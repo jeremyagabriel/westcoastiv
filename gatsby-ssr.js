@@ -10,7 +10,7 @@ exports.onRenderBody = ({
       href="/fonts/Tungsten-Book.woff2"
       as="font"
       type="font/woff2"
-      crossorigin
+      crossOrigin="anonymous"
       key="font-tungsten-book"
     />,
     <link
@@ -18,7 +18,7 @@ exports.onRenderBody = ({
       href="/fonts/Tungsten-SemiBold.woff2"
       as="font"
       type="font/woff2"
-      crossorigin
+      crossOrigin="anonymous"
       key="font-tungsten-semibold"
     />,
     <link
@@ -26,7 +26,7 @@ exports.onRenderBody = ({
       href="/fonts/TungstenNarrow-Medium.woff2"
       as="font"
       type="font/woff2"
-      crossorigin
+      crossOrigin="anonymous"
       key="font-tungsten-narrow-medium"
     />,
     <link
@@ -34,7 +34,7 @@ exports.onRenderBody = ({
       href="/fonts/TungstenNarrow-SemiBold.woff2"
       as="font"
       type="font/woff2"
-      crossorigin
+      crossOrigin="anonymous"
       key="font-tungsten-narrow-semibold"
     />,
     <link
@@ -42,7 +42,7 @@ exports.onRenderBody = ({
       href="/images/westcoastiv_logo_dark.png"
       as="image"
       type="image/png"
-      crossorigin
+      crossOrigin="anonymous"
       key="westcoastiv-logo-dark"
     />,
     <link
@@ -50,7 +50,7 @@ exports.onRenderBody = ({
       href="/images/westcoastiv_logo_light.png"
       as="image"
       type="image/png"
-      crossorigin
+      crossOrigin="anonymous"
       key="westcoastiv-logo-light"
     />,
     <link
@@ -58,7 +58,7 @@ exports.onRenderBody = ({
       href="/images/westcoastiv-hero.jpg"
       as="image"
       type="image/jpg"
-      crossorigin
+      crossOrigin="anonymous"
       key="westcoastiv-hero"
     />,
     <link

@@ -165,7 +165,7 @@ const heroSx = (src, mobile) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  backgroundColor: 'white',
+  backgroundColor: 'B1',
   backgroundRepeat: 'no-repeat',
   backgroundPosition: ['65% 50%', '75% 50%', '90% 50%', 'center center'],
   backgroundImage: src ? `url(${src})` : null,

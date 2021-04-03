@@ -57,7 +57,7 @@ export const ServiceBenefits = ({ content, image }) => {
               />
           ))}
         </FlexCol>
-        <Box
+        {/* <Box
           sx={{
             display: ['none', null, null, 'block'],
             position: 'absolute',
@@ -78,7 +78,7 @@ export const ServiceBenefits = ({ content, image }) => {
               objectFit: 'contain',
             }}
           />
-        </Box>
+        </Box> */}
       </Flex>
     </Flex>
   )
