@@ -100,7 +100,8 @@ export const Header = () => {
         </Text>
         <BookNowButton
           style={{
-            mt: ['70px', null, null, '50px']
+            mt: ['70px', null, null, '50px'],
+            zIndex: 1
           }}
           title={hero.button?.title}
           url={hero.button?.url}

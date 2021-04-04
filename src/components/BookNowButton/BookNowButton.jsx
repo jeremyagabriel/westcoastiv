@@ -5,7 +5,8 @@ import { jsx, NavLink } from 'theme-ui';
 export const BookNowButton = ({
   title = 'Book Now',
   url,
-  style
+  style,
+  ...props
 }) => {
 
   return (
@@ -17,6 +18,7 @@ export const BookNowButton = ({
         ...style,
         maxWidth: '206px'
       }}
+      {...props}
     >
       {title}
     </NavLink>
