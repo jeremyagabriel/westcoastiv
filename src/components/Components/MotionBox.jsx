@@ -13,12 +13,13 @@ export const MotionBox = memo(({
   variants = {},
   animateOnLoad = false,
   threshold = 1,
+  triggerOnce = true,
   ...props
 }) => {
 
   const { ref, inView } = useInView({
     threshold,
-    triggerOnce: true,
+    triggerOnce,
   });
 
   return (

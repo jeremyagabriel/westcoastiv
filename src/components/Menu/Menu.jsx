@@ -1,9 +1,10 @@
 /** @jsx jsx */
-import { jsx, Text, Box, Image } from 'theme-ui';
-import React, { useEffect, useState } from 'react';
+import { jsx, Box } from 'theme-ui';
+import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { navigate } from 'gatsby';
 import scrollTo from 'gatsby-plugin-smoothscroll';
+import { AnimatePresence } from 'framer-motion';
 import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 import { FlexCol, MotionBox, MotionText } from '../Components';
 import { BookNowButton } from '../BookNowButton';
@@ -103,6 +104,8 @@ export const Menu = ({
                   variant='text.h6'
                   variants='default'
                   animateOnLoad={true}
+                  delay={index * 0.05}
+                  initialY={10}
                   sx={{
                     color: link.to === '#services' && servicesExpanded
                       ? 'P2'
@@ -116,24 +119,34 @@ export const Menu = ({
                 >
                   {link.label}
                 </MotionText>
-                { link.to === '#services' && servicesExpanded &&
-                    <FlexCol
-                      sx={{
-                        mt: 8,
-                        alignItems: 'center'
-                      }}
-                    >
-                      { services.map((service, index) => (
+                <FlexCol sx={{ alignItems: 'center' }}>
+                  <AnimatePresence>
+                    { link.to === '#services' && servicesExpanded &&
+                        services.map((service, index) => (
                           <MotionText
                             variants='default'
                             animateOnLoad={true}
-                            initialY={-50}
+                            initialY={-10}
+                            delay={index * 0.03}
                             key={index}
                             variant='text.20'
+                            duration={0.2}
+                            exit={{
+                              opacity: 0,
+                              y: -10,
+                              transition: {
+                                delay: ((services.length - 1) - index) * 0.03,
+                                type: "spring",
+                                stiffness: 700,
+                                damping: 30,
+                                duration: 0.2,
+                              },
+                            }}
                             sx={{
                               cursor: 'pointer',
                               color: 'white',
-                              mb: index !== services.length - 1 ? 10 : 0
+                              mb: index !== services.length - 1 ? 10 : 0,
+                              mt: index === 0 ? 8 : 0
                             }}
                             onClick={() => {
                               navigate(service.to);
@@ -142,9 +155,10 @@ export const Menu = ({
                           >
                             {service.label}
                           </MotionText>
-                      ))}
-                    </FlexCol>
-                }
+                      ))
+                    }
+                  </AnimatePresence>
+                </FlexCol>
               </Box>
           ))}
         </FlexCol>
