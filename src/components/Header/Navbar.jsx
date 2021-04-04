@@ -189,6 +189,7 @@ export const Navbar = ({
                             variant='buttons.navbar'
                             sx={{
                               color: dark || isScrolled ? 'B1' : 'white',
+                              cursor: 'default'
                             }}
                           >
                             &middot;

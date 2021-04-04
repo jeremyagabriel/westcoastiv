@@ -68,7 +68,7 @@ export const Footer = () => {
               pt: ['50px', null, 18, null, 25],
               flex: 1,
               flexWrap: 'wrap',
-              maxWidth: ['320px', null, '100%']
+              maxWidth: ['280px', null, '100%']
               // justifyContent: 'space-between'
             }}
           >
