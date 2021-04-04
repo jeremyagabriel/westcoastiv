@@ -6,6 +6,7 @@ import scrollTo from 'gatsby-plugin-smoothscroll';
 import { useRecoilState, useSetRecoilState } from 'recoil';
 
 import { NavbarServicesHover } from './NavbarServicesHover';
+import { NavbarServicesHover2 } from './NavbarServicesHover2';
 import { Flex } from '../Components';
 import { BookNowButton } from '../BookNowButton';
 import { Menu } from '../Menu';
@@ -155,7 +156,7 @@ export const Navbar = ({
                   { navbarLinks.map((link, index) => (
                     <Fragment key={index}>
                       { link.to === '#services'
-                          ? <NavbarServicesHover
+                          ? <NavbarServicesHover2
                               link={link}
                               isHome={isHome}
                               length={navbarLinks.length}

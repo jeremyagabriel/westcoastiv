@@ -24,10 +24,10 @@ export const QuoteSwiper = ({
       {...props}
     >
         <Swiper
-          spaceBetween={0}
+          spaceBetween={24}
           slidesPerView={1}
           loop
-          speed={700}
+          speed={500}
           autoplay={{
             delay: 5000,
             disableOnInteraction: false
