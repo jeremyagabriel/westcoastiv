@@ -1,41 +1,11 @@
 /** @jsx jsx */
 import { jsx, Text, Box, Image as ImageUI } from 'theme-ui';
-import React, { useMemo, useEffect, useState } from 'react';
+import React, { useMemo, useEffect } from 'react';
 import { Flex, FlexCol, Image } from '../Components';
 import { ServiceBenefitsItem } from './ServiceBenefitsItem';
 
 
 export const ServiceBenefits = ({ content, image }) => {
-  const [top, setTop] = useState(400);
-  const [position, setPosition] = useState('absolute');
-
-  useEffect(() => {
-    const y = window.scrollY;
-    if (y > 890) {
-      setTop(600);
-      setPosition('absolute');
-    } else if (y > 690) {
-      setTop(210);
-      setPosition('fixed');
-    } else {
-      setTop(400);
-      setPosition('absolute');
-    }
-
-    document.addEventListener('scroll', e => {
-      const scrolled = document.scrollingElement.scrollTop;
-      if (scrolled > 890) {
-        setTop(600);
-        setPosition('absolute');
-      } else if (scrolled > 690) {
-        setTop(210);
-        setPosition('fixed');
-      } else {
-        setTop(400);
-        setPosition('absolute');
-      }
-    });
-  }, []);
 
   return (
     <Flex
@@ -52,28 +22,18 @@ export const ServiceBenefits = ({ content, image }) => {
         position: 'relative'
       }}
     >
-      <Box
-        sx={{
-          display: ['none', null, null, null, 'block'],
-          width: '100%',
-          height: '348px',
-        }}
-      />
       <Flex
         sx={{
           flexDirection: ['column', null, null, 'row'],
           width: ['100%', null, null, '720px', '880px'],
           justifyContent: ['flex-start', null, null, 'space-between'],
           alignItems: ['center', null, null, 'flex-start'],
-          position: ['relative', null, null, null, position],
-          top: [null, null, null, null, top],
-          left: [null, null, null, null, '50%'],
-          transform: [null, null, null, null, 'translateX(-50%)'],
+          position: 'relative',
         }}
       >
         <FlexCol
           sx={{
-            mb: ['50px', null, 20, 0],
+            mb: ['50px', null, 20, 0]
           }}
         >
           { content?.content?.slice(0,2).map((item, index) => (

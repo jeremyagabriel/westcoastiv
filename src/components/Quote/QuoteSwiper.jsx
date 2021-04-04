@@ -27,6 +27,7 @@ export const QuoteSwiper = ({
           spaceBetween={0}
           slidesPerView={1}
           loop
+          speed={700}
           autoplay={{
             delay: 5000,
             disableOnInteraction: false

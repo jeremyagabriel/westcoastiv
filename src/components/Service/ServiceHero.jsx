@@ -34,8 +34,8 @@ export const ServiceHero = ({ content, image }) => {
 
   useEffect(() => {
     const y = window.scrollY;
-    if (y > 890) {
-      setImageTop('1030px');
+    if (y > 690) {
+      setImageTop('830px');
       setImagePosition('absolute');
     } else {
       setImageTop('140px');
@@ -44,8 +44,8 @@ export const ServiceHero = ({ content, image }) => {
 
     document.addEventListener('scroll', e => {
       const scrolled = document.scrollingElement.scrollTop;
-      if (scrolled > 890){
-        setImageTop('1030px');
+      if (scrolled > 690){
+        setImageTop('830px');
         setImagePosition('absolute');
       } else {
         setImageTop('140px');
@@ -53,27 +53,6 @@ export const ServiceHero = ({ content, image }) => {
       }
     });
   }, []);
-  // useEffect(() => {
-  //   const y = window.scrollY;
-  //   if (y > 690) {
-  //     setImageTop('830px');
-  //     setImagePosition('absolute');
-  //   } else {
-  //     setImageTop('140px');
-  //     setImagePosition('fixed');
-  //   }
-
-  //   document.addEventListener('scroll', e => {
-  //     const scrolled = document.scrollingElement.scrollTop;
-  //     if (scrolled > 690){
-  //       setImageTop('830px');
-  //       setImagePosition('absolute');
-  //     } else {
-  //       setImageTop('140px');
-  //       setImagePosition('fixed');
-  //     }
-  //   });
-  // }, []);
 
   return (
     <FlexCol
